@@ -52,7 +52,7 @@ function db:import.57 () {
 }
 function db:import.dump () { mysql -u root $1 < ~/Downloads/$1.dump }
 function db:import.dump.57 () { mysql -uroot --host=127.0.0.1 --port=33067 $1 < ~/Downloads/$1.dump }
-function pg:import () { psql -f ~/Downloads/$1.sql $1 -U nathan -h localhost -W }
+function pg:import () { psql -f ~/Downloads/$1.sql $1 -U root -h localhost -W }
 function db:dump-all () {
     cd ~/Downloads
     for DB in $(mysql -e 'show databases' -s --skip-column-names); do

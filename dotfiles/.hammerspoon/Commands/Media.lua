@@ -2,15 +2,27 @@ local Media = {}
 Media.__index = Media
 
 function Media.toggleAudio()
-    ks.shiftCmd('a')
+    if is.In(teams) then
+        ks.shiftCmd('m')
+    else
+        ks.shiftCmd('a')
+    end
 end
 
 function Media.toggleScreenShare()
-    ks.shiftCmd('s')
+    if is.In(teams) then
+        ks.shiftCmd('v')
+    else
+        ks.shiftCmd('s')
+    end
 end
 
 function Media.toggleVideo()
-    ks.shiftCmd('v')
+    if is.In(teams) then
+        ks.shiftCmd('o')
+    else
+        ks.shiftCmd('v')
+    end
 end
 
 function Media.toggleAudioAndVideo()

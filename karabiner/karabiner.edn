@@ -203,6 +203,7 @@
                 [:right_shift [:!TOCe :!TOCquote] [:ide]]
                 [:spacebar [:!Ck :return_or_enter] [:ide]]
                 [:spacebar [:!TOCp] [:obsidian]]
+                [:spacebar [:!TOCp] [:vivaldi]]
             ]
         }
         {
@@ -676,7 +677,7 @@
                 [:r [:!Tl :!Cr] [:tinkerwell]]
                 [:r [:!Cr] []]
                 [:t [:hsk "Command" "t"]]
-                [:caps_lock [:alfred "commands" "com.fuelingtheweb.commands"] []]
+                [:caps_lock [:open "raycast://extensions/tegola/duck-duck-go-search/index"] []]
                 [:a [:!OCbackslash] []]
                 [:s [:!Or] [:arc]]
                 [:s [:!Cs :escape] [:ide]]

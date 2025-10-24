@@ -260,8 +260,8 @@ function git:merge() {
 
 function git:pull-request() {
     local branchName=$(git:branch.current)
-    if [[ $branchName != $'ntm/'* ]]; then
-        echo 'Prepend branch name with ntm/ before proceeding.'
+    if [[ $branchName != $'ntm/'* && $branchName != $'nmorgan/'* ]]; then
+        echo 'Prepend branch name with ntm/ or nmorgan/ before proceeding.'
         return
     fi
 

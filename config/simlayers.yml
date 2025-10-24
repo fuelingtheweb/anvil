@@ -82,6 +82,7 @@
     sb: # Pin tab
         ide: 'c.k rtn'
         obsidian: 'toc.p'
+        vivaldi: 'toc.p'
 
 'q : Pane':
     - all-right
@@ -311,7 +312,7 @@
 '; : Command':
     tab: # Shift Tab
         default: 's.tab'
-    q:
+    q: null
     w:
     e:
     r: # Reload
@@ -320,7 +321,8 @@
         tinkerwell: 't.l c.r'
         default: 'c.r'
     t:
-    caps: 'alfred: commands, com.fuelingtheweb.commands'
+    caps: 'raycast://extensions/tegola/duck-duck-go-search/index'
+    # caps: 'alfred: commands, com.fuelingtheweb.commands'
     a: 'oc.\' # Alfred: Action file
     s: # Save
         arc: 'o.r' # Save to reader
@@ -330,8 +332,8 @@
     d:
     f:
     g:
-    ltS:
-    z:
+    ltS: null
+    z: null
     x: # Cancel or delete
         arc: '#'
         anybox: 'c.dlt'
@@ -342,8 +344,8 @@
         default: 'dlt'
     c:
     v:
-    b:
-    sb:
+    b: null
+    sb: null
 
 'qt : ExtendedCommand':
     tab:

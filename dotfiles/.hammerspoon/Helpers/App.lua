@@ -8,6 +8,7 @@ App.bundles = {
     dash = 'com.kapeli.dashdoc',
     discord = 'com.hnc.Discord',
     finder = 'com.apple.finder',
+    linear = 'com.linear',
     mimestream = 'com.mimestream.Mimestream',
     obsidian = 'md.obsidian',
     postman = 'com.postmanlabs.mac',
@@ -35,6 +36,9 @@ App.bundles = {
         'chrome',
         'vivaldi',
     },
+    tasks = {
+        'linear',
+    },
     teamMessaging = {
         'teams',
     },
@@ -47,12 +51,13 @@ App.fromAlias = function(alias)
         bundles = App.bundles[alias]
     end
 
-    return hs.fnutils.map(
-        bundles,
-        function(bundle)
-            return App.bundles[bundle] or bundle
-        end
-    )
+    bundles = hs.fnutils.map(bundles, function(bundle)
+        return App.bundles[bundle] or bundle
+    end)
+
+    return hs.fnutils.filter(bundles, function(bundle)
+        return hs.application.get(bundle) ~= nil
+    end)
 end
 
 function App.codeEditor()

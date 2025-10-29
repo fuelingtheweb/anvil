@@ -11,5 +11,21 @@ prSections:
 defaults:
   preview:
     open: false # wether to have the preview pane open by default
+smartFilteringAtLaunch: false
 repoPaths: # configure where to locate repos when checking out PRs
   theboutiquehub/hubventory: ~/Dev/Hub/Hubventory
+theme:
+  colors:
+    text:
+      primary: "#009688"        # Material Teal 500
+      secondary: "#80CBC4"      # Material Teal 200
+      inverted: "#FFFFFF"       # Material White
+      faint: "#546E7A"          # Material Blue Grey 600
+      warning: "#FF5252"        # Material Red A400
+      success: "#4CAF50"        # Material Green 500
+    background:
+      selected: "#263238"       # Material Blue Grey 900
+    border:
+      primary: "#009688"        # Material Teal 500
+      secondary: "#80CBC4"      # Material Teal 200
+      faint: "#37474F"          # Material Blue Grey 800

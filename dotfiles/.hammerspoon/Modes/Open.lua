@@ -18,7 +18,7 @@ Open.lookup = {
     d = 'discord',
     f = 'openFrequentModal',
     g = 'vivaldi',
-    left_shift = 'chrome',
+    left_shift = 'tasks',
     z = 'zoom',
     x = 'finder',
     c = 'calendar',
@@ -125,8 +125,9 @@ function Open.launchApp(id)
     if is.Table(bundle) then
         local isActive = false
         local opened = false
+        local bundles = fn.app.fromAlias(bundle)
 
-        fn.each(fn.app.fromAlias(bundle), function(b)
+        fn.each(bundles, function(b)
             if isActive then
                 opened = true
 
@@ -137,7 +138,7 @@ function Open.launchApp(id)
         end)
 
         if not opened then
-            Open.launchApp(bundle[1])
+            Open.launchApp(bundles[1])
         end
 
         return

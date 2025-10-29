@@ -1,46 +1,38 @@
 {
-  "settingsVersion": "1.66",
-  "exclusionRules": [
-    {
-      "pattern": "https?://*.google.com/*",
-      "passKeys": "?gipn:"
-    },
-    {
-      "pattern": "https?://angleup.com/*",
-      "passKeys": "jkod/#?"
-    },
-    {
-      "pattern": "https?://messages.android.com/*",
-      "passKeys": "?"
-    },
-    {
-      "pattern": "https?://drive.google.com/*",
-      "passKeys": "jko"
-    },
-    {
-      "pattern": "https://player.vimeo.com/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https://play.google.com/video/lava/player*",
-      "passKeys": ""
-    }
-  ],
-  "filterLinkHints": false,
-  "waitForEnterForFilteredHints": true,
-  "hideHud": false,
   "keyMappings": "unmap f\nunmap F\nunmap h\nunmap H\nunmap <a-f>\nunmap yf\nmap l LinkHints.activateMode\nmap L LinkHints.activateModeToOpenInNewTab\nmap :L LinkHints.activateModeToOpenInNewForegroundTab\nmap ML LinkHints.activateModeWithQueue\nmap IL LinkHints.activateModeToOpenIncognito\nmap yl LinkHints.activateModeToCopyLinkUrl\nmap R reload hard\nmap gl visitPreviousTab\nmap ' Marks.activateGotoMode\nunmap x\nunmap J\nunmap K\nunmap gT\nunmap gt\nmap gn goNext\nmap gp goPrevious\nunmap t\nunmap ^\nunmap g$\nunmap g0\nunmap <<\nunmap >>\nmap th moveTabLeft\nmap tl moveTabRight\nunmap [[\nunmap ]]\nunmap <c-y>\nunmap <c-e>\nunmap `\nunmap r",
-  "linkHintCharacters": "sadfjklewcmpgh",
-  "linkHintNumbers": "0123456789",
   "newTabUrl": "http://blank.test/",
   "nextPatterns": "forward,next,more,newer,>,›,→,»,≫,>>",
-  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
-  "regexFindMode": false,
-  "ignoreKeyboardLayout": false,
-  "scrollStepSize": 60,
-  "smoothScroll": true,
-  "grabBackFocus": false,
   "searchEngines": "# w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
-  "searchUrl": "https://www.google.com/search?q=",
-  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+  "settingsVersion": "2.3",
+  "userDefinedLinkHintCss": "div.internal-vimium-hint-marker.vimiumHintMarker {\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\n  border: 1px solid #E3BE23;\n}\n\ndiv.internal-vimium-hint-marker.vimiumHintMarker span {\n  color: black;\n  font-weight: bold;\n  font-size: 16px;\n}\n\ndiv.internal-vimium-hint-marker.vimiumHintMarker span.matchingCharacter {\n  color: peru;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "?gipn:",
+      "pattern": "https?://*.google.com/*"
+    },
+    {
+      "passKeys": "jkod/#?",
+      "pattern": "https?://angleup.com/*"
+    },
+    {
+      "passKeys": "?",
+      "pattern": "https?://messages.android.com/*"
+    },
+    {
+      "passKeys": "jko",
+      "pattern": "https?://drive.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://player.vimeo.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://play.google.com/video/lava/player*"
+    },
+    {
+      "passKeys": "/jktmshod",
+      "pattern": "https?://duckduckgo.com/*"
+    }
+  ]
 }

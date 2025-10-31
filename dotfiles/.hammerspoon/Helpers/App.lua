@@ -56,7 +56,7 @@ App.fromAlias = function(alias)
     end)
 
     return hs.fnutils.filter(bundles, function(bundle)
-        return hs.application.get(bundle) ~= nil
+        return hs.application.nameForBundleID(bundle) ~= nil
     end)
 end
 

@@ -142,7 +142,7 @@ function Hyper.open()
         ks.cmd('k')
     elseif is.In(spotify) then
         fn.Alfred.run('spot_mini', 'com.vdesabou.spotify.mini.player')
-    elseif is.vivaldi() then
+    elseif is.vivaldi() or is.In(teams) then
         ks.cmd('e')
     elseif is.vivaldi() then
         if fn.Vivaldi.urlContains('github.com')

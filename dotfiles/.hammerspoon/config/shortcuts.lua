@@ -44,7 +44,7 @@ Shortcuts
         end,
     })
     :add('S', {
-        mail = function()
+        mimestream = function()
             -- Starred
             ks.cmd('2')
         end,
@@ -95,7 +95,7 @@ Shortcuts
         end,
     })
     :add('A', {
-        mail = function()
+        mimestream = function()
             -- Spam
             ks.cmd('6')
         end,
@@ -139,7 +139,7 @@ Shortcuts
                 fn.Chrome.changeUrl(fn.Chrome.currentUrl() .. '/files')
             end
         end,
-        mail = function()
+        mimestream = function()
             -- Inbox
             ks.cmd('1')
         end,

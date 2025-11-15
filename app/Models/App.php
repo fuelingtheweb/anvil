@@ -34,7 +34,6 @@ class App
     public static $aliases = [
         'calendar' => 'busycal',
         'code' => 'vscode',
-        'mail' => 'mimestream',
     ];
 
     public static $groups = [
@@ -43,6 +42,7 @@ class App
         'ide' => ['code'],
         'quickfind' => ['alfred', 'raycast'],
         'terminal' => ['warp'],
+        'mail' => ['mimestream', 'outlook'],
     ];
 
     public static function getDefinitions()

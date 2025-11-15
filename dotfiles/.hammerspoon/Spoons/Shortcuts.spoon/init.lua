@@ -7,7 +7,7 @@ Shortcuts.appFunctionMapping = {
     warp = ks.typeAndEnter,
     vscode = fn.Code.run,
     chrome = '',
-    mail = '',
+    mimestream = '',
 }
 
 function Shortcuts:add(key, mapping)

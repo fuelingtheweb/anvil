@@ -134,7 +134,7 @@ Hyper.lookup = {
 function Hyper.open()
     if is.In(vscode, tableplus, invoker) then
         ks.cmd('p')
-    elseif is.In(mail) then
+    elseif is.In(mimestream) then
         ks.shiftCmd('o')
     elseif is.In(anybox) then
         ks.cmd('p')

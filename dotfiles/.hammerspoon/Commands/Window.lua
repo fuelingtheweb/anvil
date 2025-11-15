@@ -152,7 +152,7 @@ end
 function Window.toggleSidebar()
     if is.finder() then
         ks.altCmd('s')
-    elseif is.In(mail) then
+    elseif is.In(mimestream) then
         ks.ctrlCmd('s')
     elseif is.In(anybox) then
         ks.ctrlCmd('s')

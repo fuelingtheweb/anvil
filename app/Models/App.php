@@ -7,7 +7,6 @@ class App
     public static $apps = [
         'alfred' => 'com.runningwithcrayons.Alfred',
         'anybox' => 'cc.anybox.Anybox',
-        'arc' => 'company.thebrowser.Browser',
         'busycal' => 'com.busymac.busycal-setapp',
         'chrome' => 'com.google.Chrome',
         'discord' => 'com.hnc.Discord',
@@ -25,7 +24,6 @@ class App
         'vivaldi' => 'com.vivaldi.Vivaldi',
         'vscode' => 'com.microsoft.VSCode',
         'warp' => 'dev.warp.Warp-Stable',
-        'zen' => 'app.zen-browser.zen',
         'zoom' => 'us.zoom.xos',
         'teams' => 'com.microsoft.teams2',
         'outlook' => 'com.microsoft.Outlook',
@@ -37,7 +35,7 @@ class App
     ];
 
     public static $groups = [
-        'browser' => ['arc', 'chrome', 'vivaldi', 'zen'],
+        'browser' => ['chrome', 'vivaldi'],
         'chat' => ['discord', 'slack'],
         'ide' => ['code'],
         'quickfind' => ['alfred', 'raycast'],

@@ -6,7 +6,6 @@
     p: 'soc.p' # Alfred clipboard
     '[': # Command Palette
         anybox: 'c.k'
-        arc: 'c.t'
         ide: 'sc.p'
         obsidian: 'c.p'
         warp: 'c.p'
@@ -325,7 +324,6 @@
     # caps: 'alfred: commands, com.fuelingtheweb.commands'
     a: 'oc.\' # Alfred: Action file
     s: # Save
-        arc: 'o.r' # Save to reader
         ide: 'c.s esc'
         terminal: 'cln x rtn' # Save from vim
         default: 'c.s'
@@ -335,7 +333,6 @@
     ltS: null
     z: null
     x: # Cancel or delete
-        arc: '#'
         anybox: 'c.dlt'
         finder: 'c.dlt'
         ide: 'sc.dlt'
@@ -509,13 +506,11 @@
     v:
     b:
         anybox: tc.s
-        arc: st.\
         finder: oc.s
         mail: tc.s
         slack: sc.d
         tableplus: c.0
         vivaldi: tc.s
-        zen: oc.c
         outlook: 'menu: Microsoft Outlook, Sidebar, View'
         default: c.\
     y:

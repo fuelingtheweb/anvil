@@ -9,6 +9,7 @@ App.bundles = {
     discord = 'com.hnc.Discord',
     finder = 'com.apple.finder',
     linear = 'com.linear',
+    mailspring = 'com.mailspring.mailspring',
     mimestream = 'com.mimestream.Mimestream',
     obsidian = 'md.obsidian',
     postman = 'com.postmanlabs.mac',
@@ -29,8 +30,9 @@ App.bundles = {
     teams = 'com.microsoft.teams2',
     outlook = 'com.microsoft.Outlook',
     mail = {
-        'mimestream',
+        'mailspring',
         'outlook',
+        'mimestream',
     },
     browsers = {
         'chrome',

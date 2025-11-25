@@ -7,6 +7,7 @@ Shortcuts.appFunctionMapping = {
     warp = ks.typeAndEnter,
     vscode = fn.Code.run,
     chrome = '',
+    mailspring = '',
     mimestream = '',
 }
 

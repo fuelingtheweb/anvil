@@ -19,7 +19,7 @@ function AlfredCommands:setAlfredJson()
     local items = {}
 
     fn.each(AlfredCommands.all, function(command, key)
-        local iconPath = '~/Dropbox/Ftw/Alfred/Alfred.alfredpreferences/workflows/user.workflow.7CF5F8CA-70CF-4DDF-8543-642E861FCF88/'
+        local iconPath = home_path .. '/Dropbox/Ftw/Alfred/Alfred.alfredpreferences/workflows/user.workflow.7CF5F8CA-70CF-4DDF-8543-642E861FCF88/'
         local icon = 'icon.png'
 
         if command.icon then

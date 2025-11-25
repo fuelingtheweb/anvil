@@ -77,6 +77,7 @@
         :chrome ["com.google.Chrome"]
         :discord ["com.hnc.Discord"]
         :finder ["com.apple.finder"]
+        :mailspring ["com.mailspring.mailspring"]
         :mimestream ["com.mimestream.Mimestream"]
         :obsidian ["md.obsidian"]
         :preview ["com.apple.Preview"]
@@ -100,7 +101,7 @@
         :ide ["com.microsoft.VSCode"]
         :quickfind ["com.runningwithcrayons.Alfred" "com.raycast.macos"]
         :terminal ["dev.warp.Warp-Stable"]
-        :mail ["com.mimestream.Mimestream" "com.microsoft.Outlook"]
+        :mail ["com.mailspring.mailspring" "com.mimestream.Mimestream" "com.microsoft.Outlook"]
     }
     :main [
         ;; each manipulator has a description and multiple rules
@@ -682,11 +683,12 @@
                 [:d [:hsk "Command" "d"]]
                 [:f [:hsk "Command" "f"]]
                 [:g [:hsk "Command" "g"]]
-                [:left_shift [:hsk "Command" "left_shift"]]
+                [:left_shift [:alfred "commands" "com.fuelingtheweb.commands"] []]
                 [:z [:hsk "Command" "z"]]
                 [:x [:!Cdelete_or_backspace] [:anybox]]
                 [:x [:!Cdelete_or_backspace] [:finder]]
                 [:x [:!SCdelete_or_backspace] [:ide]]
+                [:x [:!S3] [:mailspring]]
                 [:x [:!SCdelete_or_backspace] [:obsidian]]
                 [:x [:!Tc] [:terminal]]
                 [:x [:delete_or_backspace] []]

@@ -11,6 +11,7 @@ class App
         'chrome' => 'com.google.Chrome',
         'discord' => 'com.hnc.Discord',
         'finder' => 'com.apple.finder',
+        'mailspring' => 'com.mailspring.mailspring',
         'mimestream' => 'com.mimestream.Mimestream',
         'obsidian' => 'md.obsidian',
         'preview' => 'com.apple.Preview',
@@ -40,7 +41,7 @@ class App
         'ide' => ['code'],
         'quickfind' => ['alfred', 'raycast'],
         'terminal' => ['warp'],
-        'mail' => ['mimestream', 'outlook'],
+        'mail' => ['mailspring', 'mimestream', 'outlook'],
     ];
 
     public static function getDefinitions()

@@ -321,7 +321,6 @@
         default: 'c.r'
     t:
     caps: 'raycast://extensions/tegola/duck-duck-go-search/index'
-    # caps: 'alfred: commands, com.fuelingtheweb.commands'
     a: 'oc.\' # Alfred: Action file
     s: # Save
         ide: 'c.s esc'
@@ -330,12 +329,13 @@
     d:
     f:
     g:
-    ltS: null
+    ltS: 'alfred: commands, com.fuelingtheweb.commands'
     z: null
     x: # Cancel or delete
         anybox: 'c.dlt'
         finder: 'c.dlt'
         ide: 'sc.dlt'
+        mailspring: '#'
         obsidian: 'sc.dlt'
         terminal: 't.c'
         default: 'dlt'

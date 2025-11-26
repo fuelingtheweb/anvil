@@ -17,8 +17,8 @@ formulas=(
     fd
     fpp
     fzf
-    fzf # *used for git:checkout
-    tmux # *used for git:checkout
+    fzf # *used for git.checkout
+    tmux # *used for git.checkout
     git
     gh # *
     highlight

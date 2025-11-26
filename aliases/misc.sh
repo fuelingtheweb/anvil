@@ -4,17 +4,17 @@ alias fnd='command fd -c always'
 alias du="ncdu --color dark -rr -x --si --exclude .git --exclude node_modules --exclude vendor"
 alias nn='nnn'
 alias help='tldr'
-agif() {
+agif () {
     ag $1 -G $2
 }
 alias sdi='sed -i ""'
 alias cvl='csvlook'
 alias _='sudo'
 alias w='which'
-alias m='cd ~/ && /bin/cat ~/Dev/Anvil/custom/ascii/welcome.honk.txt'
-alias dld='cd ~/Downloads'
-alias dcs='cd ~/Documents'
-alias dv='cd ~/Dev'
+alias m="cd ~/ && /bin/cat ${HOME}/Dev/Anvil/custom/ascii/welcome.honk.txt"
+alias dld="cd ${HOME}/Downloads"
+alias dcs="cd ${HOME}/Documents"
+alias dv="cd ${HOME}/Dev"
 alias bc="bc -l -q" # Run Calculator
 alias hi="history | less +G"
 alias vf="vifm"
@@ -38,36 +38,50 @@ alias pwdc="pwd | tr -d '\n' | pbcopy && echo 'pwd copied to clipboard'"
 # alias duc='du -hc -d=1 *'
 
 alias o='open'
-alias o.='open .'
+o. () {
+    open .
+}
 
 alias rm='trash'
 alias pls='sudo $(fc -ln -1)'
-alias files:hide='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias files:show='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+file.hide () {
+    defaults write com.apple.finder AppleShowAllFiles NO
+    killall Finder /System/Library/CoreServices/Finder.app
+}
+files.show () {
+    defaults write com.apple.finder AppleShowAllFiles YES
+    killall Finder /System/Library/CoreServices/Finder.app
+}
 alias ydl='youtube-dl'
-alias ke='code ~/.config/karabiner.edn'
-alias ab="php ~/Dev/Anvil/artisan build:aliases && source $ANVIL/aliases/index.sh"
-alias kb='php ~/Dev/Anvil/artisan build:karabiner && goku'
+alias ke="code ${HOME}/.config/karabiner.edn"
+alias ab="php ${HOME}/Dev/Anvil/artisan build:aliases && source $ANVIL/aliases/index.sh"
+alias kb="php ${HOME}/Dev/Anvil/artisan build:karabiner && goku"
 alias kbw='gokuw'
 alias anb='kb && ab'
-alias cleaninstall="$ANVIL/CleanInstall/start.sh"
-alias pdf:combine="/usr/local/bin/gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf"
-alias pdf:compress="/usr/local/bin/gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/screen -sOutputFile=small.pdf" # ebook | screen
-alias php:memory="php -r \"echo ini_get('memory_limit').PHP_EOL;\""
-
-tidy() {
-    date=$(date +%Y-%m-%d)
-    folder=~/Documents/Tidy/$date
-
-    mkdir -p $folder
-
-    mv ~/Downloads/* $folder
-
-    open ~/Downloads
-    open $folder
+alias cleaninstall="${ANVIL}/CleanInstall/start.sh"
+pdf.combine () {
+    /usr/local/bin/gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf
+}
+pdf.compress () {
+    /usr/local/bin/gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/screen -sOutputFile=small.pdf # ebook | screen
+}
+php.memory () {
+    php -r "echo ini_get('memory_limit').PHP_EOL;"
 }
 
-catc() {
+tidy () {
+    date=$(date +%Y-%m-%d)
+    folder="${HOME}/Documents/Tidy/${date}"
+
+    mkdir -p "$folder"
+
+    mv "${HOME}/Downloads/*" "$folder"
+
+    open "${HOME}/Downloads"
+    open "$folder"
+}
+
+catc () {
     cat $1 | pbcopy
 }
 
@@ -75,20 +89,20 @@ alias ipc='dig +short myip.opendns.com @resolver1.opendns.com | pbcopy'
 
 webpc() {
     if [ -f "$1" ]; then
-        webp:convert "$@"
+        webp.convert "$@"
     else
-        webp:convert-all "$@"
+        webp.convert-all "$@"
     fi
 }
 
-webp:convert-all() {
+webp.convert-all() {
     for file in *.(gif|jpg|jpeg|png|webp); do
-        webp:convert "$file" "$@"
+        webp.convert "$file" "$@"
     done
 }
 
-webp:convert() {
-    outputPath=~/Downloads/webp
+webp.convert() {
+    outputPath="${HOME}/Downloads/webp"
 
     if ! [[ -d "$outputPath" ]]; then
         md "$outputPath"
@@ -105,9 +119,9 @@ webp:convert() {
 
     filename="${file%.*}"
     input="$file"
-    output="$outputPath/$filename.webp"
+    output="${outputPath}/${filename}.webp"
 
-    echo "Converting $input to $output"
+    echo "Converting ${input} to ${output}"
 
     if [ "$width" ]; then
         cwebp -pass 1 -m 6 -mt -q 100 -resize "$width" "$height" -progress "$input" -o "$output"
@@ -115,7 +129,7 @@ webp:convert() {
         cwebp -pass 1 -m 6 -mt -q 100 -progress "$input" -o "$output"
     fi
 
-        # cwebp -pass 1 -m 6 -mt -q 90 -resize "$width" "$height" -progress "$input" -o "$output"
+    # cwebp -pass 1 -m 6 -mt -q 90 -resize "$width" "$height" -progress "$input" -o "$output"
 }
 
 alias wpc='webpc'

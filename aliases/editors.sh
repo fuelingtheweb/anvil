@@ -1,1 +1,3 @@
-alias c.='code .'
+c. () {
+    code .
+}

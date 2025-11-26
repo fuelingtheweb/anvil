@@ -14,9 +14,8 @@ alias cpr='cp -r'
 
 # Changing Directories
 alias cdp='cd -' # Go back to previous directory
-function cl () { cd $1 && ls } # Change to and list out directory
 alias rmr="rm -R" # Remove directory and anything within directory
-mkcd() {
+mkcd () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
@@ -25,7 +24,7 @@ alias tch='touch'
 alias cdc='cd $_'
 alias d='cd'
 
-cdr() {
+cdr () {
     control=$(find-up node_modules)
 
     if [ -d "$control" ]; then

@@ -3,16 +3,16 @@ alias lz="laravel-zero"
 alias artisan="php artisan"
 alias a="php artisan"
 alias log:empty="echo '' > storage/logs/laravel.log"
-alias elf="log:empty"
+alias elf="log.empty"
 alias cpe="cp .env.example .env"
-function ac() {
+ac () {
     artisan optimize:clear
     composer dump-autoload
 }
 alias er="envoy run"
 alias edy="envoy run deploy"
 alias ers="envoy run reseed"
-function lsu() {
+lsu () {
     ci
     cpe
     akg
@@ -41,6 +41,7 @@ alias amgfr="artisan migrate:fresh"
 alias amgrb="artisan migrate:rollback"
 alias amgfs="artisan migrate:fresh --seed"
 alias adbs="artisan db:seed"
+alias adbw="artisan db:wipe"
 alias adbbc="artisan debugbar:clear"
 alias asv="artisan scrap:view"
 alias ad="artisan dusk"
@@ -49,10 +50,10 @@ alias atp="artisan test --parallel --stop-on-failure"
 alias aac="artisan assets:compile"
 alias aar="artisan assets:release"
 alias arcc="artisan responsecache:clear"
-function aee() {
+aee () {
     env:encrypt --env=production --force --key="$1"
 }
-function aed() {
+aed () {
     env:decrypt --env=production --force --key="$1"
 }
 alias am="artisan make"
@@ -83,13 +84,13 @@ alias amt="artisan make:test"
 alias amtu="artisan make:test --unit"
 alias amv="artisan make:view"
 alias amw="artisan make:livewire"
-function amf() {
+amf () {
     NAME="${1}Factory"
     artisan make:factory --model="$1" $NAME
 }
-function ammam() {
+ammam () {
     artisan make:mail "$1" --markdown "$2"
 }
-function ammgc() {
-    ammg "create_$1_table" --create "$1"
+ammgc () {
+    ammg "create_${1}_table" --create "$1"
 }

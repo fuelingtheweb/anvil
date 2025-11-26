@@ -1,6 +1,6 @@
 alias g='git'
 
-alias ghh='gh dash --config $HOME/Dev/Anvil/options/gh-dash.yml'
+alias ghh="gh dash --config ${HOME}/Dev/Anvil/options/gh-dash.yml"
 
 alias gg='lazygit'
 
@@ -9,15 +9,15 @@ alias gah='git add --help'
 alias gaa='git add -A'
 alias gap='git add -p'
 
-alias gb='git:branch.list'
+alias gb='git.branch.list'
 alias gbh='git branch --help'
 alias gba='git branch -av'
-alias gbc='git:branch.current | pbcopy'
-alias gbr='git:branch.rename'
-alias gbd='git:branch.delete'
-alias gbdf='git:branch.force-delete'
+alias gbc='git.branch.current | pbcopy'
+alias gbr='git.branch.rename'
+alias gbd='git.branch.delete'
+alias gbdf='git.branch.force-delete'
 
-alias gc='git:commit'
+alias gc='git.commit'
 alias gch='git commit --help'
 alias gcm='git commit --amend --no-edit'
 alias gcme='git commit --amend'
@@ -30,8 +30,8 @@ alias gcpc='git cherry-pick --continue'
 
 alias gcl='git clone --recurse-submodules'
 alias gci='git check-ignore -v'
-alias gcc='git:copy-commits'
-alias gccf='git:copy-commits-full'
+alias gcc='git.copy-commits'
+alias gccf='git.copy-commits-full'
 
 alias gd='git diff'
 alias gdh='git diff --help'
@@ -55,10 +55,12 @@ alias gfrf='git flow release finish'
 alias gin='git init'
 alias gig='code .gitignore'
 
-alias gl='git:log'
+alias gl='git.log'
 
-alias gm='git:merge'
-alias gmm='git merge $(git:master-branch)'
+alias gm='git.merge'
+gmm () {
+    git merge $(git.master-branch)
+}
 alias gmd='git merge develop'
 alias gmc='git merge --continue'
 alias gma='git merge --abort'
@@ -69,30 +71,32 @@ alias gml='git mob --list'
 alias gmeco='code ~/.git-coauthors'
 alias gmsco='git suggest-coauthors'
 
-alias go='git:checkout'
+alias go='git.checkout'
 alias goh='git checkout --help'
-alias gon='git:branch.new'
+alias gon='git.branch.new'
 alias gop='git checkout -'
-alias goa='git:checkout.include-all'
-alias gom='git:checkout-master'
+alias goa='git.checkout.include-all'
+alias gom='git.checkout-master'
 alias god='git checkout develop'
-alias goml='git:checkout-master && git pull'
+alias goml='git.checkout-master && git pull'
 alias godl='git checkout develop && git pull'
 
 alias gps='git push'
 alias gpsn='git push --no-verify'
 alias gpst='git push origin --tags'
-alias gpsu='git:push-set-upstream'
+alias gpsu='git.push-set-upstream'
 alias gpl='git pull'
 
-alias gpr='git:pull-request'
+alias gpr='git.pull-request'
 
 alias pr='gh pr'
 alias prc='gh pr checkout'
 alias pro='gh pr view --web'
 
-alias gr='git:rebase'
-alias grm='git rebase $(git:master-branch)'
+alias gr='git.rebase'
+grm () {
+    git rebase $(git.master-branch)
+}
 alias grd='git rebase develop'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
@@ -105,11 +109,11 @@ alias grmr='git remote rm'
 alias grma='git remote add'
 alias grmsu='git remote set-url'
 
-alias gs='git:status'
-alias gsf='git:status.fuzzy'
+alias gs='git.status'
+alias gsf='git.status.fuzzy'
 alias gsh='git show'
-alias gshs='git:show.summary'
-alias gss='git:status.stats'
+alias gshs='git.show.summary'
+alias gss='git.status.stats'
 
 alias gsm='git submodule'
 alias gsmi='git submodule init'
@@ -120,35 +124,35 @@ alias gstm='git stash -m'
 alias gstu='git stash -u'
 alias gstum='git stash -u -m'
 alias gstsm='git stash --staged -m'
-alias gstl='git:stash.list'
+alias gstl='git.stash.list'
 alias gstc='git stash clear'
-alias gstp='git:stash.pop'
-alias gsta='git:stash.apply'
-alias gsts='git:stash.show'
-alias gstsp='git:stash.show-patch'
-alias gstd='git:stash.drop'
+alias gstp='git.stash.pop'
+alias gsta='git.stash.apply'
+alias gsts='git.stash.show'
+alias gstsp='git.stash.show-patch'
+alias gstd='git.stash.drop'
 
 alias gt='git tag'
 alias gtt='git tag | tail'
-alias gtc='echo -n $(git tag | tail -1) | pbcopy'
+gtc () {
+    echo -n $(git tag | tail -1) | pbcopy
+}
 
-alias guc='git:uncommit'
-alias gus='git:unstage'
-alias gum='git:update-master'
+alias guc='git.uncommit'
+alias gus='git.unstage'
+alias gum='git.update-master'
 
 alias nah='git reset --hard; git clean -df;'
-alias cdu='cd $(git rev-parse --show-toplevel)'
-alias tl='lint:tlint'
 
-# ln -s /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge /usr/local/bin/smerge
-alias sm='smerge'
-alias sm.='smerge .'
+cdu () {
+    cd $(git rev-parse --show-toplevel)
+}
 
-function git:is-in-repo() {
+git.is-in-repo () {
   git rev-parse HEAD > /dev/null 2>&1
 }
 
-function git:checkout() {
+git.checkout () {
   if [ "$1" ]; then
     git checkout "$@"
   else
@@ -160,7 +164,7 @@ function git:checkout() {
   fi
 }
 
-function git:checkout.include-all() {
+git.checkout.include-all () {
   local branches branch
   branches=$(git branch --all --no-color | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -168,7 +172,7 @@ function git:checkout.include-all() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-function git:branch.exists() {
+git.branch.exists () {
     local branch=${1}
     local existed_in_local=$(git branch --list ${branch})
 
@@ -179,46 +183,46 @@ function git:branch.exists() {
     fi
 }
 
-function git:branch.current() {
+git.branch.current () {
     echo -n $(git rev-parse --abbrev-ref HEAD)
 }
 
-function git:branch.list() {
+git.branch.list () {
     git for-each-ref --sort=committerdate refs/heads/ --format="%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))"
 }
 
-function git:branch.new() {
+git.branch.new () {
     git checkout -b $(echo "$1" | tr " " "-")
 }
 
-function git:branch.rename() {
+git.branch.rename () {
     local branchName=$1
     if [[ -z $branchName ]]; then
-        branchName="ntm/$(git:branch.current)"
+        branchName="ntm/$(git.branch.current)"
     fi
 
     git branch -m $branchName
 }
 
-function git:branch.delete() {
+git.branch.delete () {
   local branches branch
   branches=$(git branch -vv --no-color | grep -v '^* ' | grep -v '^  main' | grep -v '^  master' | grep -v '^  develop') &&
   branch=$(echo "$branches" | fzf +m) &&
   git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-function git:branch.force-delete() {
+git.branch.force-delete () {
   local branches branch
   branches=$(git branch -vv --no-color | grep -v '^* ' | grep -v '^  main' | grep -v '^  master' | grep -v '^  develop') &&
   branch=$(echo "$branches" | fzf +m) &&
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-function git:checkout-master() {
-    git checkout $(git:master-branch)
+git.checkout-master () {
+    git checkout $(git.master-branch)
 }
 
-function git:commit() {
+git.commit () {
     if [ "$1" ]; then
         git commit -m "$1"
     else
@@ -226,27 +230,27 @@ function git:commit() {
     fi
 }
 
-function git:copy-commits() {
-    git log --no-merges --reverse --pretty=format:'- %s' $(git:master-branch).. | pbcopy
+git.copy-commits () {
+    git log --no-merges --reverse --pretty=format:'- %s' $(git.master-branch).. | pbcopy
 }
 
-function git:copy-commits-full() {
-    git log --no-merges --reverse --pretty=format:'%h - %s - %cn' $(git:master-branch).. | pbcopy
+git.copy-commits-full () {
+    git log --no-merges --reverse --pretty=format:'%h - %s - %cn' $(git.master-branch).. | pbcopy
 }
 
-function git:log() {
+git.log () {
     git log --graph --date=short
 }
 
-function git:master-branch() {
-    if [[ $(git:branch.exists 'main') == 1 && $(git:branch.exists 'master') == 0 ]]; then
+git.master-branch () {
+    if [[ $(git.branch.exists 'main') == 1 && $(git.branch.exists 'master') == 0 ]]; then
         echo 'main'
     else
         echo 'master'
     fi
 }
 
-function git:merge() {
+git.merge () {
   if [ "$1" ]; then
     git merge "$1"
   else
@@ -258,31 +262,31 @@ function git:merge() {
   fi
 }
 
-function git:pull-request() {
-    local branchName=$(git:branch.current)
+git.pull-request () {
+    local branchName=$(git.branch.current)
     if [[ $branchName != $'ntm/'* && $branchName != $'nmorgan/'* ]]; then
         echo 'Prepend branch name with ntm/ or nmorgan/ before proceeding.'
         return
     fi
 
-    git:push-set-upstream
+    git.push-set-upstream
 
     if [ $? -eq 0 ]; then
-        git:copy-commits
+        git.copy-commits
         gh pr create --web
         # githubUrl=`git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@' -e 's%\.git$%%'`;
-        # prUrl="$githubUrl/compare/$(git:master-branch)...$(git:branch.current)?expand=1"
+        # prUrl="$githubUrl/compare/$(git.master-branch)...$(git.branch.current)?expand=1"
         # "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" "$prUrl" --profile-directory="Default"
     else
         echo 'failed to push commits and open a pull request.';
     fi
 }
 
-function git:push-set-upstream() {
-    git push --set-upstream origin $(git:branch.current)
+git.push-set-upstream () {
+    git push --set-upstream origin $(git.branch.current)
 }
 
-function git:rebase() {
+git.rebase () {
   if [ "$1" ]; then
     git rebase "$1"
   else
@@ -294,18 +298,18 @@ function git:rebase() {
   fi
 }
 
-function git:status.with-summary() {
-    git:status
+git.status.with-summary () {
+    git.status
     echo ""
-    git:show.summary
+    git.show.summary
 }
 
-function git:status() {
+git.status () {
     git status -sb
-    git:status.stats
+    git.status.stats
 }
 
-function git:status.stats() {
+git.status.stats () {
     modifiedStats=$(git --no-pager diff --shortstat)
     stagedStats=$(git --no-pager diff --shortstat --staged)
 
@@ -313,7 +317,7 @@ function git:status.stats() {
     echo "\e[33mStaged   $stagedStats\e[0m"
 }
 
-function git:show.summary() {
+git.show.summary () {
     Red='\033[0;31m'; Colour_Off='\033[0m'; Cyan='\033[0;36m';
     git show --pretty="format:%C(blue)%ah %C(bold magenta)%s%Creset%n%C(yellow)%h %C(blue)%an%C(yellow)%d%Creset" --date=relative --no-patch
     stats=$(git show --format="" --shortstat)
@@ -322,9 +326,9 @@ function git:show.summary() {
 
 }
 
-function git:status.fuzzy() {
+git.status.fuzzy () {
     # "Nothing to see here, move along"
-    git:is-in-repo || return
+    git.is-in-repo || return
 
     local cmd="${FZF_CTRL_T_COMMAND:-"command git status --porcelain"}"
 
@@ -333,11 +337,11 @@ function git:status.fuzzy() {
     }
 }
 
-function git:stash.list() {
+git.stash.list () {
     git stash list --stat --format='%n%C(yellow)%gd%Creset %C(blue)(%ch):%Creset %C(magenta)%gs%Creset'
 }
 
-function git:stash.pop() {
+git.stash.pop () {
     if [ "$1" ]; then
         git stash pop stash@{"$1"}
     else
@@ -345,7 +349,7 @@ function git:stash.pop() {
     fi
 }
 
-function git:stash.apply() {
+git.stash.apply () {
     if [ "$1" ]; then
         git stash apply stash@{$1}
     else
@@ -353,7 +357,7 @@ function git:stash.apply() {
     fi
 }
 
-function git:stash.show() {
+git.stash.show () {
     if [ "$1" ]; then
         git stash show -u stash@{$1}
     else
@@ -361,7 +365,7 @@ function git:stash.show() {
     fi
 }
 
-function git:stash.show-patch() {
+git.stash.show-patch () {
     if [ "$1" ]; then
         git stash show -p stash@{$1}
     else
@@ -369,7 +373,7 @@ function git:stash.show-patch() {
     fi
 }
 
-function git:stash.drop() {
+git.stash.drop () {
     if [ "$1" ]; then
         git stash drop stash@{$1}
     else
@@ -377,22 +381,22 @@ function git:stash.drop() {
     fi
 }
 
-function git:update-master() {
-    local branch=$(git:branch.current)
-    git:checkout-master
+git.update-master () {
+    local branch=$(git.branch.current)
+    git.checkout-master
     git pull
     git checkout $branch
 }
 
-function git:uncommit() {
+git.uncommit () {
     git reset --soft HEAD\^
 }
 
-function git:unstage() {
+git.unstage () {
     git reset HEAD
 }
 
-function lint:tlint() {
+lint.tlint () {
     git status --porcelain | grep '??' | cut -f2 -d' ' | xargs -L1 ~/Dev/Anvil/bin/tlint-run.sh
     git status --porcelain | grep ' M ' | cut -f3 -d' ' | xargs -L1 ~/Dev/Anvil/bin/tlint-run.sh
 }

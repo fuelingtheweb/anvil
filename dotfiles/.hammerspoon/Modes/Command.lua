@@ -108,7 +108,7 @@ function Command.finish()
     elseif is.googleSheet() then
         ks.enter().up()
     elseif is.terminal() then
-        if fn.window.titleContains('git:checkout') or fn.window.titleContains('git:branch.delete') then
+        if fn.window.titleContains('git.checkout') or fn.window.titleContains('git.branch.delete') then
             ks.escape()
         elseif
             fn.window.title() == 'git'
@@ -117,7 +117,7 @@ function Command.finish()
             or fn.window.title() == 'gds'
             or fn.window.title() == 'gl'
             or fn.window.title() == 'man'
-            or fn.window.titleContains('git:')
+            or fn.window.titleContains('git.')
             or fn.window.titleContains('. git ')
         then
             ks.key('q')

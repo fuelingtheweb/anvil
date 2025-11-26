@@ -3,7 +3,7 @@ lz: laravel-zero
 artisan: php artisan
 a: php artisan
 log:empty: echo '' > storage/logs/laravel.log
-elf: log:empty
+elf: log.empty
 cpe: cp .env.example .env
 ac:
     - artisan optimize:clear
@@ -54,6 +54,7 @@ group.artisan:
     amgrb: migrate:rollback
     amgfs: migrate:fresh --seed
     adbs: db:seed
+    adbw: db:wipe
 
     # From Packages
     adbbc: debugbar:clear
@@ -110,4 +111,4 @@ ammam:
     - artisan make:mail "$1" --markdown "$2"
 
 ammgc:
-    - ammg "create_$1_table" --create "$1"
+    - ammg "create_${1}_table" --create "$1"

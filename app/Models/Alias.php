@@ -9,7 +9,7 @@ class Alias
         public $value,
         public $prefix = '',
     ) {
-        $this->prefix = $prefix . $this->prefixFromKey($this->key);
+        $this->prefix = $prefix.$this->prefixFromKey($this->key);
     }
 
     public function toArray()
@@ -23,13 +23,13 @@ class Alias
                 }
             } else {
                 $aliases->push(
-                    str('function $key() {$newLine$indent$commands$newLine}')
+                    str('$key () {$newLine$indent$commands$newLine}')
                         ->replace('$key', $this->key)
                         ->replace('$newLine', "\n")
                         ->replace('$indent', indent())
                         ->replace(
                             '$commands',
-                            collect($this->value)->implode("\n" . indent()),
+                            collect($this->value)->implode("\n".indent()),
                         )
                         ->value(),
                 );

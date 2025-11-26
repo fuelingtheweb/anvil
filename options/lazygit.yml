@@ -10,7 +10,7 @@ gui:
   scrollOffBehavior: margin
   # If true, capture mouse events.
   # When mouse events are captured, it's a little harder to select text: e.g. requiring you to hold the option key when on macOS.
-  mouseEvents: true
+  mouseEvents: false
   # If true, do not show a warning when discarding changes in the staging view.
   skipDiscardChangeWarning: false
   # If true, do not show warning when applying/popping the stash
@@ -101,7 +101,7 @@ gui:
   # If true, show a random tip in the command log when Lazygit starts
   showRandomTip: true
   # If true, show the command log
-  showCommandLog: true
+  showCommandLog: false
   # If true, show the bottom line that contains keybinding info and useful buttons. If false, this line will be hidden except to display a loader for an in-progress action.
   showBottomLine: false
   # If true, show jump-to-window keybindings in window titles.

@@ -1,17 +1,15 @@
 # docker
-alias do='docker'
-alias dor='docker run'
-alias dob='docker build'
-alias doi='docker images'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
+alias dk='docker'
+alias dkr='docker run'
+alias dkb='docker build'
+alias dki='docker images'
+alias dkps='docker ps'
+alias dkpsa='docker ps -a'
 
 # docker-compose
 alias dc='docker-compose'
 alias dcu='docker-compose up'
+# with -d for detached mode
 alias dcd='docker-compose down'
+# with -v will also remove volumes
 alias dt='docker-compose run --rm test'
-
-# docker-machine
-alias dm='docker-machine'
-alias dmnative='echo "Switching to native docker" && eval $(docker-machine env -u)'

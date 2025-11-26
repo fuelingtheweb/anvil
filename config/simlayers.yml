@@ -259,9 +259,9 @@
         browser: 'oc.u'
         terminal: '"nah"'
     i:
-        terminal: '"git:checkout.include-all" ++ rtn'
+        terminal: '"git.checkout.include-all" ++ rtn'
     o:
-        terminal: '"git:checkout" ++ rtn'
+        terminal: '"git.checkout" ++ rtn'
     p:
         ide: 'toc.g toc.p'
         terminal: '"gd" ++ rtn'
@@ -271,16 +271,16 @@
     ']':
         terminal: '"grm" ++ rtn'
     h:
-        terminal: '"git:status.with-summary" ++ rtn'
+        terminal: '"git.status.with-summary" ++ rtn'
     j:
         code: 'toc.g oc.j'
         terminal: '"grs" ++ rtn'
     k:
         code: 'toc.g oc.k'
-        terminal: '"git:commit ''''" ++ lt'
+        terminal: '"git.commit ''''" ++ lt'
     l:
         ide: 'soc.g soc.h'
-        terminal: '"git:log" ++ rtn'
+        terminal: '"git.log" ++ rtn'
         vivaldi: 'sc.l'
     ';':
         terminal: '"gum" ++ rtn'
@@ -291,10 +291,10 @@
         terminal: '"gaa" ++ rtn'
     n:
         code: '"```suggestion" ++ rtn rtn ++ "```" ++ up'
-        terminal: '"git:branch.new ''''" ++ lt'
+        terminal: '"git.branch.new ''''" ++ lt'
     m:
         ide: 'toc.g toc.m'
-        terminal: '"git:branch.delete" ++ rtn'
+        terminal: '"git.branch.delete" ++ rtn'
     ',':
         browser: 'oc.i'
         terminal: '"git pull" ++ rtn'

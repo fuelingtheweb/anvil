@@ -2,7 +2,7 @@ function ftw_repeat() {
     echo $(printf "%.0s$1" $(seq 1 $2))
 }
 
-function ftw_init_cd_liases() {
+function ftw_init_cd_aliases() {
     for i in $(seq 1 $1); do
         local alias_commas=$(ftw_repeat , $i)
         local cd_command="cd $(ftw_repeat ../ $i)"
@@ -10,6 +10,6 @@ function ftw_init_cd_liases() {
     done
 }
 
-ftw_init_cd_liases 10
+ftw_init_cd_aliases 10
 
 alias ..='cd ..'

@@ -1,42 +1,68 @@
 db.create () {
-    mysql -uroot -e "create database $1"
+    echo "Creating database: $1"
+    mysql -u root -h 127.0.0.1 -e "create database $1"
 }
 pg.create () {
     createdb $1
 }
 db.drop () {
-    mysql -uroot -e "drop database $1"
+    echo "Dropping database: $1"
+    mysql -u root -h 127.0.0.1 -e "drop database $1"
 }
 db.export () {
-    mysqldump -u root $1 > ~/Downloads/$1.sql
+    echo "Exporting database: $1"
+    mysqldump -u root -h 127.0.0.1 $1 > ~/Downloads/$1.sql
 }
 db.refresh () {
     folder=${PWD##*/}
     name=$(echo "$folder" | awk '{print tolower($0)}')
 
-    db_drop $name
-    db_create $name
-    db_import $name ./__resources/db/$name.sql
-}
-db.refresh_dump () {
-    folder=${PWD##*/}
-    name=$(echo "$folder" | awk '{print tolower($0)}')
-
-    db_drop $name
-    db_create $name
-    db_import $name ./__resources/db/$name.dump
+    # mysql -uroot -h 127.0.0.1 -Nse 'SHOW TABLES' simplypickem | while read table; do mysql -uroot -h 127.0.0.1 -e "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS \`$table\`; SET FOREIGN_KEY_CHECKS = 1;" simplypickem; done
+    echo "Refreshing database: $name"
+    db.drop $name
+    db.create $name
+    db.import $name
 }
 db.import () {
-    local file=~/Downloads/$1.sql
+    local name=$1
+    local file=""
+    local pathsToCheck=(
+        "${HOME}/Downloads/${name}.dump"
+        "${HOME}/Downloads/${name}.sql"
+        "./__resources/db/${name}.dump"
+        "./__resources/db/${name}.sql"
+    )
+
+    for filepath in "${pathsToCheck[@]}"; do
+        if [ -f "$filepath" ]; then
+            file="$filepath"
+            break
+        fi
+    done
 
     if [ "$2" ]; then
         file=$2
     fi
 
-    mysql -u root $1 < $file
-}
-db.import_dump () {
-    mysql -u root $1 < ~/Downloads/$1.dump
+    if ! command -v mysql >/dev/null 2>&1; then
+        echo "Error: 'mysql' command not found in PATH. Please ensure MySQL is installed and available." >&2
+        return 1
+    fi
+
+    if [ ! -f "$file" ]; then
+        echo "Error: SQL file not found: $file" >&2
+        return 1
+    fi
+
+    echo "Importing database: ${name} from file: ${file}"
+
+    # Use 'command' to avoid shell function overrides, and avoid shell exit on error
+    command mysql -u root -h 127.0.0.1 "$name" < "$file"
+    local exit_status=$?
+    if [ $exit_status -ne 0 ]; then
+        echo "Error: MySQL import failed with exit code $exit_status" >&2
+        return $exit_status
+    fi
 }
 pg.import () {
     psql -f ~/Downloads/$1.sql $1 -U root -h localhost -W

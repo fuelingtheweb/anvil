@@ -115,6 +115,4 @@ function SelectUntil.untilBackward()
     ks.escape().key('v').shift('t')
 end
 
-hs.urlevent.bind('SelectUntil.beginningOfLine', SelectUntil.beginningOfLine)
-
 return SelectUntil

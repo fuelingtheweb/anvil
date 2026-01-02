@@ -188,7 +188,7 @@
 
 'd : Vi':
     y: # 'moveToTopOfPage'
-        default: 'hs: vi.moveToTopOfPage'
+        default: 'hs: Vi.moveToTopOfPage'
     u: # 'pageUp'
         ide: 't.u'
         default: 'page_up'
@@ -214,7 +214,7 @@
     rtn: # 'moveToNextWholeWord'
         default: 'esc s.w'
     n: # 'moveToBottomOfPage'
-        default: 'hs: vi.moveToBottomOfPage'
+        default: 'hs: Vi.moveToBottomOfPage'
     m: # 'pageDown'
         ide: 't.d'
         default: 'page_down'

@@ -55,3 +55,19 @@ Modal.load('MiscSnippets')
 hs.loadSpoon('Keystroke')
 hs.loadSpoon('Misc')
 hs.loadSpoon('KarabinerHandler')
+
+local urlEvents = {
+    ['Tab.previous'] = cm.Tab.previous,
+    ['Tab.next'] = cm.Tab.next,
+    ['Tab.closeCurrent'] = cm.Tab.closeCurrent,
+    ['Tab.closePrevious'] = cm.Tab.closePrevious,
+    ['Tab.closeNext'] = cm.Tab.closeNext,
+    ['Vi.moveToTopOfPage'] = cm.Vi.moveToTopOfPage,
+    ['Vi.moveToBottomOfPage'] = cm.Vi.moveToBottomOfPage,
+    ['SelectUntil.beginningOfLine'] = md.SelectUntil.beginningOfLine,
+}
+
+fn.each(urlEvents, function(handler, event)
+    hs.urlevent.bind(event, handler)
+    hs.urlevent.bind(event:lower(), handler)
+end)

@@ -1,7 +1,7 @@
 local Vi = {}
 Vi.__index = Vi
 
-hs.urlevent.bind('vi.moveToTopOfPage', function()
+function Vi.moveToTopOfPage()
     if cm.Window.scrolling then
         ks.sequence({'g', 'g'})
     elseif is.finder() then
@@ -14,9 +14,9 @@ hs.urlevent.bind('vi.moveToTopOfPage', function()
     else
         ks.cmd('up')
     end
-end)
+end
 
-hs.urlevent.bind('vi.moveToBottomOfPage', function()
+function Vi.moveToBottomOfPage()
     if cm.Window.scrolling then
         ks.shift('g')
     elseif is.In(slack, tableplus) then
@@ -29,6 +29,6 @@ hs.urlevent.bind('vi.moveToBottomOfPage', function()
     else
         ks.cmd('down')
     end
-end)
+end
 
 return Vi

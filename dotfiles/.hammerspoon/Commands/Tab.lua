@@ -63,10 +63,4 @@ function Tab.closeNext()
     end
 end
 
-hs.urlevent.bind('Tab.previous', Tab.previous)
-hs.urlevent.bind('Tab.next', Tab.next)
-hs.urlevent.bind('Tab.closeCurrent', Tab.closeCurrent)
-hs.urlevent.bind('Tab.closePrevious', Tab.closePrevious)
-hs.urlevent.bind('Tab.closeNext', Tab.closeNext)
-
 return Tab

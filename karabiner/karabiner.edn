@@ -572,7 +572,7 @@
         {
             :des "Vi"
             :rules [:sim_d
-                [:y [:hs "vi.moveToTopOfPage"] []]
+                [:y [:hs "Vi.moveToTopOfPage"] []]
                 [:u [:!Tu] [:ide]]
                 [:u [:page_up] []]
                 [:i [:!Cleft_arrow] []]
@@ -589,7 +589,7 @@
                 [:semicolon [:escape :!Sb] []]
                 [:quote [:escape :!Se] []]
                 [:return_or_enter [:escape :!Sw] []]
-                [:n [:hs "vi.moveToBottomOfPage"] []]
+                [:n [:hs "Vi.moveToBottomOfPage"] []]
                 [:m [:!Td] [:ide]]
                 [:m [:page_down] []]
                 [:comma [:!Oleft_arrow] []]

@@ -7,10 +7,9 @@ App.bundles = {
     chrome = 'com.google.Chrome',
     dash = 'com.kapeli.dashdoc',
     discord = 'com.hnc.Discord',
+    fastmail = 'com.fastmail.mac.Fastmail',
     finder = 'com.apple.finder',
     linear = 'com.linear',
-    mailspring = 'com.mailspring.mailspring',
-    mimestream = 'com.mimestream.Mimestream',
     obsidian = 'md.obsidian',
     postman = 'com.postmanlabs.mac',
     preview = 'com.apple.Preview',
@@ -30,9 +29,8 @@ App.bundles = {
     teams = 'com.microsoft.teams2',
     outlook = 'com.microsoft.Outlook',
     mail = {
-        'mailspring',
+        'fastmail',
         'outlook',
-        'mimestream',
     },
     browsers = {
         'chrome',

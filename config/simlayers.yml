@@ -333,9 +333,9 @@
     z: null
     x: # Cancel or delete
         anybox: 'c.dlt'
+        fastmail: '#'
         finder: 'c.dlt'
         ide: 'sc.dlt'
-        mailspring: '#'
         obsidian: 'sc.dlt'
         terminal: 't.c'
         default: 'dlt'

@@ -10,9 +10,8 @@ class App
         'busycal' => 'com.busymac.busycal-setapp',
         'chrome' => 'com.google.Chrome',
         'discord' => 'com.hnc.Discord',
+        'fastmail' => 'com.fastmail.mac.Fastmail',
         'finder' => 'com.apple.finder',
-        'mailspring' => 'com.mailspring.mailspring',
-        'mimestream' => 'com.mimestream.Mimestream',
         'obsidian' => 'md.obsidian',
         'preview' => 'com.apple.Preview',
         'ray' => 'be.spatie.ray',
@@ -41,7 +40,7 @@ class App
         'ide' => ['code'],
         'quickfind' => ['alfred', 'raycast'],
         'terminal' => ['warp'],
-        'mail' => ['mailspring', 'mimestream', 'outlook'],
+        'mail' => ['fastmail', 'outlook'],
     ];
 
     public static function getDefinitions()

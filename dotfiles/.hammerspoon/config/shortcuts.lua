@@ -44,10 +44,6 @@ Shortcuts
         end,
     })
     :add('S', {
-        mimestream = function()
-            -- Starred
-            ks.cmd('2')
-        end,
         vscode = 'Preferences: Configure User Snippets'
     })
     :add('Z', {
@@ -95,9 +91,9 @@ Shortcuts
         end,
     })
     :add('A', {
-        mimestream = function()
+        fastmail = function()
             -- Spam
-            ks.cmd('6')
+            ks.key('g').down().enter()
         end,
         vscode = function()
             if is.hammerspoon() then
@@ -139,8 +135,8 @@ Shortcuts
                 fn.Chrome.changeUrl(fn.Chrome.currentUrl() .. '/files')
             end
         end,
-        mimestream = function()
+        fastmail = function()
             -- Inbox
-            ks.cmd('1')
+            ks.key('g').enter()
         end,
     })

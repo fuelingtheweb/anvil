@@ -16,7 +16,7 @@ ExtendedCommand.lookup = {
     c = fn.custom.openClientProject,
     v = nil,
     b = 'screenshotToClipboard',
-    spacebar = nil,
+    spacebar = fn.misc.DismissNotifications,
 }
 
 function ExtendedCommand.screenshotToFilesystem()

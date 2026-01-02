@@ -9,6 +9,15 @@ pause
 # Install goku
 # Install Karabiner Elements and Hammerspoon
 
+# System settings -> Accessibility -> Display
+# Text size: 24 pt
+# Menu bar size: Large
+
+# System settings -> Keyboard
+# Key repeat rate: Fast
+# Delay until repeat: Short
+# Enable keyboard navigation
+
 info 'Setup Vivaldi.'
 open -a 'Vivaldi.app'
 pause

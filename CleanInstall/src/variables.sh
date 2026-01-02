@@ -1,5 +1,5 @@
 ANVIL=$HOME/Dev/Anvil
-OHMYZSH=$HOME/.ohmyzsh
+OHMYZSH=$HOME/.oh-my-zsh
 src=$cleanInstall/src
 custom=$ANVIL/custom
 backups=$HOME/Documents/Backups

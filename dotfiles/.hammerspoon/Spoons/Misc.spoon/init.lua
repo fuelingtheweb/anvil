@@ -3,6 +3,46 @@ obj.__index = obj
 
 log = hs.logger.new('ftw-log', 'debug')
 
+-- Mouse jiggler to prevent chat apps from showing as away
+local mouseJiggler = hs.timer.new(60, function()
+    local originalPos = hs.mouse.absolutePosition()
+
+    -- Move mouse in incremental steps
+    for i = 1, 10 do
+        hs.mouse.absolutePosition({x = originalPos.x + i * 5, y = originalPos.y})
+        hs.timer.usleep(50000) -- 50ms between steps
+    end
+    for i = 10, 1, -1 do
+        hs.mouse.absolutePosition({x = originalPos.x + i * 5, y = originalPos.y})
+        hs.timer.usleep(50000)
+    end
+    hs.mouse.absolutePosition(originalPos)
+
+    -- Activate VS Code and trigger keyboard activity
+    local vscode = hs.application.get('com.microsoft.VSCode')
+    if vscode then
+        vscode:activate()
+        hs.timer.doAfter(0.2, function()
+            hs.eventtap.keyStroke({}, 'j')
+            hs.timer.doAfter(0.1, function()
+                hs.eventtap.keyStroke({}, 'k')
+            end)
+        end)
+    end
+end)
+
+local function toggleMouseJiggler()
+    if mouseJiggler:running() then
+        mouseJiggler:stop()
+        hs.notify.new({title = 'Mouse Jiggler', informativeText = 'Disabled'}):send()
+    else
+        mouseJiggler:start()
+        hs.notify.new({title = 'Mouse Jiggler', informativeText = 'Enabled'}):send()
+    end
+end
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', toggleMouseJiggler)
+
 hs.urlevent.bind('misc-optionPressedOnce', function()
     if is.In(spotify) then
         cm.Window.next()

@@ -147,7 +147,7 @@ pg.restore () {
     echo "Restoring database '${database}' from '${filepath}'"
     echo "Target: ${user}@${host}:${port}"
 
-    /Users/Shared/Herd/services/postgresql/18/bin/pg_restore \
+    /Users/Shared/Herd/services/postgresql/16/bin/pg_restore \
         --host="${host}" \
         --port="${port}" \
         --username="${user}" \

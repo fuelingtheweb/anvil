@@ -47,9 +47,10 @@ ln -sf "$HOME/Dev/Anvil/dotfiles/.hammerspoon" "$HOME/.hammerspoon"
 trash $ANVIL/custom
 trash $ANVIL/aliases/custom
 trash $ANVIL/dotfiles/.hammerspoon/config/custom
-ln -s $HOME/Dropbox/Ftw/fuelingzsh-custom/custom $ANVIL/custom
-ln -s $HOME/Dropbox/Ftw/fuelingzsh-custom/aliases/custom $ANVIL/aliases/custom
-ln -s $HOME/Dropbox/Ftw/fuelingzsh-custom/dotfiles/.hammerspoon/config/custom $ANVIL/dotfiles/.hammerspoon/config/custom
+rm $ANVIL/custom
+ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/custom $ANVIL/custom
+ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/aliases/custom $ANVIL/aliases/custom
+ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/dotfiles/.hammerspoon/config/custom $ANVIL/dotfiles/.hammerspoon/config/custom
 trash $HOME/.config/karabiner.edn
 mkdir $HOME/.config # *
 $ANVIL=$HOME/Dev/Anvil

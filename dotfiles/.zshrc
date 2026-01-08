@@ -62,3 +62,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Herd injected PHP 8.5 configuration.
 export HERD_PHP_85_INI_SCAN_DIR="/Users/nmorgan/Library/Application Support/Herd/config/php/85/"
+export PATH="$HOME/.local/bin:$PATH"

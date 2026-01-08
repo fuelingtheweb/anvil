@@ -387,7 +387,10 @@ function Artisan.openNewFiles(callback)
                 end
             end)
 
-            hs.application.get(vscode):activate()
+            local app = hs.application.find(cursor) or hs.application.find(vscode)
+            if app then
+                app:activate()
+            end
             ks.save()
         end):start()
 

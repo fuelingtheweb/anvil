@@ -132,7 +132,7 @@ Hyper.lookup = {
 }
 
 function Hyper.open()
-    if is.In(vscode, tableplus, invoker) then
+    if is.codeEditor() or is.In(tableplus, invoker) then
         ks.cmd('p')
     elseif is.In(fastmail) then
         ks.key('g')

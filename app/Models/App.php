@@ -23,6 +23,7 @@ class App
         'tinkerwell' => 'de.beyondco.tinkerwell',
         'vivaldi' => 'com.vivaldi.Vivaldi',
         'vscode' => 'com.microsoft.VSCode',
+        'cursor' => 'com.todesktop.230313mzl4w4u92',
         'warp' => 'dev.warp.Warp-Stable',
         'zoom' => 'us.zoom.xos',
         'teams' => 'com.microsoft.teams2',
@@ -37,7 +38,7 @@ class App
     public static $groups = [
         'browser' => ['chrome', 'vivaldi'],
         'chat' => ['discord', 'slack'],
-        'ide' => ['code'],
+        'ide' => ['code', 'cursor'],
         'quickfind' => ['alfred', 'raycast'],
         'terminal' => ['warp'],
         'mail' => ['fastmail', 'outlook'],

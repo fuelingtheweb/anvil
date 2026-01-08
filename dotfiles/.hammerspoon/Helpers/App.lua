@@ -22,6 +22,7 @@ App.bundles = {
     transmit = 'com.panic.Transmit',
     vivaldi = 'com.vivaldi.Vivaldi',
     vscode = 'com.microsoft.VSCode',
+    cursor = 'com.todesktop.230313mzl4w4u92',
     warp = 'dev.warp.Warp-Stable',
     windsurf = 'com.exafunction.windsurf',
     youtubeMusic = 'com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod',
@@ -61,7 +62,7 @@ App.fromAlias = function(alias)
 end
 
 function App.codeEditor()
-    return App.includes({vscode, tinkerwell, windsurf})
+    return App.includes({vscode, cursor, tinkerwell, windsurf})
 end
 
 function App.is(bundle)

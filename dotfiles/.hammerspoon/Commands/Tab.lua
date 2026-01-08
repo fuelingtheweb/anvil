@@ -49,7 +49,7 @@ function Tab.closePrevious()
     Tab.previous()
     Tab.closeCurrent()
 
-    if is.notIn(vscode) then
+    if not is.codeEditor() then
         Tab.next()
     end
 end

@@ -14,7 +14,7 @@ function Code.openFile(file)
 end
 
 function Code.open(path)
-    local app = hs.application.find(vscode)
+    local app = hs.application.find(vscode) or hs.application.find(cursor)
 
     if not app then
         Code.openAndMaximize(path)
@@ -36,7 +36,20 @@ function Code.open(path)
 end
 
 function Code.openAndMaximize(path)
-    hs.execute('/usr/local/bin/code "' .. path .. '"')
+    local vscodeApp = hs.application.find(vscode)
+    local cursorApp = hs.application.find(cursor)
+
+    if cursorApp then
+        hs.execute('/usr/local/bin/cursor "' .. path .. '"')
+    elseif vscodeApp then
+        hs.execute('/usr/local/bin/code "' .. path .. '"')
+    else
+        -- Try cursor first, fallback to code
+        local result = hs.execute('/usr/local/bin/cursor "' .. path .. '" 2>&1')
+        if result:match('command not found') or result:match('No such file') then
+            hs.execute('/usr/local/bin/code "' .. path .. '"')
+        end
+    end
     cm.Window.maximizeAfterDelay()
 end
 
@@ -60,7 +73,14 @@ function Code.ensureInitializedSnippets(callback)
 end
 
 function Code.new()
-    hs.application.launchOrFocusByBundleID(vscode)
+    local app = hs.application.find(cursor) or hs.application.find(vscode)
+    if app then
+        app:activate()
+    else
+        if not hs.application.launchOrFocusByBundleID(cursor) then
+            hs.application.launchOrFocusByBundleID(vscode)
+        end
+    end
 
     hs.timer.doAfter(0.2, function()
         -- cm.Tab.new()

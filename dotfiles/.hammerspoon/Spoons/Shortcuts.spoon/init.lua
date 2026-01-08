@@ -6,6 +6,7 @@ Shortcuts.appFunctionMapping = {
     slack = fn.Slack.openChannel,
     warp = ks.typeAndEnter,
     vscode = fn.Code.run,
+    cursor = fn.Code.run,
     chrome = '',
     fastmail = '',
 }

@@ -14,7 +14,7 @@ function Code.openFile(file)
 end
 
 function Code.open(path)
-    local defaultBundle = App.getDefaultEditorBundle()
+    local defaultBundle = fn.app.getDefaultEditorBundle()
     local app = hs.application.find(defaultBundle)
 
     if not app then
@@ -37,10 +37,10 @@ function Code.open(path)
 end
 
 function Code.openAndMaximize(path)
-    local defaultBundle = App.getDefaultEditorBundle()
-    local fallbackBundle = App.getFallbackEditorBundle()
-    local defaultCli = App.getDefaultEditorCli()
-    local fallbackCli = App.getFallbackEditorCli()
+    local defaultBundle = fn.app.getDefaultEditorBundle()
+    local fallbackBundle = fn.app.getFallbackEditorBundle()
+    local defaultCli = fn.app.getDefaultEditorCli()
+    local fallbackCli = fn.app.getFallbackEditorCli()
 
     local defaultApp = hs.application.find(defaultBundle)
     local fallbackApp = hs.application.find(fallbackBundle)
@@ -79,8 +79,8 @@ function Code.ensureInitializedSnippets(callback)
 end
 
 function Code.new()
-    local defaultBundle = App.getDefaultEditorBundle()
-    local fallbackBundle = App.getFallbackEditorBundle()
+    local defaultBundle = fn.app.getDefaultEditorBundle()
+    local fallbackBundle = fn.app.getFallbackEditorBundle()
 
     local app = hs.application.find(defaultBundle) or hs.application.find(fallbackBundle)
     if app then

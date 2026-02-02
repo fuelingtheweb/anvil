@@ -76,9 +76,9 @@ end
 
 function App.getDefaultEditorCli()
     if App.defaultEditor == "vscode" then
-        return "/usr/local/bin/code"
+        return 'code'
     else
-        return "/usr/local/bin/" .. App.defaultEditor
+        return 'cursor'
     end
 end
 
@@ -92,9 +92,9 @@ end
 
 function App.getFallbackEditorCli()
     if App.defaultEditor == "cursor" then
-        return "/usr/local/bin/code"
+        return 'code'
     else
-        return "/usr/local/bin/cursor"
+        return 'cursor'
     end
 end
 

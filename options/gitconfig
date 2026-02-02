@@ -79,15 +79,15 @@ rebase = false
 editor = code --wait
 
 [diff]
-tool = vscode
+tool = code
 
-[difftool "vscode"]
+[difftool "code"]
 cmd = code --wait --diff $LOCAL $REMOTE
 
 [merge]
-tool = vscode
+tool = code
 
-[mergetool "vscode"]
+[mergetool "code"]
 cmd = code --wait $MERGED
 
 # [difftool "Kaleidoscope"]

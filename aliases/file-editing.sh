@@ -1,17 +1,17 @@
 # Alias Editing
-alias ae="code ${ALIASES}"
+alias ae="${CODE_EDITOR} ${ALIASES}"
 alias ar="source ${ALIASES}/index.sh"
 
 # vimrc editing
-alias ve="code ${HOME}/.vimrc"
+alias ve="${CODE_EDITOR} ${HOME}/.vimrc"
 
 # Anvil editing
-alias ane="code ${HOME}/Dev/Anvil"
+alias ane="${CODE_EDITOR} ${HOME}/Dev/Anvil"
 alias an="cd ${HOME}/Dev/Anvil"
 
 # zshrc editing
-alias ze="code ${HOME}/.zshrc"
+alias ze="${CODE_EDITOR} ${HOME}/.zshrc"
 alias zr="source ${HOME}/.zshrc"
 
-alias emd="code ${HOME}/.phpmd.xml"
-alias ecs="code ${HOME}/.phpcs.xml"
+alias emd="${CODE_EDITOR} ${HOME}/.phpmd.xml"
+alias ecs="${CODE_EDITOR} ${HOME}/.phpcs.xml"

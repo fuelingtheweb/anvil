@@ -6,7 +6,8 @@ QUIET=false
 DEVELOP=false
 AUTH=false
 NODE=true
-CODEEDITOR="/usr/local/bin/code"
+# Uses CODE_EDITOR from .zshrc (cursor or code)
+CODEEDITOR="/usr/local/bin/${CODE_EDITOR:-code}"
 BROWSER=""
 LINK=false
 SECURE=false

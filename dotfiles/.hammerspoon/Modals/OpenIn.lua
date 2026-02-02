@@ -47,7 +47,7 @@ end
 
 function OpenIn.inCode()
     if is.terminal() then
-        ks.typeAndEnter('code .')
+        ks.typeAndEnter('cursor .')
     else
         local path = fn.window.path()
 

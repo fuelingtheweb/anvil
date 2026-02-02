@@ -134,6 +134,8 @@ Hyper.lookup = {
 function Hyper.open()
     if is.codeEditor() or is.In(tableplus, invoker) then
         ks.cmd('p')
+    elseif is.In(teams) then
+        ks.cmd('g')
     elseif is.In(fastmail) then
         ks.key('g')
     elseif is.In(anybox) then

@@ -192,7 +192,8 @@ git.branch.list () {
 }
 
 git.branch.new () {
-    git checkout -b $(echo "$1" | tr " " "-")
+    local branch_name="${1// /-}"
+    git checkout -b "$branch_name"
 }
 
 git.branch.rename () {

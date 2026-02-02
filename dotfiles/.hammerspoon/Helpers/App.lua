@@ -1,12 +1,17 @@
 local App = {}
 App.__index = App
 
+-- Default code editor: "cursor" or "vscode"
+App.defaultEditor = "vscode"
+
 App.bundles = {
     anybox = 'cc.anybox.Anybox',
     calendar = 'com.busymac.busycal-setapp',
     chrome = 'com.google.Chrome',
+    claude = 'com.anthropic.claudefordesktop',
     dash = 'com.kapeli.dashdoc',
     discord = 'com.hnc.Discord',
+    duckduckgo = 'com.duckduckgo.macos.browser',
     fastmail = 'com.fastmail.mac.Fastmail',
     finder = 'com.apple.finder',
     linear = 'com.linear',
@@ -63,6 +68,34 @@ end
 
 function App.codeEditor()
     return App.includes({vscode, cursor, tinkerwell, windsurf})
+end
+
+function App.getDefaultEditorBundle()
+    return App.bundles[App.defaultEditor]
+end
+
+function App.getDefaultEditorCli()
+    if App.defaultEditor == "vscode" then
+        return "/usr/local/bin/code"
+    else
+        return "/usr/local/bin/" .. App.defaultEditor
+    end
+end
+
+function App.getFallbackEditorBundle()
+    if App.defaultEditor == "cursor" then
+        return App.bundles.vscode
+    else
+        return App.bundles.cursor
+    end
+end
+
+function App.getFallbackEditorCli()
+    if App.defaultEditor == "cursor" then
+        return "/usr/local/bin/code"
+    else
+        return "/usr/local/bin/cursor"
+    end
 end
 
 function App.is(bundle)

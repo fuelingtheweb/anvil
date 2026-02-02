@@ -1,0 +1,55 @@
+{
+    "model": "opus",
+    "attribution": {
+        "commit": "",
+        "pr": ""
+    },
+    "permissions": {
+        "defaultMode": "acceptEdits",
+        "allow": [
+            "Bash(./vendor/bin:*)",
+            "Bash(cat:*)",
+            "Bash(composer:*)",
+            "Bash(curl:*)",
+            "Bash(docker-compose:*)",
+            "Bash(find:*)",
+            "Bash(git:*)",
+            "Bash(grep:*)",
+            "Bash(herd:*)",
+            "Bash(log:*)",
+            "Bash(ls:*)",
+            "Bash(npm:*)",
+            "Bash(npx:*)",
+            "Bash(pgrep:*)",
+            "Bash(php:*)",
+            "Bash(pkill:*)",
+            "Bash(python3:*)",
+            "Bash(tail:*)",
+            "Bash(vendor/bin:*)",
+            "Bash(xargs:*)",
+            "mcp__herd__get_all_php_versions",
+            "mcp__herd__get_all_sites",
+            "mcp__herd__install_php_version",
+            "mcp__herd__isolate_or_unisolate_site",
+            "mcp__herd__start_or_stop_service",
+            "mcp__laravel-boost__application-info",
+            "mcp__laravel-boost__browser-logs",
+            "mcp__laravel-boost__database-query",
+            "mcp__laravel-boost__database-schema",
+            "mcp__laravel-boost__get-absolute-url",
+            "mcp__laravel-boost__get-config",
+            "mcp__laravel-boost__last-error",
+            "mcp__laravel-boost__list-artisan-commands",
+            "mcp__laravel-boost__list-available-env-vars",
+            "mcp__laravel-boost__list-routes",
+            "mcp__laravel-boost__read-log-entries",
+            "mcp__laravel-boost__search-docs",
+            "mcp__laravel-boost__tinker"
+        ]
+    },
+    "enableAllProjectMcpServers": true,
+    "enabledMcpjsonServers": [
+        "laravel-boost",
+        "herd"
+    ]
+}

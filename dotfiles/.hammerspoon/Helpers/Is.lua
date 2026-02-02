@@ -38,7 +38,7 @@ function Is.terminal()
 end
 
 function Is.vscode()
-    return Is.In(vscode)
+    return Is.In(vscode, cursor)
 end
 
 function Is.obsidian()

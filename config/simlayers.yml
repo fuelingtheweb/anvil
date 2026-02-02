@@ -266,17 +266,17 @@
         ide: 'toc.g toc.p'
         terminal: '"gd" ++ rtn'
     '[':
-        code: 'toc.g oc.['
+        ide: 'toc.g oc.['
         terminal: '"gmm" ++ rtn'
     ']':
         terminal: '"grm" ++ rtn'
     h:
         terminal: '"git.status.with-summary" ++ rtn'
     j:
-        code: 'toc.g oc.j'
+        ide: 'toc.g oc.j'
         terminal: '"grs" ++ rtn'
     k:
-        code: 'toc.g oc.k'
+        ide: 'toc.g oc.k'
         terminal: '"git.commit ''''" ++ lt'
     l:
         ide: 'soc.g soc.h'
@@ -287,10 +287,10 @@
     qt:
         terminal: '"goml" ++ rtn'
     rtn:
-        code: 'toc.g oc.]'
+        ide: 'toc.g oc.]'
         terminal: '"gaa" ++ rtn'
     n:
-        code: '"```suggestion" ++ rtn rtn ++ "```" ++ up'
+        ide: '"```suggestion" ++ rtn rtn ++ "```" ++ up'
         terminal: '"git.branch.new ''''" ++ lt'
     m:
         ide: 'toc.g toc.m'
@@ -299,7 +299,7 @@
         browser: 'oc.i'
         terminal: '"git pull" ++ rtn'
     prd:
-        code: 'toc.g toc.j'
+        ide: 'toc.g toc.j'
         terminal: '"git push" ++ rtn'
     '/':
         terminal: '"git stash -u -m ''''" ++ lt'
@@ -398,6 +398,7 @@
     l: # Next member
         default: 'soc.dn'
     ';': # Toggle semicolon
+        cursor: 't.;'
         default: 'o.;'
     qt: # Trigger Copilot
         default: 'o.\'
@@ -408,6 +409,7 @@
     m: # Multiple cursors down
         default: 'sto.dn'
     ',': # Toggle comma
+        cursor: 't.,'
         default: 'o.,'
     prd: # Double arrow
         default: '" => "'
@@ -420,50 +422,50 @@
 
 'v : ViVisual':
     y: # 'selectToTopOfPage'
-        code: 'esc s.v g g'
+        ide: 'esc s.v g g'
         finder: 'so.up'
         default: 'sc.up'
     u: # 'selectLineUp'
-        code: 's.v k'
+        ide: 's.v k'
         default: 's.up'
     i: # 'selectToFirstCharacterOfLine'
         default: 'hs: SelectUntil.beginningOfLine'
     o: # 'selectToEndOfLine'
-        code: 't.v s.4 lt'
+        ide: 't.v s.4 lt'
         default: 'sc.rt'
     p: null
     '[': null
     ']': null
     h: # 'selectLeft'
-        code: 't.v lt'
+        ide: 't.v lt'
         default: 's.lt'
     j: # 'selectDown'
-        code: 't.v t.dn'
+        ide: 't.v t.dn'
         default: 's.dn'
     k: # 'selectUp'
-        code: 't.v t.up'
+        ide: 't.v t.up'
         default: 's.up'
     l: # 'selectRight'
-        code: 't.v rt'
+        ide: 't.v rt'
         default: 's.rt'
     ';': # 'selectToPreviousWholeWord'
-        code: 't.v s.b'
+        ide: 't.v s.b'
     qt: # 'selectToEndOfWholeWord'
-        code: 't.v s.e'
+        ide: 't.v s.e'
     rtn: # 'selectToNextWholeWord'
-        code: 't.v l s.w h'
+        ide: 't.v l s.w h'
     n: # 'selectToBottomOfPage'
-        code: 'esc s.v s.g'
+        ide: 'esc s.v s.g'
         finder: 'so.dn'
         default: 'sc.dn'
     m: # 'selectLineDown'
-        code: 's.v j'
+        ide: 's.v j'
         default: 's.dn'
     ',': # 'selectPreviousWord'
-        # code: 's.v b'
+        # ide: 's.v b'
         default: 'so.lt'
     prd: # 'selectNextWord'
-        # code: 's.v e'
+        # ide: 's.v e'
         default: 'so.rt'
     '/': null
     rtS: null

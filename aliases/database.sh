@@ -57,12 +57,14 @@ db.import () {
     echo "Importing database: ${name} from file: ${file}"
 
     # Use 'command' to avoid shell function overrides, and avoid shell exit on error
-    command mysql -u root -h 127.0.0.1 "$name" < "$file"
+    command mysql -u root -h 127.0.0.1 --verbose "$name" < "$file"
     local exit_status=$?
     if [ $exit_status -ne 0 ]; then
         echo "Error: MySQL import failed with exit code $exit_status" >&2
         return $exit_status
     fi
+
+    echo "Finished importing database: ${name} from file: ${file}"
 }
 pg.import () {
     psql -f ~/Downloads/$1.sql $1 -U root -h localhost -W
@@ -147,7 +149,7 @@ pg.restore () {
     echo "Restoring database '${database}' from '${filepath}'"
     echo "Target: ${user}@${host}:${port}"
 
-    /Users/Shared/Herd/services/postgresql/16/bin/pg_restore \
+    /Users/Shared/Herd/services/postgresql/18/bin/pg_restore \
         --host="${host}" \
         --port="${port}" \
         --username="${user}" \

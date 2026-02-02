@@ -14,7 +14,8 @@ function Code.openFile(file)
 end
 
 function Code.open(path)
-    local app = hs.application.find(vscode) or hs.application.find(cursor)
+    local defaultBundle = App.getDefaultEditorBundle()
+    local app = hs.application.find(defaultBundle)
 
     if not app then
         Code.openAndMaximize(path)
@@ -36,18 +37,23 @@ function Code.open(path)
 end
 
 function Code.openAndMaximize(path)
-    local vscodeApp = hs.application.find(vscode)
-    local cursorApp = hs.application.find(cursor)
+    local defaultBundle = App.getDefaultEditorBundle()
+    local fallbackBundle = App.getFallbackEditorBundle()
+    local defaultCli = App.getDefaultEditorCli()
+    local fallbackCli = App.getFallbackEditorCli()
 
-    if cursorApp then
-        hs.execute('/usr/local/bin/cursor "' .. path .. '"')
-    elseif vscodeApp then
-        hs.execute('/usr/local/bin/code "' .. path .. '"')
+    local defaultApp = hs.application.find(defaultBundle)
+    local fallbackApp = hs.application.find(fallbackBundle)
+
+    if defaultApp then
+        hs.execute(defaultCli .. ' "' .. path .. '"')
+    elseif fallbackApp then
+        hs.execute(fallbackCli .. ' "' .. path .. '"')
     else
-        -- Try cursor first, fallback to code
-        local result = hs.execute('/usr/local/bin/cursor "' .. path .. '" 2>&1')
+        -- Try default first, fallback to secondary
+        local result = hs.execute(defaultCli .. ' "' .. path .. '" 2>&1')
         if result:match('command not found') or result:match('No such file') then
-            hs.execute('/usr/local/bin/code "' .. path .. '"')
+            hs.execute(fallbackCli .. ' "' .. path .. '"')
         end
     end
     cm.Window.maximizeAfterDelay()
@@ -73,12 +79,15 @@ function Code.ensureInitializedSnippets(callback)
 end
 
 function Code.new()
-    local app = hs.application.find(cursor) or hs.application.find(vscode)
+    local defaultBundle = App.getDefaultEditorBundle()
+    local fallbackBundle = App.getFallbackEditorBundle()
+
+    local app = hs.application.find(defaultBundle) or hs.application.find(fallbackBundle)
     if app then
         app:activate()
     else
-        if not hs.application.launchOrFocusByBundleID(cursor) then
-            hs.application.launchOrFocusByBundleID(vscode)
+        if not hs.application.launchOrFocusByBundleID(defaultBundle) then
+            hs.application.launchOrFocusByBundleID(fallbackBundle)
         end
     end
 

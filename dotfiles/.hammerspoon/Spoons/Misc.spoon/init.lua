@@ -19,9 +19,9 @@ local mouseJiggler = hs.timer.new(60, function()
     hs.mouse.absolutePosition(originalPos)
 
     -- Activate VS Code or Cursor and trigger keyboard activity
-    local vscode = hs.application.get('com.microsoft.VSCode')
+    -- local vscode = hs.application.get('com.microsoft.VSCode')
     local cursor = hs.application.get('com.todesktop.230313mzl4w4u92')
-    local editor = vscode or cursor
+    local editor = cursor
     if editor then
         editor:activate()
         hs.timer.doAfter(0.2, function()

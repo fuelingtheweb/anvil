@@ -7,12 +7,12 @@ Modal.load('OpenIn')
 
 Open.lookup = {
     tab = 'Ray.app',
-    r = 'cursor',
+    r = 'vscode',
     w = 'openInModal',
     e = 'mail',
     q = 'tinkerwell',
     t = 'warp',
-    caps_lock = 'vscode',
+    caps_lock = 'duckduckgo',
     a = 'openAppModal',
     s = 'teamMessaging',
     d = 'discord',

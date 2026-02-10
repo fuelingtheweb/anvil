@@ -6,6 +6,7 @@ log = hs.logger.new('ftw-log', 'debug')
 -- Mouse jiggler to prevent chat apps from showing as away
 local mouseJiggler = hs.timer.new(60, function()
     local originalPos = hs.mouse.absolutePosition()
+    local previousApp = hs.application.frontmostApplication()
 
     -- Move mouse in incremental steps
     for i = 1, 10 do
@@ -18,16 +19,20 @@ local mouseJiggler = hs.timer.new(60, function()
     end
     hs.mouse.absolutePosition(originalPos)
 
-    -- Activate VS Code or Cursor and trigger keyboard activity
-    -- local vscode = hs.application.get('com.microsoft.VSCode')
-    local cursor = hs.application.get('com.todesktop.230313mzl4w4u92')
-    local editor = cursor
+    -- Activate editor and trigger keyboard activity
+    local editor = hs.application.get(fn.app.getDefaultEditorBundle())
     if editor then
         editor:activate()
         hs.timer.doAfter(0.2, function()
-            hs.eventtap.keyStroke({}, 'j')
+            hs.eventtap.keyStroke({}, 'down')
             hs.timer.doAfter(0.1, function()
-                hs.eventtap.keyStroke({}, 'k')
+                hs.eventtap.keyStroke({}, 'up')
+                -- Return to previously active app
+                hs.timer.doAfter(0.1, function()
+                    if previousApp then
+                        previousApp:activate()
+                    end
+                end)
             end)
         end)
     end

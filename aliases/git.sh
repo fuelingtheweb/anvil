@@ -199,7 +199,7 @@ git.branch.new () {
 git.branch.rename () {
     local branchName=$1
     if [[ -z $branchName ]]; then
-        branchName="ntm/$(git.branch.current)"
+        branchName="nmorgan/$(git.branch.current)"
     fi
 
     git branch -m $branchName

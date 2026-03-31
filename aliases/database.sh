@@ -149,12 +149,23 @@ pg.restore () {
     echo "Restoring database '${database}' from '${filepath}'"
     echo "Target: ${user}@${host}:${port}"
 
-    /Users/Shared/Herd/services/postgresql/18/bin/pg_restore \
+    /Users/Shared/Herd/services/postgresql/18/bin/psql \
+        --host="${host}" \
+        --port="${port}" \
+        --username="${user}" \
+        --dbname=postgres \
+        --echo-queries -v ON_ERROR_STOP=1 \
+        -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '${database}' AND pid <> pg_backend_pid();" \
+        -c "DROP DATABASE IF EXISTS \"${database}\";" \
+        -c "CREATE DATABASE \"${database}\";" \
+    && /Users/Shared/Herd/services/postgresql/18/bin/pg_restore \
         --host="${host}" \
         --port="${port}" \
         --username="${user}" \
         --dbname="${database}" \
-        --clean --if-exists --no-owner --verbose \
+        --clean --if-exists \
+        --no-owner --no-acl \
+        --verbose \
         "${filepath}"
 }
 

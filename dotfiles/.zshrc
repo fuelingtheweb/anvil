@@ -25,7 +25,7 @@ export EDITOR=$CODE_EDITOR
 export FPP_EDITOR=$CODE_EDITOR
 export NNN_DE_FILE_MANAGER=open
 export CLICOLOR_FORCE='yes'
-export PATH=/Applications/Docker.app/Contents/Resources/bin:$VOLTA_HOME/bin:$ANVIL/bin:$HOME/.composer/vendor/bin:/usr/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:/Applications/Docker.app/Contents/Resources/bin:$VOLTA_HOME/bin:$ANVIL/bin:$HOME/.composer/vendor/bin:/usr/local/sbin:$PATH
 # export PATH=$VOLTA_HOME/bin:$ANVIL/bin:$HOME/.composer/vendor/bin:$HOME/.yarn/bin:$HOME/bin:/usr/local/sbin:$PATH
 source $OPTIONS/misc.sh
 source $ALIASES/index.sh

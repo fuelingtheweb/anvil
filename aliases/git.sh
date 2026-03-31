@@ -15,6 +15,7 @@ alias gba='git branch -av'
 alias gbc='git.branch.current | pbcopy'
 alias gbr='git.branch.rename'
 alias gbd='git.branch.delete'
+alias gbdm='git.branch.delete-merged'
 alias gbdf='git.branch.force-delete'
 
 alias gc='git.commit'
@@ -210,6 +211,10 @@ git.branch.delete () {
   branches=$(git branch -vv --no-color | grep -v '^* ' | grep -v '^  main' | grep -v '^  master' | grep -v '^  develop') &&
   branch=$(echo "$branches" | fzf +m) &&
   git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+git.branch.delete-merged () {
+  git branch --merged $(git.master-branch) --no-color | grep -v '^\*' | xargs git branch -d
 }
 
 git.branch.force-delete () {

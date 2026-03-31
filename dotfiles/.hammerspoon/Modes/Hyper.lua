@@ -29,7 +29,11 @@ Hyper.lookup = {
         elseif is.chrome() then
             fn.Chrome.copyUrl()
         elseif is.vivaldi() then
-            fn.Vivaldi.copyUrl()
+            if is.github() then
+                fn.Vivaldi.copyMarkdownUrl()
+            else
+                fn.Vivaldi.copyUrl()
+            end
         elseif is.codeEditor() then
             md.Yank.relativeFilePath()
         end

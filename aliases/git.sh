@@ -214,7 +214,7 @@ git.branch.delete () {
 }
 
 git.branch.delete-merged () {
-  git branch --merged $(git.master-branch) --no-color | grep -v '^\*' | xargs git branch -d
+  git branch --merged $(git.master-branch) --no-color | grep -v '^\*' | grep -v '^  main$' | grep -v '^  master$' | grep -v '^  develop$' | xargs git branch -d
 }
 
 git.branch.force-delete () {
@@ -249,10 +249,12 @@ git.log () {
 }
 
 git.master-branch () {
-    if [[ $(git.branch.exists 'main') == 1 && $(git.branch.exists 'master') == 0 ]]; then
+    if [[ $(git.branch.exists 'main') == 1 ]]; then
         echo 'main'
-    else
+    elif [[ $(git.branch.exists 'master') == 1 ]]; then
         echo 'master'
+    else
+        git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'
     fi
 }
 

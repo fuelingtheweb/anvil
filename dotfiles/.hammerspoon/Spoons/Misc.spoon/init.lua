@@ -147,8 +147,13 @@ fn.each(espansoSnippets, function (snippet, trigger)
     generatedAbbreviations = generatedAbbreviations .. "\n" .. '  - trigger: " ,' .. trigger .. '"' .. "\n" .. '    replace: " ' .. string.lower(snippet) .. '"'
 end)
 
-io.open(home_path .. '/Dev/Anvil/custom/espanso/match/generated-abbreviations.yml', 'w')
-    :write(generatedAbbreviations)
-    :close()
+local filePath = home_path .. '/Dev/Anvil/custom/espanso/match/generated-abbreviations.yml'
+local file, err = io.open(filePath, 'w')
+if file then
+    file:write(generatedAbbreviations)
+    file:close()
+else
+    log.e('Failed to open ' .. filePath .. ': ' .. (err or 'unknown error'))
+end
 
 return obj

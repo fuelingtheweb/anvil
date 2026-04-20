@@ -144,6 +144,8 @@ function Hyper.open()
         ks.key('g')
     elseif is.In(anybox) then
         ks.cmd('p')
+    elseif is.In(warp) then
+        ks.shiftCmd('p')
     elseif is.In(discord, slack) then
         ks.cmd('k')
     elseif is.In(spotify) then

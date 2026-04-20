@@ -989,6 +989,7 @@
                 [:b [:!C0] [:tableplus]]
                 [:b [:!TCs] [:vivaldi]]
                 [:b [:menu "Microsoft Outlook" "Sidebar" "View"] [:outlook]]
+                [:b [:!Cb] [:warp]]
                 [:b [:!Cbackslash] []]
                 [:y [:hsk "Window" "y"]]
                 [:u [:hsk "Window" "u"]]

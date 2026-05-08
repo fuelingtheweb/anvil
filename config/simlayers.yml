@@ -9,12 +9,14 @@
         ide: 'sc.p'
         obsidian: 'c.p'
         warp: 'c.p'
+        solo: 'c.k'
         default: 'alfred: search, com.tedwise.menubarsearch'
     ']': '' # tell me this key is open
     h: # Previous Page
         discord: 'c.k rtn'
         raycast: 'esc'
         spotify: 'oc.lt'
+        solo: 'c.lt'
         terminal: '"cdp" ++ rtn'
         default: 'c.['
     j:
@@ -25,6 +27,7 @@
     rtn: caps
     n:
         ide: 'oc.n'
+        solo: 'c.t'
         default: 'sc.n'
     m:
     ',':

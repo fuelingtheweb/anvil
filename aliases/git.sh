@@ -86,12 +86,14 @@ alias gps='git push'
 alias gpsn='git push --no-verify'
 alias gpst='git push origin --tags'
 alias gpsu='git.push-set-upstream'
+alias gpsf='git.push-force'
 alias gpl='git pull'
 
 alias gpr='git.pull-request'
 
 alias pr='gh pr'
 alias prc='gh pr checkout'
+alias prbb='gh pr comment --body "bugbot run"'
 alias pro='gh pr view --web'
 
 alias gr='git.rebase'
@@ -290,8 +292,73 @@ git.pull-request () {
     fi
 }
 
+# Next patch from latest SemVer tag, published with GitHub-generated release notes. Optional: target ref (branch or SHA) as $1
+git.release.patch () {
+    git.is-in-repo || return 1
+
+    local last t prefix ver major minor patch new target
+    target=$1
+    last=
+    while IFS= read -r t; do
+        [[ -z $t ]] && continue
+        if [[ $t =~ ^v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            last=$t
+            break
+        fi
+    done < <(git tag --sort=-v:refname)
+
+    if [[ -z $last ]]; then
+        new=v0.0.1
+        echo "No semver tag found; using ${new}."
+    else
+        if [[ $last == v* ]]; then
+            prefix=v
+            ver=${last#v}
+        else
+            prefix=
+            ver=$last
+        fi
+        IFS=. read -r major minor patch <<< "$ver" || return 1
+        new="${prefix}${major}.${minor}.$((patch + 1))"
+    fi
+
+    if [[ -n $target ]]; then
+        echo "gh release create ${new} (generated notes) --target ${target}"
+        gh release create "$new" --generate-notes --target "$target" --fail-on-no-commits
+    else
+        echo "gh release create ${new} (generated notes)"
+        gh release create "$new" --generate-notes --fail-on-no-commits
+    fi
+}
+
+# Set docker-common.yml line 2 image tag to the newest GitHub release tag (includes drafts). Uses gh in the current repo. Optional: path to YAML (default: $git_root/docker-common.yml)
+git.docker-common.sync-tag-from-gh () {
+    git.is-in-repo || return 1
+
+    local root file tag
+    root=$(git rev-parse --show-toplevel)
+    file=${1:-"$root/docker-common.yml"}
+    tag=$(gh release list --limit 1 --json tagName --jq '.[0].tagName // empty' 2>/dev/null)
+
+    if [[ -z $tag ]]; then
+        echo 'Could not resolve latest release tag (no releases, or gh failed).' >&2
+        return 1
+    fi
+    if [[ ! -f $file ]]; then
+        echo "File not found: $file" >&2
+        return 1
+    fi
+
+    sed -i '' "2s|:v[0-9][0-9A-Za-z.-]*|:${tag}|" "$file"
+    echo "Updated line 2 of $file to tag ${tag}"
+}
+
 git.push-set-upstream () {
     git push --set-upstream origin $(git.branch.current)
+}
+
+git.push-force () {
+    git push origin $(git.branch.current) --force-with-lease
 }
 
 git.rebase () {

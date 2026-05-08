@@ -29,6 +29,7 @@ App.bundles = {
     vscode = 'com.microsoft.VSCode',
     cursor = 'com.todesktop.230313mzl4w4u92',
     warp = 'dev.warp.Warp-Stable',
+    solo = 'com.soloterm.solo',
     windsurf = 'com.exafunction.windsurf',
     youtubeMusic = 'com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod',
     zoom = 'us.zoom.xos',

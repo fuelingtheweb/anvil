@@ -4,6 +4,8 @@ Tab.__index = Tab
 function Tab.previous()
     if is.In(tableplus) then
         ks.cmd('[')
+    elseif is.In(solo) then
+        ks.cmd('down')
     elseif is.In(discord) then
         -- Move to next conversation / channel
         ks.alt('down')
@@ -19,6 +21,8 @@ end
 function Tab.next()
     if is.In(tableplus) then
         ks.cmd(']')
+    elseif is.In(solo) then
+        ks.cmd('up')
     elseif is.In(discord) then
         -- Move to previous conversation / channel
         ks.alt('up')

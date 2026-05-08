@@ -25,6 +25,7 @@ class App
         'vscode' => 'com.microsoft.VSCode',
         'cursor' => 'com.todesktop.230313mzl4w4u92',
         'warp' => 'dev.warp.Warp-Stable',
+        'solo' => 'com.soloterm.solo',
         'zoom' => 'us.zoom.xos',
         'teams' => 'com.microsoft.teams2',
         'outlook' => 'com.microsoft.Outlook',

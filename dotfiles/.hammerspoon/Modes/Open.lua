@@ -6,7 +6,7 @@ Modal.loadCustom('Bookmarks.Index')
 Modal.load('OpenIn')
 
 Open.lookup = {
-    tab = 'claude',
+    tab = 'cursor',
     r = 'vscode',
     w = 'openInModal',
     e = 'mail',
@@ -25,7 +25,8 @@ Open.lookup = {
     v = 'tableplus',
     -- b = 'openBookmarksModal',
     b = 'outlook',
-    spacebar = 'miniCalendar',
+    -- spacebar = 'miniCalendar',
+    spacebar = 'solo',
 }
 
 Modal.add({

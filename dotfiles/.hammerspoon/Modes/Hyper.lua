@@ -52,6 +52,8 @@ Hyper.lookup = {
             ks.cmd('2')
         elseif is.terminal() then
             ks.type('cd ')
+        elseif is.In(solo) then
+            ks.cmd('p')
         elseif is.vivaldi() then
             ks.cmd('e')
         else
@@ -90,6 +92,8 @@ Hyper.lookup = {
             ks.cmd('6')
         elseif is.In(spotify) then
             ks.altCmd('right')
+        elseif is.In(solo) then
+            ks.cmd('right')
         elseif is.warp() then
             -- Autocomplete to the end of the line
             ks.ctrl('f')
@@ -146,6 +150,8 @@ function Hyper.open()
         ks.cmd('p')
     elseif is.In(warp) then
         ks.shiftCmd('p')
+    elseif is.In(solo) then
+        ks.cmd('e')
     elseif is.In(discord, slack) then
         ks.cmd('k')
     elseif is.In(spotify) then

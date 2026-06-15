@@ -169,6 +169,8 @@ pg.restore () {
         "${filepath}"
 }
 
+alias pg_dump='/Users/Shared/Herd/services/postgresql/18/bin/pg_dump'
+
 pg.export () {
     # $1 = db name
     pg_dump -U nathan -W -F t $1 > $HOME/Downloads/$1.tar

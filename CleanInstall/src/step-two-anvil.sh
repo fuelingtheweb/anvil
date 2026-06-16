@@ -57,12 +57,18 @@ $ANVIL=$HOME/Dev/Anvil
 ln -sf $HOME/Dev/Anvil/karabiner/karabiner.edn $HOME/.config/karabiner.edn # *
 trash $HOME/.warprc
 ln -s $ANVIL/custom/dotfiles/.warprc $HOME/.warprc
-ln -s $ANVIL/custom/espanso $HOME/Library/Preferences/espanso
+
+espansoPath="$HOME/Library/Application Support/espanso"
+if [ -d "$espansoPath" ]; then
+    trash "$espansoPath"
+fi
+ln -sf $ANVIL/custom/espanso "$espansoPath"
+
 cp $ANVIL/options/fonts/Droid+Sans+Mono+Awesome.ttf $HOME/Library/Fonts/Droid+Sans+Mono+Awesome.ttf
 touch $HOME/.hushlogin
 
-espanso register
-espanso start
+espanso service register
+espanso service start
 
 # needs to happen after opening karabiner elements and ensuring "Default" profile is available
 goku

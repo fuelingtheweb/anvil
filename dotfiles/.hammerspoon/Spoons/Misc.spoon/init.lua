@@ -3,46 +3,131 @@ obj.__index = obj
 
 log = hs.logger.new('ftw-log', 'debug')
 
--- Keep Awake: prevents the machine from registering as idle
-local keepAwake = hs.timer.new(60, function()
+-- Keep Awake: periodically fakes activity so chat apps don't show "away". It
+-- only fires after a stretch of genuine inactivity, and while it briefly borrows
+-- focus it swallows real keystrokes so nothing you type lands in the editor.
+local KEEP_AWAKE_INTERVAL = 60 -- base seconds between cycles (~2.5 min)
+local KEEP_AWAKE_JITTER = 20    -- +/- random seconds, so the cadence isn't robotic
+local ACTIVE_WITHIN = 60        -- skip a cycle if you've touched the machine this recently
+local GUARD_TIMEOUT = 1.5       -- failsafe cap (s) on the keystroke guard
+local KA_MARKER = 0x6B61        -- tag marking our own synthetic key events ('ka')
+
+math.randomseed(os.time())
+
+local keepAwakeEnabled = false
+local keepAwakeTimer = nil
+local guardActive = false
+local guardWatchdog = nil
+
+-- While the routine borrows focus, drop *real* keystrokes so stray characters
+-- never land in the editor. Our synthetic keys carry KA_MARKER and pass through.
+local keyGuard = hs.eventtap.new(
+    {hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp},
+    function(event)
+        if not guardActive then return false end
+        if event:getProperty(hs.eventtap.event.properties.eventSourceUserData) == KA_MARKER then
+            return false
+        end
+        return true -- swallow the real keystroke
+    end
+)
+
+local function stopGuard()
+    guardActive = false
+    keyGuard:stop()
+    if guardWatchdog then
+        guardWatchdog:stop()
+        guardWatchdog = nil
+    end
+end
+
+local function startGuard()
+    guardActive = true
+    keyGuard:start()
+    if guardWatchdog then guardWatchdog:stop() end
+    -- Never leave the guard on if the doAfter chain breaks mid-flight.
+    guardWatchdog = hs.timer.doAfter(GUARD_TIMEOUT, stopGuard)
+end
+
+-- Post a tagged key press/release so the guard recognises it as ours.
+local function tappedKey(key)
+    for _, isDown in ipairs({true, false}) do
+        local event = hs.eventtap.event.newKeyEvent({}, key, isDown)
+        event:setProperty(hs.eventtap.event.properties.eventSourceUserData, KA_MARKER)
+        event:post()
+    end
+end
+
+local function runKeepAwake()
+    -- You're clearly present if you've used the machine recently; skip this cycle.
+    if hs.host.idleTime() < ACTIVE_WITHIN then return end
+
     local originalPos = hs.mouse.absolutePosition()
     local previousApp = hs.application.frontmostApplication()
 
-    -- Nudge the cursor a single pixel and restore it
+    -- Nudge the cursor a single pixel and restore it.
     hs.mouse.absolutePosition({x = originalPos.x + 1, y = originalPos.y})
     hs.timer.usleep(50000) -- 50ms so the movement registers
     hs.mouse.absolutePosition(originalPos)
 
-    -- Activate editor and trigger keyboard activity
+    -- Activate the editor and tap a no-op key (down then up) to register activity.
     local editor = hs.application.get(fn.app.getDefaultEditorBundle())
-    if editor then
-        editor:activate()
-        hs.timer.doAfter(0.2, function()
-            hs.eventtap.keyStroke({}, 'down')
+    if not editor then return end
+
+    startGuard()
+    editor:activate()
+    hs.timer.doAfter(0.2, function()
+        tappedKey('down')
+        hs.timer.doAfter(0.1, function()
+            tappedKey('up')
             hs.timer.doAfter(0.1, function()
-                hs.eventtap.keyStroke({}, 'up')
-                -- Return to previously active app
-                hs.timer.doAfter(0.1, function()
-                    if previousApp then
-                        previousApp:activate()
-                    end
-                end)
+                if previousApp then previousApp:activate() end
+                stopGuard()
             end)
         end)
-    end
-end)
+    end)
+end
+
+local function scheduleNext()
+    local interval = KEEP_AWAKE_INTERVAL + math.random(-KEEP_AWAKE_JITTER, KEEP_AWAKE_JITTER)
+    keepAwakeTimer = hs.timer.doAfter(interval, function()
+        runKeepAwake()
+        if keepAwakeEnabled then scheduleNext() end
+    end)
+end
+
+-- Discreet menubar dot: filled when on, hollow when off. Click to toggle.
+local keepAwakeMenu = hs.menubar.new()
+
+local function updateKeepAwakeMenu()
+    if not keepAwakeMenu then return end
+    keepAwakeMenu:setTitle(keepAwakeEnabled and '●' or '○')
+    keepAwakeMenu:setTooltip('Keep Awake: ' .. (keepAwakeEnabled and 'on' or 'off'))
+end
 
 local function toggleKeepAwake()
-    if keepAwake:running() then
-        keepAwake:stop()
+    if keepAwakeEnabled then
+        keepAwakeEnabled = false
+        if keepAwakeTimer then
+            keepAwakeTimer:stop()
+            keepAwakeTimer = nil
+        end
+        stopGuard()
         hs.notify.new({title = 'Keep Awake', informativeText = 'Disabled'}):send()
     else
-        keepAwake:start()
+        keepAwakeEnabled = true
+        scheduleNext()
         hs.notify.new({title = 'Keep Awake', informativeText = 'Enabled'}):send()
     end
+    updateKeepAwakeMenu()
 end
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', toggleKeepAwake)
+
+if keepAwakeMenu then
+    keepAwakeMenu:setClickCallback(toggleKeepAwake)
+    updateKeepAwakeMenu()
+end
 
 hs.urlevent.bind('misc-optionPressedOnce', function()
     if is.In(spotify) then

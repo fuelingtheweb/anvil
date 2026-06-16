@@ -3,20 +3,14 @@ obj.__index = obj
 
 log = hs.logger.new('ftw-log', 'debug')
 
--- Mouse jiggler to prevent chat apps from showing as away
-local mouseJiggler = hs.timer.new(60, function()
+-- Keep Awake: prevents the machine from registering as idle
+local keepAwake = hs.timer.new(60, function()
     local originalPos = hs.mouse.absolutePosition()
     local previousApp = hs.application.frontmostApplication()
 
-    -- Move mouse in incremental steps
-    for i = 1, 10 do
-        hs.mouse.absolutePosition({x = originalPos.x + i * 5, y = originalPos.y})
-        hs.timer.usleep(50000) -- 50ms between steps
-    end
-    for i = 10, 1, -1 do
-        hs.mouse.absolutePosition({x = originalPos.x + i * 5, y = originalPos.y})
-        hs.timer.usleep(50000)
-    end
+    -- Nudge the cursor a single pixel and restore it
+    hs.mouse.absolutePosition({x = originalPos.x + 1, y = originalPos.y})
+    hs.timer.usleep(50000) -- 50ms so the movement registers
     hs.mouse.absolutePosition(originalPos)
 
     -- Activate editor and trigger keyboard activity
@@ -38,17 +32,17 @@ local mouseJiggler = hs.timer.new(60, function()
     end
 end)
 
-local function toggleMouseJiggler()
-    if mouseJiggler:running() then
-        mouseJiggler:stop()
-        hs.notify.new({title = 'Mouse Jiggler', informativeText = 'Disabled'}):send()
+local function toggleKeepAwake()
+    if keepAwake:running() then
+        keepAwake:stop()
+        hs.notify.new({title = 'Keep Awake', informativeText = 'Disabled'}):send()
     else
-        mouseJiggler:start()
-        hs.notify.new({title = 'Mouse Jiggler', informativeText = 'Enabled'}):send()
+        keepAwake:start()
+        hs.notify.new({title = 'Keep Awake', informativeText = 'Enabled'}):send()
     end
 end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', toggleMouseJiggler)
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', toggleKeepAwake)
 
 hs.urlevent.bind('misc-optionPressedOnce', function()
     if is.In(spotify) then

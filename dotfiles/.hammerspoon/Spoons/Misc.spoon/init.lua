@@ -6,7 +6,7 @@ log = hs.logger.new('ftw-log', 'debug')
 -- Keep Awake: periodically fakes activity so chat apps don't show "away". It
 -- only fires after a stretch of genuine inactivity, and while it briefly borrows
 -- focus it swallows real keystrokes so nothing you type lands in the editor.
-local KEEP_AWAKE_INTERVAL = 60 -- base seconds between cycles (~2.5 min)
+local KEEP_AWAKE_INTERVAL = 60 -- base seconds between cycles (~1 min)
 local KEEP_AWAKE_JITTER = 20    -- +/- random seconds, so the cadence isn't robotic
 local ACTIVE_WITHIN = 60        -- skip a cycle if you've touched the machine this recently
 local GUARD_TIMEOUT = 1.5       -- failsafe cap (s) on the keystroke guard
@@ -96,12 +96,17 @@ local function scheduleNext()
     end)
 end
 
--- Discreet menubar dot: filled when on, hollow when off. Click to toggle.
-local keepAwakeMenu = hs.menubar.new()
+-- Discreet menubar dot: filled teal when on, hollow when off. Click to toggle.
+-- The autosave name lets macOS remember where you ⌘-drag it across reloads.
+local keepAwakeMenu = hs.menubar.new(true, 'keepAwake')
 
 local function updateKeepAwakeMenu()
     if not keepAwakeMenu then return end
-    keepAwakeMenu:setTitle(keepAwakeEnabled and '●' or '○')
+    if keepAwakeEnabled then
+        keepAwakeMenu:setTitle(hs.styledtext.new('●', {color = {hex = '#367f71'}}))
+    else
+        keepAwakeMenu:setTitle('○')
+    end
     keepAwakeMenu:setTooltip('Keep Awake: ' .. (keepAwakeEnabled and 'on' or 'off'))
 end
 
@@ -113,11 +118,9 @@ local function toggleKeepAwake()
             keepAwakeTimer = nil
         end
         stopGuard()
-        hs.notify.new({title = 'Keep Awake', informativeText = 'Disabled'}):send()
     else
         keepAwakeEnabled = true
         scheduleNext()
-        hs.notify.new({title = 'Keep Awake', informativeText = 'Enabled'}):send()
     end
     updateKeepAwakeMenu()
 end

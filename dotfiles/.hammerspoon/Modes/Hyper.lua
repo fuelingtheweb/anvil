@@ -93,7 +93,7 @@ Hyper.lookup = {
         elseif is.In(spotify) then
             ks.altCmd('right')
         elseif is.In(solo) then
-            ks.cmd('right')
+            ks.altCmd('right')
         elseif is.warp() then
             -- Autocomplete to the end of the line
             ks.ctrl('f')

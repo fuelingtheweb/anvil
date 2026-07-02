@@ -55,6 +55,15 @@ trash $HOME/.config/karabiner.edn
 mkdir $HOME/.config # *
 $ANVIL=$HOME/Dev/Anvil
 ln -sf $HOME/Dev/Anvil/karabiner/karabiner.edn $HOME/.config/karabiner.edn # *
+
+# Claude Code status line (ccstatusline). Installed globally via npm so Volta
+# shims it onto PATH at a stable path -- avoids pinning to a hash-named npx
+# cache dir. dotfiles/.claude/settings.json has the matching statusLine block,
+# but ~/.claude/settings.json isn't symlinked (it diverges per machine), so
+# merge that block into it by hand.
+npm install -g ccstatusline
+trash $HOME/.config/ccstatusline
+ln -sf $ANVIL/dotfiles/.config/ccstatusline $HOME/.config/ccstatusline
 trash $HOME/.warprc
 ln -s $ANVIL/custom/dotfiles/.warprc $HOME/.warprc
 

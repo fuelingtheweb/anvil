@@ -147,7 +147,7 @@
                 [:h [:!Ck :return_or_enter] [:discord]]
                 [:h [:escape] [:raycast]]
                 [:h [:!OCleft_arrow] [:spotify]]
-                [:h [:!Cleft_arrow] [:solo]]
+                [:h [:!OCleft_arrow] [:solo]]
                 [:h [:c :d :p :return_or_enter] [:terminal]]
                 [:h [:!Copen_bracket] []]
                 [:j [:hsk "Hyper" "j"]]

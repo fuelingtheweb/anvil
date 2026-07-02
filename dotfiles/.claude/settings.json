@@ -51,5 +51,11 @@
     "enabledMcpjsonServers": [
         "laravel-boost",
         "herd"
-    ]
+    ],
+    "statusLine": {
+        "type": "command",
+        "command": "ccstatusline",
+        "padding": 0,
+        "refreshInterval": 10
+    }
 }

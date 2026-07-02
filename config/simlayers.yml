@@ -16,7 +16,7 @@
         discord: 'c.k rtn'
         raycast: 'esc'
         spotify: 'oc.lt'
-        solo: 'c.lt'
+        solo: 'oc.lt'
         terminal: '"cdp" ++ rtn'
         default: 'c.['
     j:

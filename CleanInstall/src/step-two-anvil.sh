@@ -63,7 +63,7 @@ ln -sf $HOME/Dev/Anvil/karabiner/karabiner.edn $HOME/.config/karabiner.edn # *
 # merge that block into it by hand.
 npm install -g ccstatusline
 trash $HOME/.config/ccstatusline
-ln -sf $ANVIL/dotfiles/.config/ccstatusline $HOME/.config/ccstatusline
+ln -sf $ANVIL/dotfiles/.config/ccstatusline/settings.json $HOME/.config/ccstatusline/settings.json
 trash $HOME/.warprc
 ln -s $ANVIL/custom/dotfiles/.warprc $HOME/.warprc
 

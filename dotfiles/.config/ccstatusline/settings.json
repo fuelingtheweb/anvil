@@ -60,11 +60,11 @@
         "id": "5",
         "type": "git-branch",
         "color": "brightBlack",
+        "rawValue": true,
         "metadata": {
           "linkToRepo": "true",
           "hideNoGit": "true"
-        },
-        "rawValue": true
+        }
       },
       {
         "id": "8430ec3e-9199-4e8a-bfbb-94d02c29b5f5",
@@ -72,13 +72,18 @@
         "character": " "
       },
       {
-        "id": "a665021a-708b-4210-991d-65a54e43ce51",
-        "type": "current-working-dir",
+        "id": "8ced46b7-dd1d-486d-8f13-0edb9b9d5d22",
+        "type": "reset-timer",
         "color": "brightBlack",
         "rawValue": true,
         "metadata": {
-          "fishStyle": "true"
-        }
+          "display": "time",
+          "compact": "true",
+          "absolute": "true",
+          "timezone": "local",
+          "hour12": "true"
+        },
+        "bold": true
       }
     ],
     [
@@ -114,7 +119,9 @@
         "bold": true,
         "rawValue": true,
         "metadata": {
-          "display": "slider"
+          "display": "slider",
+          "cursor": "true",
+          "invert": "false"
         }
       },
       {
@@ -126,11 +133,11 @@
         "id": "29a4d319-2935-4ae7-a1af-65f8983601b3",
         "type": "weekly-usage",
         "color": "brightBlack",
+        "bold": true,
         "rawValue": true,
         "metadata": {
           "display": "slider"
-        },
-        "bold": true
+        }
       }
     ]
   ],

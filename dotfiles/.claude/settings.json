@@ -7,26 +7,15 @@
     "permissions": {
         "defaultMode": "acceptEdits",
         "allow": [
-            "Bash(./vendor/bin:*)",
-            "Bash(cat:*)",
-            "Bash(composer:*)",
-            "Bash(curl:*)",
-            "Bash(docker-compose:*)",
-            "Bash(find:*)",
-            "Bash(git:*)",
-            "Bash(grep:*)",
-            "Bash(herd:*)",
-            "Bash(log:*)",
-            "Bash(ls:*)",
-            "Bash(npm:*)",
-            "Bash(npx:*)",
-            "Bash(pgrep:*)",
-            "Bash(php:*)",
-            "Bash(pkill:*)",
-            "Bash(python3:*)",
-            "Bash(tail:*)",
-            "Bash(vendor/bin:*)",
-            "Bash(xargs:*)",
+            "Bash(*)",
+            "Task(*)",
+            "Skill(*)",
+            "WebFetch(domain:livewire.laravel.com)",
+            "WebFetch(domain:alpinejs.dev)",
+            "WebFetch(domain:nativephp.com)",
+            "WebFetch(domain:github.com)",
+            "WebFetch(domain:raw.githubusercontent.com)",
+            "WebSearch",
             "mcp__herd__get_all_php_versions",
             "mcp__herd__get_all_sites",
             "mcp__herd__install_php_version",
@@ -34,6 +23,7 @@
             "mcp__herd__start_or_stop_service",
             "mcp__laravel-boost__application-info",
             "mcp__laravel-boost__browser-logs",
+            "mcp__laravel-boost__database-connections",
             "mcp__laravel-boost__database-query",
             "mcp__laravel-boost__database-schema",
             "mcp__laravel-boost__get-absolute-url",
@@ -44,7 +34,10 @@
             "mcp__laravel-boost__list-routes",
             "mcp__laravel-boost__read-log-entries",
             "mcp__laravel-boost__search-docs",
-            "mcp__laravel-boost__tinker"
+            "mcp__laravel-boost__tinker",
+            "mcp__plugin_telegram_telegram__edit_message",
+            "mcp__plugin_telegram_telegram__react",
+            "mcp__plugin_telegram_telegram__reply"
         ]
     },
     "enableAllProjectMcpServers": true,
@@ -57,5 +50,36 @@
         "command": "ccstatusline",
         "padding": 0,
         "refreshInterval": 10
-    }
+    },
+    "hooks": {
+        "Notification": [
+            {
+                "matcher": "permission_prompt|idle_prompt|elicitation_dialog",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+                    }
+                ]
+            }
+        ]
+    },
+    "enabledPlugins": {
+        "telegram@claude-plugins-official": true,
+        "warp@claude-code-warp": true,
+        "security-guidance@claude-plugins-official": true
+    },
+    "extraKnownMarketplaces": {
+        "claude-code-warp": {
+            "source": {
+                "source": "github",
+                "repo": "warpdotdev/claude-code-warp"
+            }
+        }
+    },
+    "effortLevel": "xhigh",
+    "tui": "default",
+    "skipWorkflowUsageWarning": true,
+    "inputNeededNotifEnabled": true,
+    "agentPushNotifEnabled": true
 }

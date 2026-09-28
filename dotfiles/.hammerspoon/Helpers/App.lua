@@ -21,6 +21,7 @@ App.bundles = {
     rayapp = 'be.spatie.ray',
     sideNotes = 'com.apptorium.SideNotes-setapp',
     slack = 'com.tinyspeck.slackmacgap',
+    musicManager = 'com.tidypoint.MusicManager',
     spotify = 'com.spotify.client',
     tableplus = 'com.tinyapp.TablePlus-setapp',
     tables = 'com.tidypoint.Tables',

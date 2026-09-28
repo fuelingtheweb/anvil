@@ -64,8 +64,9 @@ function ExtendedCommand.toggleUseIgnoreFiles()
     }):send()
 end
 
-function ExtendedCommand.cleanshot()
-    ks.shiftCmd('5')
+-- Capture's Capture Area (⌃⇧4).
+function ExtendedCommand.captureArea()
+    ks.shiftCtrl('4')
 end
 
 function ExtendedCommand.obsidian()

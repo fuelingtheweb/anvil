@@ -357,8 +357,8 @@
     caps: # Open Obsidian
         default: 'app: obsidian'
     a:
-    s: # Cleanshot
-        default: 'sc.5'
+    s: # Capture: area (Capture's default ⌃⇧4)
+        default: 'ts.4'
     d:
     f: # Reveal in sidebar
         default: 'sc.\'

@@ -714,7 +714,7 @@
                 [:t [:hsk "ExtendedCommand" "t"]]
                 [:caps_lock [:app "md.obsidian"] []]
                 [:a [:hsk "ExtendedCommand" "a"]]
-                [:s [:!SC5] []]
+                [:s [:!TS4] []]
                 [:d [:hsk "ExtendedCommand" "d"]]
                 [:f [:!SCbackslash] []]
                 [:g [:hsk "ExtendedCommand" "g"]]

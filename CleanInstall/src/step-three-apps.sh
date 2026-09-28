@@ -10,6 +10,16 @@ pause
 info 'Install and setup Setapp.'
 pause
 
+info 'Install the tidypoint apps (Tray, Capture, Tables, MusicManager, PhotoManager).'
+gh auth status > /dev/null 2>&1 || gh auth login
+gh repo clone fuelingtheweb/tidypoint-releases $HOME/.tidypoint-releases
+$HOME/.tidypoint-releases/install.sh --daily-check
+tidy-update all
+info '- Capture: grant Screen Recording when asked; Settings -> Launch at login.'
+info '- Tray: grant Camera when the mirror opens; Settings -> Launch at login.'
+info '- Tables: Settings -> tables command -> Install.'
+pause
+
 info 'Install Mac Apps.'
 info 'Sign into the app store to attempt automatic install.'
 open -a 'App Store.app'

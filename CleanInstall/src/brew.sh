@@ -39,6 +39,8 @@ formulas=(
     composer # *
     yqrashawn/goku/goku # *
     mackup
+    mysql-client # * Tables (backups, restores)
+    libpq # * Tables (Postgres tools)
     volta # *
     zsh # *
 )

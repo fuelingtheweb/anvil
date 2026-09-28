@@ -20,7 +20,7 @@ Secondary.lookup = {
     x = fn.Alfred.emptyTrash,
     c = nil,
     v = 'searchBartender',
-    b = 'showBartender',
+    b = 'toggleTuck',
     spacebar = nil,
 }
 
@@ -32,8 +32,9 @@ function Secondary.dismissAppNotifications()
     ks.alt('w')
 end
 
-function Secondary.showBartender()
-    ks.shiftCtrlAlt('b')
+-- Shows or hides the menu-bar icons Tuck hides (Tuck's default shortcut).
+function Secondary.toggleTuck()
+    ks.ctrlAlt('b')
 end
 
 function Secondary.searchBartender()

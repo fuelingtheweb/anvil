@@ -8,7 +8,7 @@ Modal.add({
         r = {name = 'VS Code', method = 'inCode'},
         c = {name = 'Git Gui', method = 'inGitGui'},
         g = {name = 'Chrome', method = 'inChrome'},
-        v = {name = 'TablePlus', method = 'inTablePlus'},
+        v = {name = 'Tables', method = 'inTables'},
         x = {name = 'Finder', method = 'inFinder'},
         w = {name = 'Tinkerwell', method = 'inTinkerwell'},
     },
@@ -72,9 +72,11 @@ function OpenIn.inChrome()
     end
 end
 
-function OpenIn.inTablePlus()
+function OpenIn.inTables()
+    -- The project's database, else just Tables (⌘P below then opens its
+    -- connection palette).
     if not ProjectManager:openDatabaseForCurrent() then
-        fn.Alfred.run('tableplus', 'com.chrisrenga.tableplus')
+        fn.Tables.open()
     end
 
     hs.timer.doAfter(0.5, function() md.Hyper.open() end)

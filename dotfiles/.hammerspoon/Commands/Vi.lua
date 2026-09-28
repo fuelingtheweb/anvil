@@ -6,7 +6,7 @@ function Vi.moveToTopOfPage()
         ks.sequence({'g', 'g'})
     elseif is.finder() then
         ks.alt('up')
-    elseif is.In(tableplus) then
+    elseif is.In(tables, tableplus) then
         cm.Window.enableScrolling()
         hs.timer.doAfter(0.2, function()
             ks.key('g').key('g').escape()
@@ -19,7 +19,7 @@ end
 function Vi.moveToBottomOfPage()
     if cm.Window.scrolling then
         ks.shift('g')
-    elseif is.In(slack, tableplus) then
+    elseif is.In(slack, tables, tableplus) then
         cm.Window.enableScrolling()
         hs.timer.doAfter(0.2, function()
             ks.shift('g').escape()

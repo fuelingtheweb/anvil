@@ -158,6 +158,8 @@ function Window.toggleSidebar()
         ks.ctrlCmd('s')
     elseif is.In(slack) then
         ks.shiftCmd('d')
+    elseif is.In(tables) then
+        ks.ctrlCmd('s')
     elseif is.In(tableplus) then
         ks.cmd('0')
     else

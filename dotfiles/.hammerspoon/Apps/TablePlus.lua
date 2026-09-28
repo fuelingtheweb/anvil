@@ -1,9 +1,8 @@
 local TablePlus = {}
 TablePlus.__index = TablePlus
 
-function TablePlus.open(url)
-    hs.execute('open "' .. url .. '"')
-end
+-- Transitional: databases now open in Tables (Apps/Tables.lua); this only
+-- keeps in-app TablePlus shortcuts working until it's dropped entirely.
 
 function TablePlus.closeWindow()
     hs.osascript.applescript([[

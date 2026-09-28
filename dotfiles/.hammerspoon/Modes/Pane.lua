@@ -51,6 +51,8 @@ function Pane.focusPrevious()
         ks.super('p').super('k')
     elseif is.In(transmit) then
         ks.altCmd('left')
+    elseif is.In(tables) then
+        -- No panes to move between (and ⌘[ there is Back).
     elseif is.In(tableplus) then
         ks.altCmd('[')
     else
@@ -65,6 +67,8 @@ function Pane.focusNext()
         ks.super('p').super('j')
     elseif is.In(transmit) then
         ks.altCmd('right')
+    elseif is.In(tables) then
+        -- No panes to move between (and ⌘] would be taken as navigation).
     elseif is.In(tableplus) then
         ks.altCmd(']')
     else

@@ -22,6 +22,7 @@ fn = {
     SideNotes = require('Apps.SideNotes'),
     Slack = require('Apps.Slack'),
     TablePlus = require('Apps.TablePlus'),
+    Tables = require('Apps.Tables'),
 }
 
 fn.each = fn.table.each

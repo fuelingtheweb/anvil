@@ -23,6 +23,7 @@ App.bundles = {
     slack = 'com.tinyspeck.slackmacgap',
     spotify = 'com.spotify.client',
     tableplus = 'com.tinyapp.TablePlus-setapp',
+    tables = 'com.tidypoint.Tables',
     tinkerwell = 'de.beyondco.tinkerwell',
     transmit = 'com.panic.Transmit',
     vivaldi = 'com.vivaldi.Vivaldi',

@@ -20,6 +20,7 @@ class App
         'slack' => 'com.tinyspeck.slackmacgap',
         'spotify' => 'com.spotify.client',
         'tableplus' => 'com.tinyapp.TablePlus-setapp',
+        'tables' => 'com.tidypoint.Tables',
         'tinkerwell' => 'de.beyondco.tinkerwell',
         'vivaldi' => 'com.vivaldi.Vivaldi',
         'vscode' => 'com.microsoft.VSCode',

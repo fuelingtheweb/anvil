@@ -187,22 +187,22 @@ function ProjectManager.openDatabaseForCurrent()
         -- if str.contains('://root', site.attributes.database) then
         --     if type(site.attributes.database) == 'table' then
         --         name = site.attributes.path:gsub('Dev/', '')
-        --         fn.TablePlus.open('mysql://root@127.0.0.1/' .. site.attributes.database.name .. '?statusColor=686B6F&enviroment=local&name=' .. name)
+        --         fn.Tables.open('mysql://root@127.0.0.1/' .. site.attributes.database.name .. '?statusColor=686B6F&enviroment=local&name=' .. name)
         --     else
-        --         fn.TablePlus.open(site.attributes.database)
+        --         fn.Tables.open(site.attributes.database)
         --     end
         if site.attributes.database then
             if type(site.attributes.database) == 'table' then
                 name = site.attributes.path:gsub('Dev/', '')
-                fn.TablePlus.open('mysql://root@127.0.0.1/' ..
+                fn.Tables.open('mysql://root@127.0.0.1/' ..
                     site.attributes.database.name .. '?statusColor=686B6F&enviroment=local&name=' .. name)
             else
-                fn.TablePlus.open(site.attributes.database)
+                fn.Tables.open(site.attributes.database)
             end
         else
             database = site.attributes.path:gsub('Dev/', ''):gsub('/', '_'):lower()
             name = site.attributes.path:gsub('Dev/', '')
-            fn.TablePlus.open('mysql://root@127.0.0.1/' ..
+            fn.Tables.open('mysql://root@127.0.0.1/' ..
                 database .. '?statusColor=686B6F&enviroment=local&name=' .. name)
         end
 

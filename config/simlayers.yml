@@ -514,6 +514,7 @@
         finder: oc.s
         mail: tc.s
         slack: sc.d
+        tables: tc.s
         tableplus: c.0
         vivaldi: tc.s
         outlook: 'menu: Microsoft Outlook, Sidebar, View'

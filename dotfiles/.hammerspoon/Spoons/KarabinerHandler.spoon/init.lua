@@ -26,6 +26,7 @@ KarabinerHandler.lookup = {
         slack = 'SlackSnippets',
         vscode = 'CodeSnippets',
         tinkerwell = 'CodeSnippets',
+        tables = 'DatabaseSnippets',
         tableplus = 'DatabaseSnippets',
         default = 'DefaultSnippets',
     },

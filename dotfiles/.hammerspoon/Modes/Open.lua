@@ -6,7 +6,7 @@ Modal.loadCustom('Bookmarks.Index')
 Modal.load('OpenIn')
 
 Open.lookup = {
-    tab = 'cursor',
+    tab = 'pw',
     r = 'vscode',
     w = 'openInModal',
     e = 'mail',

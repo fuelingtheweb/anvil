@@ -110,6 +110,11 @@ function App.includes(bundles)
 end
 
 function App.loadBundleVariables()
+    -- Private apps (e.g. pw) are defined in config/custom, outside the public repo.
+    fn.each(fn.custom.bundles or {}, function(bundle, key)
+        App.bundles[key] = bundle
+    end)
+
     fn.each(App.bundles, function(bundle, key)
         _G[key] = bundle
     end)

@@ -44,3 +44,6 @@ Session.vim
 .sass-cache
 
 **/.claude/settings.local.json
+
+# Soloterm (https://soloterm.com) local process config
+solo.yml

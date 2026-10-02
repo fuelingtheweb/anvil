@@ -22,7 +22,7 @@ class App
         'tableplus' => 'com.tinyapp.TablePlus-setapp',
         'tables' => 'com.tidypoint.Tables',
         'tinkerwell' => 'de.beyondco.tinkerwell',
-        'tray' => 'com.tidypoint.Tray',
+        'deck' => 'com.tidypoint.Deck',
         'vivaldi' => 'com.vivaldi.Vivaldi',
         'vscode' => 'com.microsoft.VSCode',
         'cursor' => 'com.todesktop.230313mzl4w4u92',

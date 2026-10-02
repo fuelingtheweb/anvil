@@ -336,12 +336,12 @@
     z: null
     x: # Cancel or delete
         anybox: 'c.dlt'
+        deck: 'c.d' # Move note to Trash (asks; Return confirms)
         fastmail: '#'
         finder: 'c.dlt'
         ide: 'sc.dlt'
         obsidian: 'sc.dlt'
         terminal: 't.c'
-        tray: 'c.d' # Move note to Trash (asks; Return confirms)
         default: 'dlt'
     c:
     v:

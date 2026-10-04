@@ -5,10 +5,10 @@ ExtendedCommand.lookup = {
     tab = 'toggleUseIgnoreFiles',
     q = nil,
     w = 'pasteType',
-    e = nil,
+    e = 'openHammerspoonConfig',
     t = 'appendToDailyNote',
     a = cm.Window.amethystModal,
-    d = fn.custom.openHammerspoonConfig,
+    d = 'toggleDeck',
     g = 'saveAndReload',
     left_shift = 'toggleRunOnSave',
     z = nil,
@@ -67,6 +67,16 @@ end
 -- Capture's Capture Area (⌃⇧4).
 function ExtendedCommand.captureArea()
     ks.shiftCtrl('4')
+end
+
+-- Deck's window, shown or hidden: Deck's own ⌃⌥D, which (unlike opening
+-- the app) hides it again when it's in front.
+function ExtendedCommand.toggleDeck()
+    ks.ctrlAlt('d')
+end
+
+function ExtendedCommand.openHammerspoonConfig()
+    fn.Code.open('~/.hammerspoon')
 end
 
 function ExtendedCommand.obsidian()

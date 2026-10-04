@@ -32,9 +32,10 @@ function Secondary.dismissAppNotifications()
     ks.alt('w')
 end
 
--- Shows or hides the menu-bar icons Tuck hides (Tuck's default shortcut).
+-- Shows or hides the menu-bar icons Tuck hides (Tuck's default shortcut, ⌃⌥R;
+-- it was ⌃⌥B, which is Deck's Backups now).
 function Secondary.toggleTuck()
-    ks.ctrlAlt('b')
+    ks.ctrlAlt('r')
 end
 
 function Secondary.searchBartender()

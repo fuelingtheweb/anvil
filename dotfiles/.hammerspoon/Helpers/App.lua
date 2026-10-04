@@ -10,6 +10,7 @@ App.bundles = {
     chrome = 'com.google.Chrome',
     claude = 'com.anthropic.claudefordesktop',
     dash = 'com.kapeli.dashdoc',
+    deck = 'com.tidypoint.Deck',
     discord = 'com.hnc.Discord',
     duckduckgo = 'com.duckduckgo.macos.browser',
     fastmail = 'com.fastmail.mac.Fastmail',

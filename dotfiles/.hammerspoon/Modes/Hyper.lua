@@ -140,7 +140,7 @@ Hyper.lookup = {
 }
 
 function Hyper.open()
-    if is.codeEditor() or is.In(tables, tableplus, invoker) then
+    if is.codeEditor() or is.In(tables, tableplus, invoker, deck) then
         ks.cmd('p')
     elseif is.In(teams) then
         ks.cmd('g')

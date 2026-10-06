@@ -55,9 +55,14 @@ files.show () {
 alias ydl='youtube-dl'
 alias ke="code ${HOME}/.config/karabiner.edn"
 alias ab="php ${HOME}/Dev/Anvil/artisan build:aliases && source $ANVIL/aliases/index.sh"
-alias kb="php ${HOME}/Dev/Anvil/artisan build:karabiner && goku"
+# kb builds both keyboards from config/simlayers.yml: Karabiner's (through
+# Goku) and Keys' (keys/keys.json, which Keys reloads by itself).
+alias kb="php ${HOME}/Dev/Anvil/artisan build:karabiner && php ${HOME}/Dev/Anvil/artisan build:keys && goku"
 alias kbw='gokuw'
 alias anb='kb && ab'
+# Hand the keyboard to Keys (Karabiner's empty "Off" profile) or back to Karabiner.
+alias keys-on="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile Off"
+alias keys-off="'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile Default"
 alias cleaninstall="${ANVIL}/CleanInstall/start.sh"
 pdf.combine () {
     /usr/local/bin/gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf

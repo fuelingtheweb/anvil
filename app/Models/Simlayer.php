@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use InvalidArgumentException;
+
 class Simlayer
 {
     public $label;
@@ -252,6 +254,158 @@ class Simlayer
                     : ":{$key}";
             })
             ->implode(' ');
+    }
+
+    /**
+     * The layer for Keys (keys/keys.json): the same rules as rules(), as data.
+     * Each key maps to its rules in order (the first whose app matches wins),
+     * and a key with no rules for the front app isn't part of the layer.
+     */
+    public function toKeys()
+    {
+        if (empty($this->rules)) {
+            return null;
+        }
+
+        $keys = [];
+
+        foreach ($this->getKeys() as $key) {
+            if ($key === $this->key) {
+                continue;
+            }
+
+            $keys[$this->keyMap[$key] ?? $key][] = ['actions' => [$this->hammerspoonAction($key)]];
+        }
+
+        foreach ($this->getCustomRules() as $key => $customRules) {
+            $name = $this->keyMap[$key] ?? $key;
+
+            if ($key === $this->key) {
+                continue;
+            }
+
+            if (empty($customRules) && $customRules !== '0') {
+                $keys[$name][] = ['actions' => [$this->hammerspoonAction($key)]];
+
+                continue;
+            }
+
+            if (is_string($customRules)) {
+                $keys[$name][] = ['actions' => $this->parseKeysAction($customRules)];
+
+                continue;
+            }
+
+            foreach ($customRules as $app => $action) {
+                $keys[$name][] = array_filter([
+                    'app' => $app === 'default' ? null : $app,
+                    'actions' => $this->parseKeysAction($action),
+                ], fn ($value) => $value !== null);
+            }
+        }
+
+        return array_filter([
+            'label' => $this->label,
+            'trigger' => $this->key,
+            'hyper' => $this->name === 'HyperMode' ? true : null,
+            'keys' => (object) $keys,
+        ], fn ($value) => $value !== null);
+    }
+
+    public function hammerspoonAction($key)
+    {
+        return ['hammerspoon' => ['mode' => $this->label, 'key' => $this->keyMap[$key] ?? $key]];
+    }
+
+    /**
+     * parseAction(), as a list of actions instead of EDN.
+     */
+    public function parseKeysAction($action)
+    {
+        $action = str($action);
+
+        if ($action->test('/^[a-zA-Z]+:\/\/.+$/')) {
+            return [['open' => $action->value()]];
+        }
+
+        if ($action->contains(' ++ ')) {
+            return $action
+                ->explode(' ++ ')
+                ->flatMap(fn ($part) => $this->parseKeysAction($part))
+                ->all();
+        }
+
+        if ($action->startsWith('"') && $action->endsWith('"')) {
+            return $action
+                ->trim('"')
+                ->split(1)
+                ->map(fn ($character) => ctype_upper($character)
+                    ? $this->keyStroke('s', strtolower($character))
+                    : $this->keyStroke(null, $character))
+                ->all();
+        }
+
+        if ($action->contains(':')) {
+            $script = $action->before(':')->trim()->value();
+            $values = $action->after(':')->trim()->explode(', ')->all();
+
+            return [match ($script) {
+                'app' => ['app' => App::$apps[App::$aliases[$values[0]] ?? null] ?? App::$apps[$values[0]] ?? $values[0]],
+                'open' => ['open' => $values[0]],
+                'alfred' => ['alfred' => $values],
+                'hs' => ['hammerspoon' => ['event' => $values[0]]],
+                'hsk' => ['hammerspoon' => ['mode' => $values[0], 'key' => $values[1] ?? '']],
+                'menu' => ['menu' => ['process' => $values[0], 'item' => $values[1], 'menu' => $values[2]]],
+                default => throw new InvalidArgumentException("Unknown action: {$script}"),
+            }];
+        }
+
+        return $action->explode(' ')
+            ->map(function ($part) {
+                $part = str($part);
+
+                return $part->contains('.')
+                    ? $this->keyStroke($part->before('.')->value(), $part->after('.')->value())
+                    : $this->keyStroke(null, $part->value());
+            })
+            ->all();
+    }
+
+    /**
+     * One key with its modifiers. `$modifiers` is the DSL's letters (`sc`);
+     * a $keyMap value may carry Goku modifiers of its own (`!Ssemicolon`).
+     */
+    public function keyStroke($modifiers, $key)
+    {
+        $letters = str_split(strtoupper($modifiers ?? ''), 1);
+        $letters = array_filter($letters, fn ($letter) => $letter !== '');
+        $key = $this->keyMap[$key] ?? $key;
+
+        if (preg_match('/^!([A-Z!]+?)([a-z0-9_]+)$/', $key, $matches)) {
+            $letters = [...$letters, ...str_split($matches[1])];
+            $key = $matches[2];
+        }
+
+        $names = [
+            'C' => 'command', 'Q' => 'command',
+            'S' => 'shift', 'R' => 'shift',
+            'O' => 'option', 'E' => 'option',
+            'T' => 'control', 'W' => 'control',
+            'F' => 'fn',
+        ];
+
+        $modifiers = collect($letters)
+            ->flatMap(fn ($letter) => $letter === '!'
+                ? ['command', 'shift', 'option', 'control']
+                : [$names[$letter] ?? throw new InvalidArgumentException("Unknown modifier: {$letter}")])
+            ->unique()
+            ->values()
+            ->all();
+
+        return array_filter(
+            ['key' => $key, 'modifiers' => $modifiers ?: null],
+            fn ($value) => $value !== null,
+        );
     }
 
     public function getAppCondition($app)

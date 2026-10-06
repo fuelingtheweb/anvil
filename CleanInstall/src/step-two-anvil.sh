@@ -55,6 +55,8 @@ trash $HOME/.config/karabiner.edn
 mkdir $HOME/.config # *
 $ANVIL=$HOME/Dev/Anvil
 ln -sf $HOME/Dev/Anvil/karabiner/karabiner.edn $HOME/.config/karabiner.edn # *
+mkdir -p $HOME/.config/keys
+ln -sf $HOME/Dev/Anvil/keys/keys.json $HOME/.config/keys/keys.json # Keys (com.tidypoint.Keys)
 
 # Claude Code status line (ccstatusline). Installed globally via npm so Volta
 # shims it onto PATH at a stable path -- avoids pinning to a hash-named npx

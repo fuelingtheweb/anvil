@@ -117,6 +117,32 @@ hs.urlevent.bind('handle-karabiner', function(eventName, params)
     KarabinerHandler.handle(params.mode, params.key)
 end)
 
+-- URL events (hammerspoon://Tab.previous) by name; init.lua fills it in.
+KarabinerHandler.events = {}
+
+function KarabinerHandler.handleEvent(name)
+    local handler = KarabinerHandler.events[name] or KarabinerHandler.events[name:lower()]
+
+    if handler then
+        handler(name, {})
+    end
+end
+
+-- Keys (com.tidypoint.Keys, Karabiner's replacement) sends the same
+-- requests over a message port instead of opening a URL per key:
+-- message 1 is "mode<tab>key", message 2 a URL event's name.
+KarabinerHandler.keysPort = require('hs.ipc').localPort('com.tidypoint.Keys.hammerspoon', function(_, msgID, data)
+    if msgID == 1 then
+        local mode, key = data:match('^(.-)\t(.*)$')
+
+        if mode then
+            KarabinerHandler.handle(mode, key)
+        end
+    elseif msgID == 2 then
+        KarabinerHandler.handleEvent(data)
+    end
+end)
+
 KarabinerHandler.loadModes(KarabinerHandler.lookup)
 
 return KarabinerHandler

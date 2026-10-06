@@ -72,3 +72,6 @@ fn.each(urlEvents, function(handler, event)
     hs.urlevent.bind(event, handler)
     hs.urlevent.bind(event:lower(), handler)
 end)
+
+-- Keys sends these over its message port (KarabinerHandler.spoon).
+spoon.KarabinerHandler.events = urlEvents

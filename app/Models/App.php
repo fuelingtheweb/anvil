@@ -47,6 +47,19 @@ class App
         'mail' => ['fastmail', 'outlook'],
     ];
 
+    /**
+     * Every app, alias and group name with its bundle identifiers, for Keys
+     * (the same names the `:applications` block gets).
+     */
+    public static function bundles()
+    {
+        return collect([...static::$apps, ...static::$aliases, ...static::$groups])
+            ->map(fn ($bundles, $name) => collect($bundles)
+                ->map(fn ($value) => static::$apps[static::$aliases[$value] ?? null] ?? static::$apps[$value] ?? $value)
+                ->values()
+                ->all());
+    }
+
     public static function getDefinitions()
     {
         return collect([...static::$apps, ...static::$aliases, ...static::$groups])

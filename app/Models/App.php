@@ -10,8 +10,11 @@ class App
         'busycal' => 'com.busymac.busycal-setapp',
         'chrome' => 'com.google.Chrome',
         'discord' => 'com.hnc.Discord',
+        'duckduckgo' => 'com.duckduckgo.macos.browser',
         'fastmail' => 'com.fastmail.mac.Fastmail',
         'finder' => 'com.apple.finder',
+        'linear' => 'com.linear',
+        'musicmanager' => 'com.tidypoint.MusicManager',
         'obsidian' => 'md.obsidian',
         'preview' => 'com.apple.Preview',
         'ray' => 'be.spatie.ray',
@@ -45,6 +48,8 @@ class App
         'quickfind' => ['alfred', 'raycast'],
         'terminal' => ['warp'],
         'mail' => ['fastmail', 'outlook'],
+        'tasks' => ['linear'],
+        'teammessaging' => ['teams'],
     ];
 
     /**

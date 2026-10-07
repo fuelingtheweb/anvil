@@ -76,8 +76,11 @@
         :busycal ["com.busymac.busycal-setapp"]
         :chrome ["com.google.Chrome"]
         :discord ["com.hnc.Discord"]
+        :duckduckgo ["com.duckduckgo.macos.browser"]
         :fastmail ["com.fastmail.mac.Fastmail"]
         :finder ["com.apple.finder"]
+        :linear ["com.linear"]
+        :musicmanager ["com.tidypoint.MusicManager"]
         :obsidian ["md.obsidian"]
         :preview ["com.apple.Preview"]
         :ray ["be.spatie.ray"]
@@ -105,6 +108,8 @@
         :quickfind ["com.runningwithcrayons.Alfred" "com.raycast.macos"]
         :terminal ["dev.warp.Warp-Stable"]
         :mail ["com.fastmail.mac.Fastmail" "com.microsoft.Outlook"]
+        :tasks ["com.linear"]
+        :teammessaging ["com.microsoft.teams2"]
     }
     :main [
         ;; each manipulator has a description and multiple rules

@@ -131,6 +131,24 @@
 
 'o : Open':
     - all
+    # Keys brings these forward itself (Phase 2: what Hammerspoon's
+    # Open.launchApp did); the other keys stay Hammerspoon's Open mode, and
+    # Karabiner sends every key there.
+    - r: 'focus: vscode'
+      e: 'focus: mail'
+      q: 'focus: tinkerwell'
+      t: 'focus: warp'
+      caps: 'focus: duckduckgo'
+      s: 'focus: teammessaging'
+      d: 'focus: discord'
+      g: 'focus: vivaldi'
+      ltS: 'focus: tasks'
+      z: 'focus: musicmanager'
+      x: 'focus: finder'
+      c: 'focus: calendar'
+      v: 'focus: tables'
+      b: 'focus: outlook'
+      sb: 'focus: solo'
 
 'p : Paste':
     - all-left

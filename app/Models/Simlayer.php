@@ -124,8 +124,26 @@ class Simlayer
     {
         $rules = '';
 
+        $overrides = $this->getOverrides();
+
         foreach ($this->getKeys() as $key) {
             if ($key === $this->key) {
+                continue;
+            }
+
+            // A key `- all` hands over that does something else (not focus:
+            // Karabiner can't, so Hammerspoon's mode still does it there).
+            $override = $overrides[$this->keyMap[$key] ?? $key] ?? null;
+
+            if ($override !== null && ! $this->isFocus($override)) {
+                $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
+                    ->replace('$key', $this->keyMap[$key] ?? $key)
+                    ->replace('$action', $this->parseAction($override))
+                    ->replace('$conditions', $this->getAppCondition('default'))
+                    ->replace('$newLine', "\n")
+                    ->replace('$indent', indent(4))
+                    ->value();
+
                 continue;
             }
 
@@ -142,7 +160,7 @@ class Simlayer
                 continue;
             }
 
-            if (empty($customRules) && $customRules !== '0') {
+            if ((empty($customRules) && $customRules !== '0') || (is_string($customRules) && $this->isFocus($customRules))) {
                 $rules .= str('[:$key [:hsk "$label" "$key"]]$newLine$indent')
                     ->replace('$label', $this->label)
                     ->replace('$key', $this->keyMap[$key] ?? $key)
@@ -190,6 +208,51 @@ class Simlayer
         }
 
         return $this->rules;
+    }
+
+    /**
+     * After `- all` (or all-left / all-right), a map of the keys that do
+     * something else than Hammerspoon's mode: `['all', ['g' => 'focus: vivaldi']]`.
+     */
+    public function getOverrides()
+    {
+        $overrides = $this->rules[1] ?? null;
+
+        if (empty($this->rules[0]) || ! is_array($overrides)) {
+            return [];
+        }
+
+        return collect($overrides)
+            ->mapWithKeys(fn ($action, $key) => [$this->keyMap[$key] ?? $key => $action])
+            ->all();
+    }
+
+    /**
+     * `focus: vivaldi`: Keys brings the app forward itself (the Open layer's
+     * way); Karabiner still sends the key to Hammerspoon's mode.
+     */
+    public function isFocus($action)
+    {
+        return is_string($action) && str_starts_with(trim($action), 'focus:');
+    }
+
+    /**
+     * A key's actions for Keys: focus (with this layer's Hammerspoon mode as
+     * its fallback, for window hints), else parseKeysAction().
+     */
+    public function keysActionFor($key, $action)
+    {
+        if (! $this->isFocus($action)) {
+            return $this->parseKeysAction($action);
+        }
+
+        $name = trim(str($action)->after(':')->value());
+        $apps = App::bundles()->get($name) ?? [$name];
+
+        return [['focus' => [
+            'apps' => array_values($apps),
+            'hammerspoon' => $this->hammerspoonAction($key)['hammerspoon'],
+        ]]];
     }
 
     public function parseAction($action)
@@ -268,13 +331,19 @@ class Simlayer
         }
 
         $keys = [];
+        $overrides = $this->getOverrides();
 
         foreach ($this->getKeys() as $key) {
             if ($key === $this->key) {
                 continue;
             }
 
-            $keys[$this->keyMap[$key] ?? $key][] = ['actions' => [$this->hammerspoonAction($key)]];
+            $name = $this->keyMap[$key] ?? $key;
+            $override = $overrides[$name] ?? null;
+
+            $keys[$name][] = ['actions' => $override === null
+                ? [$this->hammerspoonAction($key)]
+                : $this->keysActionFor($key, $override)];
         }
 
         foreach ($this->getCustomRules() as $key => $customRules) {
@@ -291,7 +360,7 @@ class Simlayer
             }
 
             if (is_string($customRules)) {
-                $keys[$name][] = ['actions' => $this->parseKeysAction($customRules)];
+                $keys[$name][] = ['actions' => $this->keysActionFor($key, $customRules)];
 
                 continue;
             }

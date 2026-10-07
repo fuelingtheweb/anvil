@@ -772,22 +772,164 @@
                 ],
                 "j": [
                     {
+                        "app": "tableplus",
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "event": "Tab.previous"
-                                }
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "solo",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "discord",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tinkerwell",
+                        "actions": [
+                            {
+                                "key": "left_arrow",
+                                "modifiers": [
+                                    "option",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "vivaldi",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "warp",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
                             }
                         ]
                     }
                 ],
                 "k": [
                     {
+                        "app": "tableplus",
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "event": "Tab.next"
-                                }
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "solo",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "discord",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tinkerwell",
+                        "actions": [
+                            {
+                                "key": "right_arrow",
+                                "modifiers": [
+                                    "option",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "vivaldi",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "warp",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
                             }
                         ]
                     }
@@ -924,6 +1066,7 @@
                 ],
                 "m": [
                     {
+                        "app": "chrome",
                         "actions": [
                             {
                                 "hammerspoon": {
@@ -931,10 +1074,176 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "comma": [
                     {
+                        "app": "ide",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tinkerwell",
+                        "actions": [
+                            {
+                                "key": "left_arrow",
+                                "modifiers": [
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tableplus",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "solo",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "discord",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "vivaldi",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "warp",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "chrome",
                         "actions": [
                             {
                                 "hammerspoon": {
@@ -942,15 +1251,187 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "period": [
                     {
+                        "app": "ide",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tableplus",
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "solo",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "discord",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tinkerwell",
+                        "actions": [
+                            {
+                                "key": "right_arrow",
+                                "modifiers": [
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "vivaldi",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "warp",
+                        "actions": [
+                            {
+                                "key": "open_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "chrome",
                         "actions": [
                             {
                                 "hammerspoon": {
                                     "event": "Tab.closeNext"
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "close_bracket",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
                             }
                         ]
                     }
@@ -1065,9 +1546,14 @@
                 "open_bracket": "Close all tabs to the left",
                 "close_bracket": "Close all tabs to the right",
                 "h": "Move tab left",
+                "j": "Previous tab",
+                "k": "Next tab",
                 "l": "Move tab right",
                 "return_or_enter": "Restore tab",
                 "n": "New tab",
+                "m": "Close tab",
+                "comma": "Close the tab before",
+                "period": "Close the tab after",
                 "slash": "Close all other tabs",
                 "right_shift": "Close all tabs",
                 "spacebar": "Pin tab"

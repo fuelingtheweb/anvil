@@ -59,8 +59,22 @@
         chrome: 'esc t h'
         ide: 'soc.lt'
         vivaldi: 'oc.lt'
-    j: 'hs: Tab.previous'
-    k: 'hs: Tab.next'
+    j: # Previous tab
+        tableplus: 'c.['
+        solo: 'c.dn'
+        discord: 'o.dn' # Next conversation or channel
+        tinkerwell: 'oc.lt'
+        vivaldi: 'sc.]'
+        warp: 'sc.]'
+        default: 'sc.['
+    k: # Next tab
+        tableplus: 'c.]'
+        solo: 'c.up'
+        discord: 'o.up' # Previous conversation or channel
+        tinkerwell: 'oc.rt'
+        vivaldi: 'sc.['
+        warp: 'sc.['
+        default: 'sc.]'
     l: # Move tab right
         chrome: 'esc t l'
         ide: 'soc.rt'
@@ -74,9 +88,29 @@
         finder: 'c.n'
         ide: 'c.n s.o'
         default: 'c.t'
-    m: 'hs: Tab.closeCurrent'
-    ',': 'hs: Tab.closePrevious'
-    prd: 'hs: Tab.closeNext'
+    m: # Close tab
+        chrome: 'hs: Tab.closeCurrent' # Hides Chrome once its last tab is gone
+        default: 'c.w'
+    ',': # Close the tab before
+        ide: 'sc.[ c.w'
+        tinkerwell: 'oc.lt c.w'
+        tableplus: 'c.[ c.w c.]'
+        solo: 'c.dn c.w c.up'
+        discord: 'o.dn c.w o.up'
+        vivaldi: 'sc.] c.w sc.['
+        warp: 'sc.] c.w sc.['
+        chrome: 'hs: Tab.closePrevious'
+        default: 'sc.[ c.w sc.]'
+    prd: # Close the tab after
+        ide: 'sc.] c.w sc.['
+        tableplus: 'c.] c.w'
+        solo: 'c.up c.w'
+        discord: 'o.up c.w'
+        tinkerwell: 'oc.rt c.w'
+        vivaldi: 'sc.[ c.w'
+        warp: 'sc.[ c.w'
+        chrome: 'hs: Tab.closeNext'
+        default: 'sc.] c.w'
     '/': # Close all other tabs
         chrome: 't x ;'
         ide: 'toc.e toc./'

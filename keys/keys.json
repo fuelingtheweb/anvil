@@ -24,11 +24,20 @@
         "discord": [
             "com.hnc.Discord"
         ],
+        "duckduckgo": [
+            "com.duckduckgo.macos.browser"
+        ],
         "fastmail": [
             "com.fastmail.mac.Fastmail"
         ],
         "finder": [
             "com.apple.finder"
+        ],
+        "linear": [
+            "com.linear"
+        ],
+        "musicmanager": [
+            "com.tidypoint.MusicManager"
         ],
         "obsidian": [
             "md.obsidian"
@@ -115,6 +124,12 @@
         "mail": [
             "com.fastmail.mac.Fastmail",
             "com.microsoft.Outlook"
+        ],
+        "tasks": [
+            "com.linear"
+        ],
+        "teammessaging": [
+            "com.microsoft.teams2"
         ]
     },
     "layers": [
@@ -123,6 +138,15 @@
             "trigger": "caps_lock",
             "hyper": true,
             "keys": {
+                "d": [
+                    {
+                        "actions": [
+                            {
+                                "dictate": true
+                            }
+                        ]
+                    }
+                ],
                 "y": [
                     {
                         "actions": [
@@ -2974,9 +2998,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "q"
+                                "focus": {
+                                    "apps": [
+                                        "de.beyondco.tinkerwell"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "q"
+                                    }
                                 }
                             }
                         ]
@@ -2998,9 +3027,15 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "e"
+                                "focus": {
+                                    "apps": [
+                                        "com.fastmail.mac.Fastmail",
+                                        "com.microsoft.Outlook"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "e"
+                                    }
                                 }
                             }
                         ]
@@ -3010,9 +3045,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "r"
+                                "focus": {
+                                    "apps": [
+                                        "com.microsoft.VSCode"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "r"
+                                    }
                                 }
                             }
                         ]
@@ -3022,9 +3062,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "t"
+                                "focus": {
+                                    "apps": [
+                                        "dev.warp.Warp-Stable"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "t"
+                                    }
                                 }
                             }
                         ]
@@ -3106,9 +3151,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "caps_lock"
+                                "focus": {
+                                    "apps": [
+                                        "com.duckduckgo.macos.browser"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "caps_lock"
+                                    }
                                 }
                             }
                         ]
@@ -3130,9 +3180,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "s"
+                                "focus": {
+                                    "apps": [
+                                        "com.microsoft.teams2"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "s"
+                                    }
                                 }
                             }
                         ]
@@ -3142,9 +3197,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "d"
+                                "focus": {
+                                    "apps": [
+                                        "com.hnc.Discord"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "d"
+                                    }
                                 }
                             }
                         ]
@@ -3166,9 +3226,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "g"
+                                "focus": {
+                                    "apps": [
+                                        "com.vivaldi.Vivaldi"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "g"
+                                    }
                                 }
                             }
                         ]
@@ -3262,9 +3327,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "left_shift"
+                                "focus": {
+                                    "apps": [
+                                        "com.linear"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "left_shift"
+                                    }
                                 }
                             }
                         ]
@@ -3274,9 +3344,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "z"
+                                "focus": {
+                                    "apps": [
+                                        "com.tidypoint.MusicManager"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "z"
+                                    }
                                 }
                             }
                         ]
@@ -3286,9 +3361,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "x"
+                                "focus": {
+                                    "apps": [
+                                        "com.apple.finder"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "x"
+                                    }
                                 }
                             }
                         ]
@@ -3298,9 +3378,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "c"
+                                "focus": {
+                                    "apps": [
+                                        "com.busymac.busycal-setapp"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "c"
+                                    }
                                 }
                             }
                         ]
@@ -3310,9 +3395,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "v"
+                                "focus": {
+                                    "apps": [
+                                        "com.tidypoint.Tables"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "v"
+                                    }
                                 }
                             }
                         ]
@@ -3322,9 +3412,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "b"
+                                "focus": {
+                                    "apps": [
+                                        "com.microsoft.Outlook"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "b"
+                                    }
                                 }
                             }
                         ]
@@ -3406,9 +3501,14 @@
                     {
                         "actions": [
                             {
-                                "hammerspoon": {
-                                    "mode": "Open",
-                                    "key": "spacebar"
+                                "focus": {
+                                    "apps": [
+                                        "com.soloterm.solo"
+                                    ],
+                                    "hammerspoon": {
+                                        "mode": "Open",
+                                        "key": "spacebar"
+                                    }
                                 }
                             }
                         ]

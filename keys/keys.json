@@ -21,6 +21,18 @@
         "chrome": [
             "com.google.Chrome"
         ],
+        "claude": [
+            "com.anthropic.claudefordesktop"
+        ],
+        "cursor": [
+            "com.todesktop.230313mzl4w4u92"
+        ],
+        "dash": [
+            "com.kapeli.dashdoc"
+        ],
+        "deck": [
+            "com.tidypoint.Deck"
+        ],
         "discord": [
             "com.hnc.Discord"
         ],
@@ -42,10 +54,16 @@
         "obsidian": [
             "md.obsidian"
         ],
+        "outlook": [
+            "com.microsoft.Outlook"
+        ],
+        "postman": [
+            "com.postmanlabs.mac"
+        ],
         "preview": [
             "com.apple.Preview"
         ],
-        "ray": [
+        "rayapp": [
             "be.spatie.ray"
         ],
         "raycast": [
@@ -57,6 +75,9 @@
         "slack": [
             "com.tinyspeck.slackmacgap"
         ],
+        "solo": [
+            "com.soloterm.solo"
+        ],
         "spotify": [
             "com.spotify.client"
         ],
@@ -66,11 +87,14 @@
         "tables": [
             "com.tidypoint.Tables"
         ],
+        "teams": [
+            "com.microsoft.teams2"
+        ],
         "tinkerwell": [
             "de.beyondco.tinkerwell"
         ],
-        "deck": [
-            "com.tidypoint.Deck"
+        "transmit": [
+            "com.panic.Transmit"
         ],
         "vivaldi": [
             "com.vivaldi.Vivaldi"
@@ -78,29 +102,36 @@
         "vscode": [
             "com.microsoft.VSCode"
         ],
-        "cursor": [
-            "com.todesktop.230313mzl4w4u92"
-        ],
         "warp": [
             "dev.warp.Warp-Stable"
         ],
-        "solo": [
-            "com.soloterm.solo"
+        "windsurf": [
+            "com.exafunction.windsurf"
+        ],
+        "youtubeMusic": [
+            "com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod"
         ],
         "zoom": [
             "us.zoom.xos"
-        ],
-        "teams": [
-            "com.microsoft.teams2"
-        ],
-        "outlook": [
-            "com.microsoft.Outlook"
         ],
         "calendar": [
             "com.busymac.busycal-setapp"
         ],
         "code": [
             "com.microsoft.VSCode"
+        ],
+        "browsers": [
+            "com.google.Chrome",
+            "com.vivaldi.Vivaldi"
+        ],
+        "musicManager": [
+            "com.tidypoint.MusicManager"
+        ],
+        "sideNotes": [
+            "com.apptorium.SideNotes-setapp"
+        ],
+        "teamMessaging": [
+            "com.microsoft.teams2"
         ],
         "browser": [
             "com.google.Chrome",
@@ -114,22 +145,22 @@
             "com.microsoft.VSCode",
             "com.todesktop.230313mzl4w4u92"
         ],
-        "quickfind": [
-            "com.runningwithcrayons.Alfred",
-            "com.raycast.macos"
-        ],
-        "terminal": [
-            "dev.warp.Warp-Stable"
-        ],
         "mail": [
             "com.fastmail.mac.Fastmail",
             "com.microsoft.Outlook"
+        ],
+        "quickfind": [
+            "com.runningwithcrayons.Alfred",
+            "com.raycast.macos"
         ],
         "tasks": [
             "com.linear"
         ],
         "teammessaging": [
             "com.microsoft.teams2"
+        ],
+        "terminal": [
+            "dev.warp.Warp-Stable"
         ]
     },
     "layers": [
@@ -273,18 +304,6 @@
                                     "search",
                                     "com.tedwise.menubarsearch"
                                 ]
-                            }
-                        ]
-                    }
-                ],
-                "close_bracket": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Hyper",
-                                    "key": "close_bracket"
-                                }
                             }
                         ]
                     }
@@ -505,30 +524,6 @@
                         ]
                     }
                 ],
-                "slash": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Hyper",
-                                    "key": "slash"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "right_shift": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Hyper",
-                                    "key": "right_shift"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "spacebar": [
                     {
                         "actions": [
@@ -554,30 +549,6 @@
             "label": "Tab",
             "trigger": "tab",
             "keys": {
-                "y": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tab",
-                                    "key": "y"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "u": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tab",
-                                    "key": "u"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "i": [
                     {
                         "actions": [
@@ -975,30 +946,6 @@
                         ]
                     }
                 ],
-                "semicolon": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tab",
-                                    "key": "semicolon"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "quote": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tab",
-                                    "key": "quote"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "return_or_enter": [
                     {
                         "actions": [
@@ -1008,18 +955,6 @@
                                     "shift",
                                     "command"
                                 ]
-                            }
-                        ]
-                    }
-                ],
-                "b": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tab",
-                                    "key": "b"
-                                }
                             }
                         ]
                     }
@@ -4495,54 +4430,6 @@
             "label": "Tertiary",
             "trigger": "close_bracket",
             "keys": {
-                "tab": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "tab"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "q": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "q"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "w": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "w"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "e": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "e"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "r": [
                     {
                         "actions": [
@@ -4552,107 +4439,11 @@
                         ]
                     }
                 ],
-                "t": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "t"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "caps_lock": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "caps_lock"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "a": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "a"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "s": [
                     {
                         "actions": [
                             {
                                 "open": "raycast://extensions/raycast/system/shut-down"
-                            }
-                        ]
-                    }
-                ],
-                "d": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "d"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "f": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "f"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "g": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "g"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "left_shift": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "left_shift"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "z": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "z"
-                                }
                             }
                         ]
                     }
@@ -4667,54 +4458,6 @@
                                     "shift",
                                     "command"
                                 ]
-                            }
-                        ]
-                    }
-                ],
-                "c": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "c"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "v": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "v"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "b": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "b"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "spacebar": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Tertiary",
-                                    "key": "spacebar"
-                                }
                             }
                         ]
                     }
@@ -5533,18 +5276,6 @@
                         ]
                     }
                 ],
-                "p": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Vi",
-                                    "key": "p"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "open_bracket": [
                     {
                         "app": "ide",
@@ -5953,18 +5684,6 @@
                         ]
                     }
                 ],
-                "return_or_enter": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "General",
-                                    "key": "return_or_enter"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "n": [
                     {
                         "actions": [
@@ -6032,18 +5751,6 @@
                                 "modifiers": [
                                     "shift"
                                 ]
-                            }
-                        ]
-                    }
-                ],
-                "spacebar": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "General",
-                                    "key": "spacebar"
-                                }
                             }
                         ]
                     }
@@ -7088,18 +6795,6 @@
                         ]
                     }
                 ],
-                "q": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Command",
-                                    "key": "q"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "w": [
                     {
                         "actions": [
@@ -7302,18 +6997,6 @@
                         ]
                     }
                 ],
-                "z": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Command",
-                                    "key": "z"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "x": [
                     {
                         "app": "anybox",
@@ -7425,30 +7108,6 @@
                             }
                         ]
                     }
-                ],
-                "b": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Command",
-                                    "key": "b"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "spacebar": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Command",
-                                    "key": "spacebar"
-                                }
-                            }
-                        ]
-                    }
                 ]
             },
             "labels": {
@@ -7475,18 +7134,6 @@
                         ]
                     }
                 ],
-                "q": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ExtendedCommand",
-                                    "key": "q"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "w": [
                     {
                         "actions": [
@@ -7506,18 +7153,6 @@
                                 "hammerspoon": {
                                     "mode": "ExtendedCommand",
                                     "key": "e"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "r": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ExtendedCommand",
-                                    "key": "r"
                                 }
                             }
                         ]
@@ -7618,18 +7253,6 @@
                         ]
                     }
                 ],
-                "z": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ExtendedCommand",
-                                    "key": "z"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "x": [
                     {
                         "actions": [
@@ -7637,30 +7260,6 @@
                                 "hammerspoon": {
                                     "mode": "ExtendedCommand",
                                     "key": "x"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "c": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ExtendedCommand",
-                                    "key": "c"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "v": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ExtendedCommand",
-                                    "key": "v"
                                 }
                             }
                         ]
@@ -8700,42 +8299,6 @@
                         ]
                     }
                 ],
-                "p": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "p"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "open_bracket": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "open_bracket"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "close_bracket": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "close_bracket"
-                                }
-                            }
-                        ]
-                    }
-                ],
                 "h": [
                     {
                         "app": "ide",
@@ -9002,42 +8565,6 @@
                                     "shift",
                                     "option"
                                 ]
-                            }
-                        ]
-                    }
-                ],
-                "slash": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "slash"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "right_shift": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "right_shift"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "spacebar": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "ViVisual",
-                                    "key": "spacebar"
-                                }
                             }
                         ]
                     }
@@ -10612,18 +10139,6 @@
                                 "hammerspoon": {
                                     "mode": "Window",
                                     "key": "p"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "open_bracket": [
-                    {
-                        "actions": [
-                            {
-                                "hammerspoon": {
-                                    "mode": "Window",
-                                    "key": "open_bracket"
                                 }
                             }
                         ]

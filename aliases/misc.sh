@@ -56,8 +56,9 @@ alias ydl='youtube-dl'
 alias ke="code ${HOME}/.config/karabiner.edn"
 alias ab="php ${HOME}/Dev/Anvil/artisan build:aliases && source $ANVIL/aliases/index.sh"
 # kb builds both keyboards from config/simlayers.yml: Karabiner's (through
-# Goku) and Keys' (keys/keys.json, which Keys reloads by itself).
-alias kb="php ${HOME}/Dev/Anvil/artisan build:karabiner && php ${HOME}/Dev/Anvil/artisan build:keys && goku"
+# Goku) and Keys' (keys/keys.json, which Keys reloads by itself), and
+# Hammerspoon's app list (config/apps.lua) from config/apps.yml.
+alias kb="php ${HOME}/Dev/Anvil/artisan build:karabiner && php ${HOME}/Dev/Anvil/artisan build:keys && php ${HOME}/Dev/Anvil/artisan build:hammerspoon && goku"
 alias kbw='gokuw'
 alias anb='kb && ab'
 # Hand the keyboard to Keys (Karabiner's empty "Off" profile) or back to Karabiner.

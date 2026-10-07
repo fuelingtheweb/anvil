@@ -2,6 +2,7 @@
 
 namespace App\Commands\Build;
 
+use App\Commands\Build\Concerns\ChecksKeyboardConfig;
 use App\Models\Action;
 use App\Models\App;
 use App\Models\Simlayer;
@@ -10,6 +11,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class Karabiner extends Command
 {
+    use ChecksKeyboardConfig;
+
     protected $signature = 'build:karabiner';
 
     protected $description = 'Build Karabiner Config';
@@ -18,7 +21,13 @@ class Karabiner extends Command
     {
         $this->info('Building Karabiner Config...');
 
-        $simlayers = collect(Yaml::parse(file_get_contents(anvil_config('simlayers'))))
+        $layers = Yaml::parse(file_get_contents(anvil_config('simlayers')));
+
+        if (! $this->configIsSound($layers)) {
+            return self::FAILURE;
+        }
+
+        $simlayers = collect($layers)
             ->map(fn ($rules, $index) => (new Simlayer($index, $rules))->toArray());
 
         file_put_contents(

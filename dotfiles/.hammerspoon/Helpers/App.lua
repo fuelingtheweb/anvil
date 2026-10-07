@@ -4,55 +4,9 @@ App.__index = App
 -- Default code editor: "cursor" or "vscode"
 App.defaultEditor = "vscode"
 
-App.bundles = {
-    anybox = 'cc.anybox.Anybox',
-    calendar = 'com.busymac.busycal-setapp',
-    chrome = 'com.google.Chrome',
-    claude = 'com.anthropic.claudefordesktop',
-    dash = 'com.kapeli.dashdoc',
-    deck = 'com.tidypoint.Deck',
-    discord = 'com.hnc.Discord',
-    duckduckgo = 'com.duckduckgo.macos.browser',
-    fastmail = 'com.fastmail.mac.Fastmail',
-    finder = 'com.apple.finder',
-    linear = 'com.linear',
-    obsidian = 'md.obsidian',
-    postman = 'com.postmanlabs.mac',
-    preview = 'com.apple.Preview',
-    rayapp = 'be.spatie.ray',
-    sideNotes = 'com.apptorium.SideNotes-setapp',
-    slack = 'com.tinyspeck.slackmacgap',
-    musicManager = 'com.tidypoint.MusicManager',
-    spotify = 'com.spotify.client',
-    tableplus = 'com.tinyapp.TablePlus-setapp',
-    tables = 'com.tidypoint.Tables',
-    tinkerwell = 'de.beyondco.tinkerwell',
-    transmit = 'com.panic.Transmit',
-    vivaldi = 'com.vivaldi.Vivaldi',
-    vscode = 'com.microsoft.VSCode',
-    cursor = 'com.todesktop.230313mzl4w4u92',
-    warp = 'dev.warp.Warp-Stable',
-    solo = 'com.soloterm.solo',
-    windsurf = 'com.exafunction.windsurf',
-    youtubeMusic = 'com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod',
-    zoom = 'us.zoom.xos',
-    teams = 'com.microsoft.teams2',
-    outlook = 'com.microsoft.Outlook',
-    mail = {
-        'fastmail',
-        'outlook',
-    },
-    browsers = {
-        'chrome',
-        'vivaldi',
-    },
-    tasks = {
-        'linear',
-    },
-    teamMessaging = {
-        'teams',
-    },
-}
+-- Every app and group by name, from Anvil's config/apps.yml (`kb` builds
+-- config/apps.lua): the same names simlayers.yml uses. Edit apps.yml.
+App.bundles = require('config.apps')
 
 App.fromAlias = function(alias)
     local bundles = alias

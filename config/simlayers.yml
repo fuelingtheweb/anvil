@@ -1,9 +1,30 @@
+# Keyboard layers: hold a layer's key (before the " : ") and press another.
+# `kb` builds them for Keys (keys/keys.json), Karabiner (karabiner.edn) and
+# Hammerspoon, and refuses a key, app, mode or hs: event that goes nowhere.
+#
+# A key's value:
+#   'sc.p'           keys: modifiers before the dot (c ⌘, s ⇧, o ⌥, t ⌃,
+#                    f fn; q r e w the right-hand ones), then the key
+#   'c.k rtn'        keys one after another; '"text"' types it; a ++ b joins
+#   'app: obsidian'  open or bring forward; 'focus: mail' (Keys) does it the
+#                    Open layer's way; 'raycast://…' opens a link;
+#                    'alfred: trigger, workflow'; 'menu: Process, Item, Menu'
+#   'hs: Tab.next'   a Hammerspoon event (init.lua's urlEvents)
+#   hammerspoon      the layer's Hammerspoon mode (Modes/<Label>.lua) does it
+#   dictate          hold to talk, let go to type it (Keys only)
+#   chrome: … ide: … default: …   by app (names from config/apps.yml)
+#   blank or null    free: not in the layer, so the key types as itself
+# A `- all` layer (or all-left, all-right) gives every key to its Hammerspoon
+# mode, except a map of overrides after it (blank there: free).
+# Short names: qt ' · prd . · sb space · rtn return · dlt delete · ltS rtS
+# shifts · caps · esc · lt rt up dn arrows · cln :
+
 'caps : Hyper':
     d: dictate # Hold to talk, let go to type it; tap: hands-free (Keys only)
-    y:
-    u:
-    i:
-    o:
+    y: hammerspoon
+    u: hammerspoon
+    i: hammerspoon
+    o: hammerspoon
     p: 'soc.p' # Alfred clipboard
     '[': # Command Palette
         anybox: 'c.k'
@@ -20,22 +41,22 @@
         solo: 'oc.lt'
         terminal: '"cdp" ++ rtn'
         default: 'c.['
-    j:
-    k:
-    l:
-    ';':
-    qt:
+    j: hammerspoon
+    k: hammerspoon
+    l: hammerspoon
+    ';': hammerspoon
+    qt: hammerspoon
     rtn: caps
     n:
         ide: 'oc.n'
         solo: 'c.t'
         default: 'sc.n'
-    m:
-    ',':
-    prd:
+    m: hammerspoon
+    ',': hammerspoon
+    prd: hammerspoon
     '/':
     rtS:
-    sb:
+    sb: hammerspoon
 
 'tab : Tab':
     y:
@@ -221,26 +242,26 @@
     e: '"elseif"'
     t: '"$this->"'
     y: '" && "'
-    u:
+    u: hammerspoon
     i: '"if () {}" ++ lt'
     o: '" + "'
     p: '" || "'
     '[': '"echo"'
-    ']':
-    h:
-    j:
-    k:
+    ']': hammerspoon
+    h: hammerspoon
+    j: hammerspoon
+    k: hammerspoon
     l: '"console.log()" ++ lt'
     ';': '" : "'
     qt: '='
     rtn: '"return"'
-    n:
-    m:
+    n: hammerspoon
+    m: hammerspoon
     ',': '", "'
-    prd:
+    prd: hammerspoon
     '/': '" ? "'
-    rtS:
-    sb:
+    rtS: hammerspoon
+    sb: hammerspoon
 
 'd : Vi':
     y: # 'moveToTopOfPage'
@@ -368,23 +389,23 @@
     tab: # Shift Tab
         default: 's.tab'
     q: null
-    w:
-    e:
+    w: hammerspoon
+    e: hammerspoon
     r: # Reload
         ide: 'soc.r'
         terminal: 'up rtn' # Run last command
         tinkerwell: 't.l c.r'
         default: 'c.r'
-    t:
+    t: hammerspoon
     caps: 'raycast://extensions/tegola/duck-duck-go-search/index'
     a: 'oc.\' # Alfred: Action file
     s: # Save
         ide: 'c.s esc'
         terminal: 'cln x rtn' # Save from vim
         default: 'c.s'
-    d:
-    f:
-    g:
+    d: hammerspoon
+    f: hammerspoon
+    g: hammerspoon
     ltS: 'alfred: commands, com.fuelingtheweb.commands'
     z: null
     x: # Cancel or delete
@@ -396,34 +417,34 @@
         obsidian: 'sc.dlt'
         terminal: 't.c'
         default: 'dlt'
-    c:
-    v:
+    c: hammerspoon
+    v: hammerspoon
     b: null
     sb: null
 
 'qt : ExtendedCommand':
-    tab:
+    tab: hammerspoon
     q:
-    w:
-    e:
+    w: hammerspoon
+    e: hammerspoon
     r:
-    t:
+    t: hammerspoon
     caps: # Open Obsidian
         default: 'app: obsidian'
-    a:
+    a: hammerspoon
     s: # Capture: area (Capture's default ⌃⇧4)
         default: 'ts.4'
-    d:
+    d: hammerspoon
     f: # Reveal in sidebar
         default: 'sc.\'
-    g:
-    ltS:
+    g: hammerspoon
+    ltS: hammerspoon
     z:
-    x:
+    x: hammerspoon
     c:
     v:
-    b:
-    sb:
+    b: hammerspoon
+    sb: hammerspoon
 
 'z : CaseDialog':
     - all-right
@@ -546,23 +567,23 @@
     - all-left
 
 'sb : Window':
-    tab:
-    q:
-    w:
-    e:
-    r:
-    t:
-    caps:
-    a:
-    s:
-    d:
-    f:
-    g:
-    ltS:
-    z:
-    x:
-    c:
-    v:
+    tab: hammerspoon
+    q: hammerspoon
+    w: hammerspoon
+    e: hammerspoon
+    r: hammerspoon
+    t: hammerspoon
+    caps: hammerspoon
+    a: hammerspoon
+    s: hammerspoon
+    d: hammerspoon
+    f: hammerspoon
+    g: hammerspoon
+    ltS: hammerspoon
+    z: hammerspoon
+    x: hammerspoon
+    c: hammerspoon
+    v: hammerspoon
     b:
         anybox: tc.s
         finder: oc.s
@@ -574,23 +595,23 @@
         outlook: 'menu: Microsoft Outlook, Sidebar, View'
         warp: 'c.b'
         default: c.\
-    y:
-    u:
-    i:
-    o:
-    p:
+    y: hammerspoon
+    u: hammerspoon
+    i: hammerspoon
+    o: hammerspoon
+    p: hammerspoon
     open_bracket:
-    close_bracket:
-    h:
-    j:
-    k:
-    l:
-    semicolon:
-    qt:
-    rtn:
-    n:
-    m:
-    comma:
-    prd:
-    slash:
-    rtS:
+    close_bracket: hammerspoon
+    h: hammerspoon
+    j: hammerspoon
+    k: hammerspoon
+    l: hammerspoon
+    semicolon: hammerspoon
+    qt: hammerspoon
+    rtn: hammerspoon
+    n: hammerspoon
+    m: hammerspoon
+    comma: hammerspoon
+    prd: hammerspoon
+    slash: hammerspoon
+    rtS: hammerspoon

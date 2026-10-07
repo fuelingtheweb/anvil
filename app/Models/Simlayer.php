@@ -11,6 +11,26 @@ class Simlayer
     public $key;
     public $rules;
 
+    /**
+     * The keys Keys knows (its KeyCodes.byName, Karabiner's names): a layer
+     * key or a keystroke that isn't one is refused at build time.
+     */
+    public const KEY_NAMES = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+        's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'return_or_enter', 'escape', 'delete_or_backspace', 'delete_forward', 'tab', 'spacebar',
+        'hyphen', 'equal_sign', 'open_bracket', 'close_bracket', 'backslash', 'non_us_backslash',
+        'semicolon', 'quote', 'grave_accent_and_tilde', 'comma', 'period', 'slash', 'caps_lock',
+        'left_control', 'left_shift', 'left_option', 'left_command', 'right_control',
+        'right_shift', 'right_option', 'right_command', 'fn', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6',
+        'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19',
+        'f20', 'up_arrow', 'down_arrow', 'left_arrow', 'right_arrow', 'page_up', 'page_down',
+        'home', 'end', 'help', 'mute', 'volume_increment', 'volume_decrement', 'keypad_0',
+        'keypad_1', 'keypad_2', 'keypad_3', 'keypad_4', 'keypad_5', 'keypad_6', 'keypad_7',
+        'keypad_8', 'keypad_9', 'keypad_period', 'keypad_asterisk', 'keypad_plus',
+        'keypad_hyphen', 'keypad_slash', 'keypad_enter', 'keypad_equal_sign', 'keypad_num_lock',
+    ];
+
     private $keyMap = [
         'esc' => 'escape',
         '[' => 'open_bracket',
@@ -131,87 +151,76 @@ class Simlayer
                 continue;
             }
 
+            $name = $this->keyMap[$key] ?? $key;
+
             // A key `- all` hands over that does something else (not focus:
-            // Karabiner can't, so Hammerspoon's mode still does it there).
-            $override = $overrides[$this->keyMap[$key] ?? $key] ?? null;
+            // Karabiner can't, so Hammerspoon's mode still does it there), or
+            // nothing: blank, it's free.
+            if (array_key_exists($name, $overrides)) {
+                $override = $overrides[$name];
 
-            // Karabiner can't dictate: the key types as it did without the rule.
-            if ($override !== null && $this->isDictate($override)) {
-                continue;
-            }
+                if ($this->isFree($override) || $this->isDictate($override)) {
+                    continue;
+                }
 
-            if ($override !== null && ! $this->isFocus($override)) {
-                $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
-                    ->replace('$key', $this->keyMap[$key] ?? $key)
-                    ->replace('$action', $this->parseAction($override))
-                    ->replace('$conditions', $this->getAppCondition('default'))
-                    ->replace('$newLine', "\n")
-                    ->replace('$indent', indent(4))
-                    ->value();
+                $rules .= $this->ednRule($key, $override);
 
                 continue;
             }
 
-            $rules .= str('[:$key [:hsk "$label" "$key"]]$newLine$indent')
-                ->replace('$label', $this->label)
-                ->replace('$key', $this->keyMap[$key] ?? $key)
-                ->replace('$newLine', "\n")
-                ->replace('$indent', indent(4))
-                ->value();
+            $rules .= $this->ednRule($key, 'hammerspoon');
         }
 
         foreach ($this->getCustomRules() as $key => $customRules) {
-            if ($key === $this->key) {
+            if ($key === $this->key || $this->isFree($customRules)) {
                 continue;
             }
 
-            if ((empty($customRules) && $customRules !== '0') || (is_string($customRules) && $this->isFocus($customRules))) {
-                $rules .= str('[:$key [:hsk "$label" "$key"]]$newLine$indent')
-                    ->replace('$label', $this->label)
-                    ->replace('$key', $this->keyMap[$key] ?? $key)
-                    ->replace('$newLine', "\n")
-                    ->replace('$indent', indent(4))
-                    ->value();
-
-                continue;
-            }
-
-            if (is_string($customRules) && $this->isDictate($customRules)) {
-                continue;
-            }
-
-            if (is_string($customRules)) {
-                $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
-                    ->replace('$key', $this->keyMap[$key] ?? $key)
-                    ->replace('$action', $this->parseAction($customRules))
-                    ->replace('$conditions', $this->getAppCondition('default'))
-                    ->replace('$newLine', "\n")
-                    ->replace('$indent', indent(4))
-                    ->value();
+            if (! is_array($customRules)) {
+                if (! $this->isDictate($customRules)) {
+                    $rules .= $this->ednRule($key, $customRules);
+                }
 
                 continue;
             }
 
             foreach ($customRules as $app => $action) {
-                if ($this->isDictate($action)) {
-                    continue;
-                }
-
-                try {
-                    $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
-                        ->replace('$key', $this->keyMap[$key] ?? $key)
-                        ->replace('$action', $this->parseAction($action))
-                        ->replace('$conditions', $this->getAppCondition($app))
-                        ->replace('$newLine', "\n")
-                        ->replace('$indent', indent(4))
-                        ->value();
-                } catch (\Exception $e) {
-                    dd('failed?', $app, $action);
+                // Karabiner can't dictate: the key types as it did without the rule.
+                if (! $this->isFree($action) && ! $this->isDictate($action)) {
+                    $rules .= $this->ednRule($key, $action, $app);
                 }
             }
         }
 
         return rtrim($rules);
+    }
+
+    /**
+     * One EDN rule: to Hammerspoon's mode for `hammerspoon` and `focus:`
+     * (Karabiner can't focus), else the action, for `$app` (null: any).
+     */
+    private function ednRule($key, $action, $app = null)
+    {
+        $name = $this->keyMap[$key] ?? $key;
+
+        if ($this->isHammerspoon($action) || $this->isFocus($action)) {
+            $edn = str(':hsk "$label" "$key"')->replace('$label', $this->label)->replace('$key', $name)->value();
+        } else {
+            $edn = $this->parseAction($action);
+        }
+
+        // As before: a key to Hammerspoon for every app has no conditions.
+        $template = $app === null && ($this->isHammerspoon($action) || $this->isFocus($action))
+            ? '[:$key [$action]]$newLine$indent'
+            : '[:$key [$action] [$conditions]]$newLine$indent';
+
+        return str($template)
+            ->replace('$key', $name)
+            ->replace('$action', $edn)
+            ->replace('$conditions', $this->getAppCondition($app ?? 'default'))
+            ->replace('$newLine', "\n")
+            ->replace('$indent', indent(4))
+            ->value();
     }
 
     public function getCustomRules()
@@ -226,6 +235,7 @@ class Simlayer
     /**
      * After `- all` (or all-left / all-right), a map of the keys that do
      * something else than Hammerspoon's mode: `['all', ['g' => 'focus: vivaldi']]`.
+     * A blank one is free: left out of the layer.
      */
     public function getOverrides()
     {
@@ -238,6 +248,23 @@ class Simlayer
         return collect($overrides)
             ->mapWithKeys(fn ($action, $key) => [$this->keyMap[$key] ?? $key => $action])
             ->all();
+    }
+
+    /**
+     * Blank (or null): the key is free, not in the layer, and types as itself.
+     */
+    public function isFree($action)
+    {
+        return $action === null || $action === '' || $action === [];
+    }
+
+    /**
+     * `hammerspoon`: the layer's Hammerspoon mode does the key
+     * (`handle-karabiner`, Modes/<Label>.lua), as every key of a `- all` layer.
+     */
+    public function isHammerspoon($action)
+    {
+        return is_string($action) && trim($action) === 'hammerspoon';
     }
 
     /**
@@ -265,6 +292,10 @@ class Simlayer
      */
     public function keysActionFor($key, $action)
     {
+        if ($this->isHammerspoon($action)) {
+            return [$this->hammerspoonAction($key)];
+        }
+
         if (! $this->isFocus($action)) {
             return $this->parseKeysAction($action);
         }
@@ -309,7 +340,7 @@ class Simlayer
                 ->explode(', ')
                 ->map(
                     fn ($value) => $script === 'app'
-                        ? '"' . (App::$apps[App::$aliases[$value] ?? null] ?? App::$apps[$value] ?? $value) . '"'
+                        ? '"' . (App::bundle($value) ?? $value) . '"'
                         : '"' . $value . '"',
                 )
                 ->implode(' ');
@@ -362,36 +393,39 @@ class Simlayer
             }
 
             $name = $this->keyMap[$key] ?? $key;
-            $override = $overrides[$name] ?? null;
 
-            $keys[$name][] = ['actions' => $override === null
-                ? [$this->hammerspoonAction($key)]
-                : $this->keysActionFor($key, $override)];
-        }
-
-        foreach ($this->getCustomRules() as $key => $customRules) {
-            $name = $this->keyMap[$key] ?? $key;
-
-            if ($key === $this->key) {
-                continue;
-            }
-
-            if (empty($customRules) && $customRules !== '0') {
+            if (! array_key_exists($name, $overrides)) {
                 $keys[$name][] = ['actions' => [$this->hammerspoonAction($key)]];
 
                 continue;
             }
 
-            if (is_string($customRules)) {
+            if (! $this->isFree($overrides[$name])) {
+                $keys[$name][] = ['actions' => $this->keysActionFor($key, $overrides[$name])];
+            }
+        }
+
+        foreach ($this->getCustomRules() as $key => $customRules) {
+            $name = $this->keyMap[$key] ?? $key;
+
+            if ($key === $this->key || $this->isFree($customRules)) {
+                continue;
+            }
+
+            if (! is_array($customRules)) {
                 $keys[$name][] = ['actions' => $this->keysActionFor($key, $customRules)];
 
                 continue;
             }
 
             foreach ($customRules as $app => $action) {
+                if ($this->isFree($action)) {
+                    continue;
+                }
+
                 $keys[$name][] = array_filter([
                     'app' => $app === 'default' ? null : $app,
-                    'actions' => $this->parseKeysAction($action),
+                    'actions' => $this->keysActionFor($key, $action),
                 ], fn ($value) => $value !== null);
             }
         }
@@ -452,7 +486,7 @@ class Simlayer
             $values = $action->after(':')->trim()->explode(', ')->all();
 
             return [match ($script) {
-                'app' => ['app' => App::$apps[App::$aliases[$values[0]] ?? null] ?? App::$apps[$values[0]] ?? $values[0]],
+                'app' => ['app' => App::bundle($values[0]) ?? $values[0]],
                 'open' => ['open' => $values[0]],
                 'alfred' => ['alfred' => $values],
                 'hs' => ['hammerspoon' => ['event' => $values[0]]],
@@ -510,6 +544,137 @@ class Simlayer
         );
     }
 
+    /**
+     * Everything wrong with simlayers.yml and apps.yml, for the build
+     * commands to refuse before writing anything.
+     */
+    public static function check(array $layers): array
+    {
+        $problems = App::problems();
+
+        foreach ($layers as $index => $rules) {
+            $problems = [...$problems, ...(new self($index, $rules))->problems()];
+        }
+
+        return $problems;
+    }
+
+    /**
+     * What's wrong with this layer: a key Keys doesn't know, an app apps.yml
+     * doesn't, or a key Hammerspoon would drop (a mode it doesn't load, an
+     * `hs:` event init.lua's urlEvents doesn't register).
+     */
+    public function problems(): array
+    {
+        $problems = [];
+
+        if (! in_array($this->key, self::KEY_NAMES, true)) {
+            $problems[] = "{$this->label}: its trigger “{$this->key}” isn't a key";
+        }
+
+        if ($this->getKeys() !== []) {
+            if (! Hammerspoon::hasMode($this->label)) {
+                $problems[] = "{$this->label}: `- {$this->rules[0]}`, but Hammerspoon has no {$this->label} mode";
+            }
+
+            foreach ($this->getOverrides() as $name => $override) {
+                $problems = [...$problems, ...$this->ruleProblems($name, $override)];
+            }
+        }
+
+        foreach ($this->getCustomRules() as $key => $rules) {
+            $problems = [...$problems, ...$this->ruleProblems($this->keyMap[$key] ?? $key, $rules)];
+        }
+
+        return $problems;
+    }
+
+    /** A layer key's value: free, one action, or a map of them by app. */
+    private function ruleProblems($name, $rules)
+    {
+        if (! in_array($name, self::KEY_NAMES, true)) {
+            return ["{$this->label}: “{$name}” isn't a key"];
+        }
+
+        if ($this->isFree($rules)) {
+            return [];
+        }
+
+        if (! is_array($rules)) {
+            return $this->actionProblems($name, $rules);
+        }
+
+        $problems = [];
+
+        foreach ($rules as $app => $action) {
+            if ($app !== 'default' && ! App::has((string) $app)) {
+                $problems[] = "{$this->label} {$name}: no app “{$app}” in apps.yml";
+            }
+
+            if (! $this->isFree($action)) {
+                $problems = [...$problems, ...$this->actionProblems($name, $action, $app)];
+            }
+        }
+
+        return $problems;
+    }
+
+    private function actionProblems($name, $action, $app = 'default')
+    {
+        $where = "{$this->label} {$name}" . ($app === 'default' ? '' : " ({$app})");
+
+        if (! is_string($action)) {
+            return ["{$where}: not an action"];
+        }
+
+        if ($this->isHammerspoon($action)) {
+            return Hammerspoon::hasMode($this->label)
+                ? []
+                : ["{$where}: `hammerspoon`, but Hammerspoon has no {$this->label} mode"];
+        }
+
+        if ($this->isFocus($action)) {
+            $target = trim(str($action)->after(':')->value());
+
+            return [
+                ...(App::has($target) ? [] : ["{$where}: focus: no app “{$target}” in apps.yml"]),
+                ...(Hammerspoon::hasMode($this->label) ? [] : ["{$where}: focus: needs Hammerspoon's {$this->label} mode (window hints)"]),
+            ];
+        }
+
+        $problems = [];
+
+        foreach (str($action)->explode(' ++ ') as $part) {
+            $part = str($part)->trim();
+
+            if ($part->startsWith('app:') && App::bundle($part->after(':')->trim()->value()) === null) {
+                $problems[] = "{$where}: app: no app “{$part->after(':')->trim()}” in apps.yml";
+            }
+        }
+
+        try {
+            $actions = $this->parseKeysAction($action);
+        } catch (InvalidArgumentException $e) {
+            return [...$problems, "{$where}: {$e->getMessage()}"];
+        }
+
+        foreach ($actions as $one) {
+            if (isset($one['key']) && ! in_array($one['key'], self::KEY_NAMES, true)) {
+                $problems[] = "{$where}: “{$one['key']}” isn't a key";
+            }
+
+            if (isset($one['hammerspoon']['event']) && ! Hammerspoon::hasEvent($one['hammerspoon']['event'])) {
+                $problems[] = "{$where}: hs: “{$one['hammerspoon']['event']}” isn't in init.lua's urlEvents (Keys can't reach it)";
+            }
+
+            if (isset($one['hammerspoon']['mode']) && ! Hammerspoon::hasMode($one['hammerspoon']['mode'])) {
+                $problems[] = "{$where}: hsk: Hammerspoon has no {$one['hammerspoon']['mode']} mode";
+            }
+        }
+
+        return $problems;
+    }
+
     public function getAppCondition($app)
     {
         if (empty($app) || $app === 'default') {
@@ -519,7 +684,8 @@ class Simlayer
         return ":{$app}";
     }
 
-    public function getKeys() {
+    public function getKeys()
+    {
         $keys = $this->rules[0] ?? null;
 
         if (empty($keys)) {
@@ -535,51 +701,5 @@ class Simlayer
         }
 
         return explode(',', $keys);
-    }
-
-    public function newKey($key) {
-        $keys = [
-            'tab' => 'f9',
-            'q' => 'w',
-            'w' => 'f17',
-            'e' => 'r',
-            'r' => 't',
-            't' => 'y',
-            'y' => 'u',
-            'u' => 'i',
-            'i' => 'o',
-            'o' => 'f13',
-            'p' => 'open_bracket',
-            'open_bracket' => 'close_bracket',
-            'close_bracket' => 'f11',
-            'a' => 's',
-            's' => 'd',
-            'd' => 'f',
-            'f' => 'g',
-            'g' => 'h',
-            'h' => 'j',
-            'j' => 'k',
-            'k' => 'l',
-            'l' => 'semicolon',
-            'semicolon' => 'quote',
-            'quote' => 'f10',
-            'return_or_enter' => 'z',
-            'caps_lock' => 'f16',
-            'left_shift' => 'f15',
-            'z' => 'x',
-            'x' => 'c',
-            'c' => 'v',
-            'v' => 'b',
-            'b' => 'n',
-            'n' => 'f14',
-            'm' => 'spacebar',
-            'comma' => 'f18',
-            'period' => 'f19',
-            'slash' => 'f20',
-            'right_shift' => 'f12',
-            'spacebar' => 'tab',
-        ];
-
-        return $keys[$key] ?? $key;
     }
 }

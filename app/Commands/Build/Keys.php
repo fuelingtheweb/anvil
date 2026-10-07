@@ -2,6 +2,7 @@
 
 namespace App\Commands\Build;
 
+use App\Commands\Build\Concerns\ChecksKeyboardConfig;
 use App\Models\App;
 use App\Models\Simlayer;
 use LaravelZero\Framework\Commands\Command;
@@ -9,6 +10,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class Keys extends Command
 {
+    use ChecksKeyboardConfig;
+
     protected $signature = 'build:keys';
 
     protected $description = 'Build the Keys config (keys/keys.json)';
@@ -18,6 +21,11 @@ class Keys extends Command
         $this->info('Building Keys Config...');
 
         $yaml = file_get_contents(anvil_config('simlayers'));
+
+        if (! $this->configIsSound(Yaml::parse($yaml))) {
+            return self::FAILURE;
+        }
+
         $comments = $this->comments($yaml);
         $layers = collect(Yaml::parse($yaml))
             ->map(function ($rules, $index) use ($comments) {

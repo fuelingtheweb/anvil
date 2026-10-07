@@ -66,6 +66,7 @@ local urlEvents = {
     ['Vi.moveToTopOfPage'] = cm.Vi.moveToTopOfPage,
     ['Vi.moveToBottomOfPage'] = cm.Vi.moveToBottomOfPage,
     ['SelectUntil.beginningOfLine'] = md.SelectUntil.beginningOfLine,
+    ['CodeSnippets.null'] = md.CodeSnippets.null,
 }
 
 fn.each(urlEvents, function(handler, event)

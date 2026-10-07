@@ -1,0 +1,65 @@
+# The apps the keyboard config knows, by name. simlayers.yml's per-app rules
+# (`chrome:`, `ide:`), `focus:` and `app:` use these names, and Hammerspoon's
+# Lua gets every one as a global (`is.In(preview)`, `App.fromAlias(mail)`).
+# `kb` builds them into karabiner.edn's :applications, keys.json's apps and
+# Hammerspoon's config/apps.lua. Karabiner and Keys match a bundle id as an
+# unanchored regex: com.tidypoint.Deck also covers com.tidypoint.Deck.dev.
+# A name must be a Lua identifier, and mustn't be one of Hammerspoon's own
+# globals (`ray`, its debug function, is why Ray is `rayapp`).
+
+apps:
+    alfred: com.runningwithcrayons.Alfred
+    anybox: cc.anybox.Anybox
+    busycal: com.busymac.busycal-setapp
+    chrome: com.google.Chrome
+    claude: com.anthropic.claudefordesktop
+    cursor: com.todesktop.230313mzl4w4u92
+    dash: com.kapeli.dashdoc
+    deck: com.tidypoint.Deck
+    discord: com.hnc.Discord
+    duckduckgo: com.duckduckgo.macos.browser
+    fastmail: com.fastmail.mac.Fastmail
+    finder: com.apple.finder
+    linear: com.linear
+    musicmanager: com.tidypoint.MusicManager
+    obsidian: md.obsidian
+    outlook: com.microsoft.Outlook
+    postman: com.postmanlabs.mac
+    preview: com.apple.Preview
+    rayapp: be.spatie.ray
+    raycast: com.raycast.macos
+    sidenotes: com.apptorium.SideNotes-setapp
+    slack: com.tinyspeck.slackmacgap
+    solo: com.soloterm.solo
+    spotify: com.spotify.client
+    tableplus: com.tinyapp.TablePlus-setapp
+    tables: com.tidypoint.Tables
+    teams: com.microsoft.teams2
+    tinkerwell: de.beyondco.tinkerwell
+    transmit: com.panic.Transmit
+    vivaldi: com.vivaldi.Vivaldi
+    vscode: com.microsoft.VSCode
+    warp: dev.warp.Warp-Stable
+    windsurf: com.exafunction.windsurf
+    youtubeMusic: com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod
+    zoom: us.zoom.xos
+
+# Other names for an app or a group.
+aliases:
+    calendar: busycal
+    code: vscode
+    browsers: browser # Hammerspoon's spellings, from here down
+    musicManager: musicmanager
+    sideNotes: sidenotes
+    teamMessaging: teammessaging
+
+# Names for several apps: a rule for a group is a rule for each of them.
+groups:
+    browser: [chrome, vivaldi]
+    chat: [discord, slack]
+    ide: [code, cursor]
+    mail: [fastmail, outlook]
+    quickfind: [alfred, raycast]
+    tasks: [linear]
+    teammessaging: [teams]
+    terminal: [warp]

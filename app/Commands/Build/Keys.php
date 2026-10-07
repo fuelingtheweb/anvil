@@ -17,8 +17,21 @@ class Keys extends Command
     {
         $this->info('Building Keys Config...');
 
-        $layers = collect(Yaml::parse(file_get_contents(anvil_config('simlayers'))))
-            ->map(fn ($rules, $index) => (new Simlayer($index, $rules))->toKeys())
+        $yaml = file_get_contents(anvil_config('simlayers'));
+        $comments = $this->comments($yaml);
+        $layers = collect(Yaml::parse($yaml))
+            ->map(function ($rules, $index) use ($comments) {
+                $simlayer = new Simlayer($index, $rules);
+                $keys = $simlayer->toKeys();
+                if ($keys && ! empty($comments[$index])) {
+                    // What each key does, for Keys' layer popup.
+                    $keys['labels'] = (object) collect($comments[$index])
+                        ->mapWithKeys(fn ($text, $key) => [$simlayer->keyName($key) => $text])
+                        ->all();
+                }
+
+                return $keys;
+            })
             ->filter()
             ->values();
 
@@ -46,5 +59,51 @@ class Keys extends Command
         );
 
         $this->info('Finished!');
+    }
+
+    /**
+     * The comment on each layer key's line in simlayers.yml
+     * (`p: 'soc.p' # Alfred clipboard`), which the YAML parser drops: by the
+     * layer's index ('caps : Hyper'), then the key as written. A comment
+     * that's a quoted name (`# 'moveToTopOfPage'`) becomes words.
+     */
+    private function comments(string $yaml): array
+    {
+        $comments = [];
+        $layer = null;
+        foreach (preg_split('/\R/', $yaml) as $line) {
+            if (preg_match("/^'([^']+)':/", $line, $match)) {
+                $layer = $match[1];
+
+                continue;
+            }
+            if ($layer === null || ! preg_match("/^ {4}(?:- )?('(?:[^']|'')*'|[^\s:'#][^\s:]*):(.*)$/", $line, $match)) {
+                continue;
+            }
+            // Quoted strings blanked out at the same length, so a '#' in one
+            // ('#' as a key's output) isn't taken for a comment.
+            $blanked = preg_replace_callback("/'(?:[^']|'')*'|\"(?:[^\"\\\\]|\\\\.)*\"/", fn ($quoted) => str_repeat('x', strlen($quoted[0])), $match[2]);
+            if (! preg_match('/(^|\s)#/', $blanked, $hash, PREG_OFFSET_CAPTURE)) {
+                continue;
+            }
+            $text = trim(substr($match[2], $hash[0][1] + strlen($hash[0][0])));
+            if ($text === '') {
+                continue;
+            }
+            $key = str_starts_with($match[1], "'") ? str_replace("''", "'", substr($match[1], 1, -1)) : $match[1];
+            $comments[$layer][$key] = $this->words($text);
+        }
+
+        return $comments;
+    }
+
+    /** "'moveToTopOfPage'" → "Move to top of page"; anything else as written. */
+    private function words(string $text): string
+    {
+        if (! preg_match("/^'([a-z][A-Za-z]*)'$/", $text, $match)) {
+            return $text;
+        }
+
+        return ucfirst(strtolower(preg_replace('/(?<!^)([A-Z])/', ' $1', $match[1])));
     }
 }

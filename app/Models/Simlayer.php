@@ -404,6 +404,12 @@ class Simlayer
         ], fn ($value) => $value !== null);
     }
 
+    /** A key as simlayers.yml writes it ('[', sb) to Karabiner's name (open_bracket, spacebar). */
+    public function keyName($key)
+    {
+        return $this->keyMap[$key] ?? $key;
+    }
+
     public function hammerspoonAction($key)
     {
         return ['hammerspoon' => ['mode' => $this->label, 'key' => $this->keyMap[$key] ?? $key]];

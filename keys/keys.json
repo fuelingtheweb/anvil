@@ -541,6 +541,13 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "d": "Hold to talk, let go to type it; tap: hands-free (Keys only)",
+                "p": "Alfred clipboard",
+                "open_bracket": "Command Palette",
+                "close_bracket": "tell me this key is open",
+                "h": "Previous Page"
             }
         },
         {
@@ -1050,6 +1057,20 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "i": "First tab",
+                "o": "Last Tab",
+                "p": "Pin Tab",
+                "open_bracket": "Close all tabs to the left",
+                "close_bracket": "Close all tabs to the right",
+                "h": "Move tab left",
+                "l": "Move tab right",
+                "return_or_enter": "Restore tab",
+                "n": "New tab",
+                "slash": "Close all other tabs",
+                "right_shift": "Close all tabs",
+                "spacebar": "Pin tab"
             }
         },
         {
@@ -4212,6 +4233,9 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "x": "VSCode Extensions"
             }
         },
         {
@@ -5263,6 +5287,24 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "y": "Move to top of page",
+                "u": "Page up",
+                "i": "Move to first character of line",
+                "o": "Move to end of line",
+                "open_bracket": "Move and insert at first character of line",
+                "close_bracket": "Move and append at end of line",
+                "semicolon": "Move to previous whole word",
+                "quote": "Move to end of whole word",
+                "return_or_enter": "Move to next whole word",
+                "n": "Move to bottom of page",
+                "m": "Page down",
+                "comma": "Previous word",
+                "period": "Next word",
+                "slash": "Move to previous subword",
+                "right_shift": "Move to next subword",
+                "spacebar": "Join lines"
             }
         },
         {
@@ -6922,6 +6964,13 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "tab": "Shift Tab",
+                "r": "Reload",
+                "a": "Alfred: Action file",
+                "s": "Save",
+                "x": "Cancel or delete"
             }
         },
         {
@@ -7155,6 +7204,11 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "caps_lock": "Open Obsidian",
+                "s": "Capture: area (Capture's default ⌃⇧4)",
+                "f": "Reveal in sidebar"
             }
         },
         {
@@ -8016,6 +8070,29 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "y": "Code info",
+                "u": "Add use statement",
+                "i": "Focus breadcrumbs",
+                "o": "Go to definition",
+                "p": "Compare active file with",
+                "open_bracket": "Fold",
+                "close_bracket": "Unfold",
+                "h": "Previous member",
+                "j": "Move line down",
+                "k": "Move line up",
+                "l": "Next member",
+                "semicolon": "Toggle semicolon",
+                "quote": "Trigger Copilot",
+                "return_or_enter": "Select all",
+                "n": "Select next word",
+                "m": "Multiple cursors down",
+                "comma": "Toggle comma",
+                "period": "Double arrow",
+                "slash": "Go to matching pair",
+                "right_shift": "Go to matching bracket",
+                "spacebar": "Toggle comment"
             }
         },
         {
@@ -8479,6 +8556,23 @@
                         ]
                     }
                 ]
+            },
+            "labels": {
+                "y": "Select to top of page",
+                "u": "Select line up",
+                "i": "Select to first character of line",
+                "o": "Select to end of line",
+                "h": "Select left",
+                "j": "Select down",
+                "k": "Select up",
+                "l": "Select right",
+                "semicolon": "Select to previous whole word",
+                "quote": "Select to end of whole word",
+                "return_or_enter": "Select to next whole word",
+                "n": "Select to bottom of page",
+                "m": "Select line down",
+                "comma": "Select previous word",
+                "period": "Select next word"
             }
         },
         {

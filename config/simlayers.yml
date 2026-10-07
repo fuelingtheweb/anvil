@@ -1,4 +1,5 @@
 'caps : Hyper':
+    d: dictate # Hold to talk, let go to type it; tap: hands-free (Keys only)
     y:
     u:
     i:

@@ -135,6 +135,11 @@ class Simlayer
             // Karabiner can't, so Hammerspoon's mode still does it there).
             $override = $overrides[$this->keyMap[$key] ?? $key] ?? null;
 
+            // Karabiner can't dictate: the key types as it did without the rule.
+            if ($override !== null && $this->isDictate($override)) {
+                continue;
+            }
+
             if ($override !== null && ! $this->isFocus($override)) {
                 $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
                     ->replace('$key', $this->keyMap[$key] ?? $key)
@@ -171,6 +176,10 @@ class Simlayer
                 continue;
             }
 
+            if (is_string($customRules) && $this->isDictate($customRules)) {
+                continue;
+            }
+
             if (is_string($customRules)) {
                 $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
                     ->replace('$key', $this->keyMap[$key] ?? $key)
@@ -184,6 +193,10 @@ class Simlayer
             }
 
             foreach ($customRules as $app => $action) {
+                if ($this->isDictate($action)) {
+                    continue;
+                }
+
                 try {
                     $rules .= str('[:$key [$action] [$conditions]]$newLine$indent')
                         ->replace('$key', $this->keyMap[$key] ?? $key)
@@ -234,6 +247,16 @@ class Simlayer
     public function isFocus($action)
     {
         return is_string($action) && str_starts_with(trim($action), 'focus:');
+    }
+
+    /**
+     * `dictate`: Keys listens while the key is held and types what was said
+     * (a tap: hands-free until the next press). Keys only; Karabiner's EDN
+     * leaves the key out.
+     */
+    public function isDictate($action)
+    {
+        return is_string($action) && trim($action) === 'dictate';
     }
 
     /**
@@ -391,6 +414,10 @@ class Simlayer
      */
     public function parseKeysAction($action)
     {
+        if ($this->isDictate($action)) {
+            return [['dictate' => true]];
+        }
+
         $action = str($action);
 
         if ($action->test('/^[a-zA-Z]+:\/\/.+$/')) {

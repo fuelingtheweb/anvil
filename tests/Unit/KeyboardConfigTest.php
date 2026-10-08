@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\App;
+use App\Models\Dictation;
 use App\Models\Hammerspoon;
 use App\Models\Simlayer;
 
@@ -100,4 +101,23 @@ test('the real simlayers.yml and apps.yml are sound', function () {
     Hammerspoon::use(null);
 
     expect(Simlayer::check(Symfony\Component\Yaml\Yaml::parseFile(anvil_config('simlayers'))))->toBe([]);
+});
+
+test('dictation: a modifier on its own, your words and the model, for keys.json', function () {
+    $dictation = new Dictation(['key' => 'right_option', 'words' => ['TidyKit', 'link-diag'], 'model' => 'gemma4:12b-mlx']);
+
+    expect($dictation->check())->toBe([])
+        ->and(json_decode(json_encode($dictation->toKeys()), true))
+        ->toBe(['key' => 'right_option', 'words' => ['TidyKit', 'link-diag'], 'model' => 'gemma4:12b-mlx'])
+        ->and(json_encode((new Dictation([]))->toKeys()))->toBe('{}');
+
+    expect((new Dictation(['key' => 'd', 'words' => ['', 'ok'], 'model' => '']))->check())->toBe([
+        'dictation: “d” isn\'t a modifier key (right_option, say)',
+        'dictation: words are names, one a line ("")',
+        'dictation: the model is an Ollama name (gemma4:12b-mlx, say)',
+    ]);
+});
+
+test('the real dictation.yml is sound', function () {
+    expect(Dictation::load()?->check())->toBe([]);
 });

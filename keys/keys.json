@@ -169,15 +169,6 @@
             "trigger": "caps_lock",
             "hyper": true,
             "keys": {
-                "d": [
-                    {
-                        "actions": [
-                            {
-                                "dictate": true
-                            }
-                        ]
-                    }
-                ],
                 "y": [
                     {
                         "actions": [
@@ -538,7 +529,6 @@
                 ]
             },
             "labels": {
-                "d": "Hold to talk, let go to type it; tap: hands-free (Keys only)",
                 "p": "Alfred clipboard",
                 "open_bracket": "Command Palette",
                 "close_bracket": "tell me this key is open",
@@ -10324,5 +10314,57 @@
                 }
             ]
         }
-    ]
+    ],
+    "dictation": {
+        "key": "right_option",
+        "words": [
+            "TidyKit",
+            "TidyPoint",
+            "TidyLink",
+            "TidyStatus",
+            "TidyFiles",
+            "TidyMedia",
+            "TidyApp",
+            "TidyNotes",
+            "tidypoint-apps",
+            "tidypoint-android",
+            "tidypoint-releases",
+            "tidy-update",
+            "release-all",
+            "deck-handoff",
+            "link-diag",
+            "link-notify",
+            "SimplyPickem",
+            "Flint",
+            "Anvil",
+            "simlayers",
+            "Hammerspoon",
+            "Karabiner",
+            "Goku",
+            "Homerow",
+            "Espanso",
+            "Raycast",
+            "Solo",
+            "Warp",
+            "Herd",
+            "Laravel",
+            "Livewire",
+            "NativePHP",
+            "Tailscale",
+            "go2rtc",
+            "Wyze",
+            "Ollama",
+            "Fastmail",
+            "JMAP",
+            "macOS",
+            "SwiftUI",
+            "AppKit",
+            "Xcode",
+            "GitHub",
+            "gh-dash",
+            "TablePlus",
+            "NeoFinder"
+        ],
+        "model": "gemma4:12b-mlx"
+    }
 }

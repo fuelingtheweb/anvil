@@ -4,6 +4,7 @@ namespace App\Commands\Build;
 
 use App\Commands\Build\Concerns\ChecksKeyboardConfig;
 use App\Models\App;
+use App\Models\Dictation;
 use App\Models\Simlayer;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Yaml\Yaml;
@@ -23,6 +24,16 @@ class Keys extends Command
         $yaml = file_get_contents(anvil_config('simlayers'));
 
         if (! $this->configIsSound(Yaml::parse($yaml))) {
+            return self::FAILURE;
+        }
+
+        $dictation = Dictation::load();
+        foreach ($dictation?->check() ?? [] as $problem) {
+            $this->error($problem);
+        }
+        if ($dictation?->check()) {
+            $this->error('Not built: fix config/dictation.yml first.');
+
             return self::FAILURE;
         }
 
@@ -56,6 +67,9 @@ class Keys extends Command
                 ['from' => 'fn', 'actions' => [['pointer' => 'button1']]], // Mouse click. Hold for dragging
             ],
         ];
+        if ($dictation) {
+            $config['dictation'] = $dictation->toKeys();
+        }
 
         if (! is_dir(base_path('keys'))) {
             mkdir(base_path('keys'));

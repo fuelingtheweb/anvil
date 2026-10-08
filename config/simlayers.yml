@@ -20,7 +20,6 @@
 # shifts · caps · esc · lt rt up dn arrows · cln :
 
 'caps : Hyper':
-    d: dictate # Hold to talk, let go to type it; tap: hands-free (Keys only)
     y: hammerspoon
     u: hammerspoon
     i: hammerspoon

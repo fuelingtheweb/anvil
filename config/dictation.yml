@@ -1,0 +1,65 @@
+# Keys' dictation (Keys only; `kb` writes it into keys/keys.json).
+# Hold the key on its own to talk and let go to type it; tap it to listen
+# hands-free until the next press. With another key or a click it's the key
+# it always was, and it goes through at once either way.
+key: right_option
+
+# Names spelled your way. Heard as two or three words ("tidy kit", "Link
+# Diag"), or as one with more to it than a capital ("macos"), they're fixed
+# before typing; the tidy-up model is given the whole list too, which is how
+# one-word names like Anvil get their capital.
+words:
+  # The family
+  - TidyKit
+  - TidyPoint
+  - TidyLink
+  - TidyStatus
+  - TidyFiles
+  - TidyMedia
+  - TidyApp
+  - TidyNotes
+  - tidypoint-apps
+  - tidypoint-android
+  - tidypoint-releases
+  - tidy-update
+  - release-all
+  - deck-handoff
+  - link-diag
+  - link-notify
+  - SimplyPickem
+  - Flint
+  # Keyboard
+  - Anvil
+  - simlayers
+  - Hammerspoon
+  - Karabiner
+  - Goku
+  - Homerow
+  - Espanso
+  - Raycast
+  # Tools
+  - Solo
+  - Warp
+  - Herd
+  - Laravel
+  - Livewire
+  - NativePHP
+  - Tailscale
+  - go2rtc
+  - Wyze
+  - Ollama
+  - Fastmail
+  - JMAP
+  - macOS
+  - SwiftUI
+  - AppKit
+  - Xcode
+  - GitHub
+  - gh-dash
+  - TablePlus
+  - NeoFinder
+
+# The local model (Ollama) that tidies up what was said: no ums, only your
+# corrections, spoken lists as lists, these names. Keys' menu turns it off;
+# without Ollama or the model, what was heard is typed.
+model: gemma4:12b-mlx

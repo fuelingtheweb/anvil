@@ -48,9 +48,6 @@
         "linear": [
             "com.linear"
         ],
-        "musicmanager": [
-            "com.tidypoint.MusicManager"
-        ],
         "obsidian": [
             "md.obsidian"
         ],
@@ -68,6 +65,9 @@
         ],
         "raycast": [
             "com.raycast.macos"
+        ],
+        "rhythm": [
+            "com.tidypoint.Rhythm"
         ],
         "sidenotes": [
             "com.apptorium.SideNotes-setapp"
@@ -123,9 +123,6 @@
         "browsers": [
             "com.google.Chrome",
             "com.vivaldi.Vivaldi"
-        ],
-        "musicManager": [
-            "com.tidypoint.MusicManager"
         ],
         "sideNotes": [
             "com.apptorium.SideNotes-setapp"
@@ -3778,7 +3775,7 @@
                             {
                                 "focus": {
                                     "apps": [
-                                        "com.tidypoint.MusicManager"
+                                        "com.tidypoint.Rhythm"
                                     ],
                                     "hammerspoon": {
                                         "mode": "Open",

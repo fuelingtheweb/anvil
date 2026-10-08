@@ -10,7 +10,7 @@ pause
 info 'Install and setup Setapp.'
 pause
 
-info 'Install the tidypoint apps (Tray, Capture, Tables, MusicManager, PhotoManager).'
+info 'Install the tidypoint apps (Deck, Capture, Tables, Rhythm, PhotoManager).'
 gh auth status > /dev/null 2>&1 || gh auth login
 gh repo clone fuelingtheweb/tidypoint-releases $HOME/.tidypoint-releases
 $HOME/.tidypoint-releases/install.sh --daily-check

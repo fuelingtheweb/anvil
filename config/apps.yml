@@ -21,13 +21,13 @@ apps:
     fastmail: com.fastmail.mac.Fastmail
     finder: com.apple.finder
     linear: com.linear
-    musicmanager: com.tidypoint.MusicManager
     obsidian: md.obsidian
     outlook: com.microsoft.Outlook
     postman: com.postmanlabs.mac
     preview: com.apple.Preview
     rayapp: be.spatie.ray
     raycast: com.raycast.macos
+    rhythm: com.tidypoint.Rhythm
     sidenotes: com.apptorium.SideNotes-setapp
     slack: com.tinyspeck.slackmacgap
     solo: com.soloterm.solo
@@ -49,7 +49,6 @@ aliases:
     calendar: busycal
     code: vscode
     browsers: browser # Hammerspoon's spellings, from here down
-    musicManager: musicmanager
     sideNotes: sidenotes
     teamMessaging: teammessaging
 

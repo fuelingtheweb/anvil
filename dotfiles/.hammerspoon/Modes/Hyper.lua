@@ -52,7 +52,7 @@ Hyper.lookup = {
             ks.cmd('2')
         elseif is.terminal() then
             ks.type('cd ')
-        elseif is.In(solo) then
+        elseif is.In(ember, solo) then
             ks.cmd('p')
         elseif is.vivaldi() then
             ks.cmd('e')
@@ -92,7 +92,7 @@ Hyper.lookup = {
             ks.cmd('6')
         elseif is.In(spotify) then
             ks.altCmd('right')
-        elseif is.In(solo) then
+        elseif is.In(ember, solo) then
             ks.altCmd('right')
         elseif is.warp() then
             -- Autocomplete to the end of the line
@@ -141,7 +141,7 @@ Hyper.lookup = {
 
 function Hyper.open()
     -- Before invoker, which isn't in App.bundles (nil): is.In stops at a nil.
-    if is.codeEditor() or is.In(tables, tableplus, deck, invoker) then
+    if is.codeEditor() or is.In(tables, tableplus, deck, ember, invoker) then
         ks.cmd('p')
     elseif is.In(teams) then
         ks.cmd('g')

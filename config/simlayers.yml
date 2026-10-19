@@ -30,6 +30,7 @@
         ide: 'sc.p'
         obsidian: 'c.p'
         warp: 'c.p'
+        ember: 'c.k'
         solo: 'c.k'
         default: 'alfred: search, com.tedwise.menubarsearch'
     ']': '' # tell me this key is open
@@ -37,6 +38,7 @@
         discord: 'c.k rtn'
         raycast: 'esc'
         spotify: 'oc.lt'
+        ember: 'oc.lt'
         solo: 'oc.lt'
         terminal: '"cdp" ++ rtn'
         default: 'c.['
@@ -48,6 +50,7 @@
     rtn: caps
     n:
         ide: 'oc.n'
+        ember: 'c.t'
         solo: 'c.t'
         default: 'sc.n'
     m: hammerspoon
@@ -81,6 +84,7 @@
         vivaldi: 'oc.lt'
     j: # Previous tab
         tableplus: 'c.['
+        ember: 'c.dn'
         solo: 'c.dn'
         discord: 'o.dn' # Next conversation or channel
         tinkerwell: 'oc.lt'
@@ -89,6 +93,7 @@
         default: 'sc.['
     k: # Next tab
         tableplus: 'c.]'
+        ember: 'c.up'
         solo: 'c.up'
         discord: 'o.up' # Previous conversation or channel
         tinkerwell: 'oc.rt'
@@ -115,6 +120,7 @@
         ide: 'sc.[ c.w'
         tinkerwell: 'oc.lt c.w'
         tableplus: 'c.[ c.w c.]'
+        ember: 'c.dn c.w c.up'
         solo: 'c.dn c.w c.up'
         discord: 'o.dn c.w o.up'
         vivaldi: 'sc.] c.w sc.['
@@ -124,6 +130,7 @@
     prd: # Close the tab after
         ide: 'sc.] c.w sc.['
         tableplus: 'c.] c.w'
+        ember: 'c.up c.w'
         solo: 'c.up c.w'
         discord: 'o.up c.w'
         tinkerwell: 'oc.rt c.w'
@@ -203,7 +210,7 @@
       c: 'focus: calendar'
       v: 'focus: tables'
       b: 'focus: outlook'
-      sb: 'focus: solo'
+      sb: 'focus: ember'
 
 'p : Paste':
     - all-left

@@ -39,6 +39,9 @@
         "duckduckgo": [
             "com.duckduckgo.macos.browser"
         ],
+        "ember": [
+            "com.tidypoint.Ember"
+        ],
         "fastmail": [
             "com.fastmail.mac.Fastmail"
         ],
@@ -275,6 +278,17 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "k",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "app": "solo",
                         "actions": [
                             {
@@ -321,6 +335,18 @@
                     },
                     {
                         "app": "spotify",
+                        "actions": [
+                            {
+                                "key": "left_arrow",
+                                "modifiers": [
+                                    "option",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
                         "actions": [
                             {
                                 "key": "left_arrow",
@@ -448,6 +474,17 @@
                                 "key": "n",
                                 "modifiers": [
                                     "option",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "t",
+                                "modifiers": [
                                     "command"
                                 ]
                             }
@@ -741,6 +778,17 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "app": "solo",
                         "actions": [
                             {
@@ -816,6 +864,17 @@
                         "actions": [
                             {
                                 "key": "close_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
                                 "modifiers": [
                                     "command"
                                 ]
@@ -1069,6 +1128,29 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "down_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "up_arrow",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "app": "solo",
                         "actions": [
                             {
@@ -1230,6 +1312,23 @@
                         "actions": [
                             {
                                 "key": "close_bracket",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "w",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "up_arrow",
                                 "modifiers": [
                                     "command"
                                 ]
@@ -3932,7 +4031,7 @@
                             {
                                 "focus": {
                                     "apps": [
-                                        "com.soloterm.solo"
+                                        "com.tidypoint.Ember"
                                     ],
                                     "hammerspoon": {
                                         "mode": "Open",
@@ -10341,6 +10440,7 @@
             "Homerow",
             "Espanso",
             "Raycast",
+            "Ember",
             "Solo",
             "Warp",
             "Herd",

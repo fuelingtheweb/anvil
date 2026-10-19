@@ -26,7 +26,7 @@ Open.lookup = {
     -- b = 'openBookmarksModal',
     b = 'outlook',
     -- spacebar = 'miniCalendar',
-    spacebar = 'solo',
+    spacebar = 'ember',
 }
 
 Modal.add({

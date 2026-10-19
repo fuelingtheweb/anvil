@@ -11,6 +11,7 @@ return {
     deck = 'com.tidypoint.Deck',
     discord = 'com.hnc.Discord',
     duckduckgo = 'com.duckduckgo.macos.browser',
+    ember = 'com.tidypoint.Ember',
     fastmail = 'com.fastmail.mac.Fastmail',
     finder = 'com.apple.finder',
     linear = 'com.linear',

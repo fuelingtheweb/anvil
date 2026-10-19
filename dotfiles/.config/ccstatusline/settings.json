@@ -57,6 +57,28 @@
         "character": " "
       },
       {
+        "id": "06194e1f-637f-4336-8eeb-571f710d6275",
+        "type": "worktree-mode",
+        "color": "yellow",
+        "bold": true
+      },
+      {
+        "id": "e16bd85c-d344-4194-9f0f-42c9a2c92150",
+        "type": "separator",
+        "character": " "
+      },
+      {
+        "id": "150c24db-9047-4f5f-9758-3870b8c315aa",
+        "type": "worktree-name",
+        "color": "yellow",
+        "bold": true
+      },
+      {
+        "id": "d572beaf-ca50-4249-bfcd-7b4acc6df6a8",
+        "type": "separator",
+        "character": " "
+      },
+      {
         "id": "5",
         "type": "git-branch",
         "color": "brightBlack",

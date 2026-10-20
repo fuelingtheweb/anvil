@@ -290,6 +290,7 @@
     rtn: # 'moveToNextWholeWord'
         default: 'esc s.w'
     n: # 'moveToBottomOfPage'
+        ember: 'c.end' # Scroll to Bottom
         default: 'hs: Vi.moveToBottomOfPage'
     m: # 'pageDown'
         ide: 't.d'
@@ -467,12 +468,14 @@
     ']': # Unfold
         default: 'oc.]'
     h: # Previous member
+        ember: 'oc.up' # Previous block (a command, a Claude turn)
         default: 'soc.up'
     j: # Move line down
         default: 'tc.dn'
     k: # Move line up
         default: 'tc.up'
     l: # Next member
+        ember: 'oc.dn' # Next block
         default: 'soc.dn'
     ';': # Toggle semicolon
         cursor: 't.;'

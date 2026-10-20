@@ -24,7 +24,6 @@ return {
     rhythm = 'com.tidypoint.Rhythm',
     sidenotes = 'com.apptorium.SideNotes-setapp',
     slack = 'com.tinyspeck.slackmacgap',
-    solo = 'com.soloterm.solo',
     spotify = 'com.spotify.client',
     tableplus = 'com.tinyapp.TablePlus-setapp',
     tables = 'com.tidypoint.Tables',

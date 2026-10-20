@@ -45,5 +45,5 @@ Session.vim
 
 **/.claude/settings.local.json
 
-# Soloterm (https://soloterm.com) local process config
+# A project's processes for Ember (Solo's solo.yml, kept out of the repos)
 solo.yml

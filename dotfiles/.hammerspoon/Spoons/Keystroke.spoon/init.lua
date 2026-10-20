@@ -146,10 +146,6 @@ function Keystroke.key(key)
     return Keystroke.fire({}, key)
 end
 
-function Keystroke.solo(key)
-    return Keystroke.fire({}, key)
-end
-
 function Keystroke.sequence(keys)
     fn.each(keys, Keystroke.key)
 

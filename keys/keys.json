@@ -78,9 +78,6 @@
         "slack": [
             "com.tinyspeck.slackmacgap"
         ],
-        "solo": [
-            "com.soloterm.solo"
-        ],
         "spotify": [
             "com.spotify.client"
         ],
@@ -289,17 +286,6 @@
                         ]
                     },
                     {
-                        "app": "solo",
-                        "actions": [
-                            {
-                                "key": "k",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "actions": [
                             {
                                 "alfred": [
@@ -347,18 +333,6 @@
                     },
                     {
                         "app": "ember",
-                        "actions": [
-                            {
-                                "key": "left_arrow",
-                                "modifiers": [
-                                    "option",
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "solo",
                         "actions": [
                             {
                                 "key": "left_arrow",
@@ -481,17 +455,6 @@
                     },
                     {
                         "app": "ember",
-                        "actions": [
-                            {
-                                "key": "t",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "solo",
                         "actions": [
                             {
                                 "key": "t",
@@ -789,17 +752,6 @@
                         ]
                     },
                     {
-                        "app": "solo",
-                        "actions": [
-                            {
-                                "key": "down_arrow",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "app": "discord",
                         "actions": [
                             {
@@ -872,17 +824,6 @@
                     },
                     {
                         "app": "ember",
-                        "actions": [
-                            {
-                                "key": "up_arrow",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "solo",
                         "actions": [
                             {
                                 "key": "up_arrow",
@@ -1151,29 +1092,6 @@
                         ]
                     },
                     {
-                        "app": "solo",
-                        "actions": [
-                            {
-                                "key": "down_arrow",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            },
-                            {
-                                "key": "w",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            },
-                            {
-                                "key": "up_arrow",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "app": "discord",
                         "actions": [
                             {
@@ -1326,23 +1244,6 @@
                     },
                     {
                         "app": "ember",
-                        "actions": [
-                            {
-                                "key": "up_arrow",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            },
-                            {
-                                "key": "w",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "solo",
                         "actions": [
                             {
                                 "key": "up_arrow",

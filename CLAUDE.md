@@ -31,7 +31,7 @@ Shell wrappers (defined in `aliases/misc.sh`, available once the shell is source
 - `kb` = `build:karabiner`, `build:keys`, `build:hammerspoon`, then run `goku`
 - `keys-on` / `keys-off` = select Karabiner's empty "Off" profile (Keys takes the keyboard) / its "Default" profile (Karabiner takes it back); Keys' menu bar icon does the same
 - `ab` = `build:aliases` then re-source the alias index
-- `anb` = `kb && ab` (the full rebuild; also the `Build` process in `solo.yml`)
+- `anb` = `kb && ab` (the full rebuild; also the `Build` command in `solo.yml`, which Ember runs; Solo, which read it first, was retired 2026-10-20)
 
 PHP is provided via Laravel Herd. Requires PHP ^8.2.
 

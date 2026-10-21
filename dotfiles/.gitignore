@@ -45,5 +45,7 @@ Session.vim
 
 **/.claude/settings.local.json
 
-# A project's processes for Ember (Solo's solo.yml, kept out of the repos)
+# A project's commands for Ember (its ember.yml; Solo's solo.yml before), kept
+# out of the repos
+ember.yml
 solo.yml

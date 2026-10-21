@@ -393,6 +393,7 @@
     e: hammerspoon
     r: # Reload
         ide: 'soc.r'
+        ember: 'c.r' # Restart: Warp's ↑ ⏎ would send Claude its last message again
         terminal: 'up rtn' # Run last command
         tinkerwell: 't.l c.r'
         default: 'c.r'
@@ -401,6 +402,7 @@
     a: 'oc.\' # Alfred: Action file
     s: # Save
         ide: 'c.s esc'
+        ember: 'c.s' # Not vim's :x, which Claude would be sent
         terminal: 'cln x rtn' # Save from vim
         default: 'c.s'
     d: hammerspoon
@@ -415,6 +417,7 @@
         finder: 'c.dlt'
         ide: 'sc.dlt'
         obsidian: 'sc.dlt'
+        ember: 'dlt' # Not ^C: twice quits Claude
         terminal: 't.c'
         default: 'dlt'
     c: hammerspoon

@@ -48,5 +48,5 @@ return {
     quickfind = { 'alfred', 'raycast' },
     tasks = { 'linear' },
     teammessaging = { 'teams' },
-    terminal = { 'warp' },
+    terminal = { 'warp', 'ember' },
 }

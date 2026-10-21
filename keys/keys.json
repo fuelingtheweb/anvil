@@ -157,7 +157,8 @@
             "com.microsoft.teams2"
         ],
         "terminal": [
-            "dev.warp.Warp-Stable"
+            "dev.warp.Warp-Stable",
+            "com.tidypoint.Ember"
         ]
     },
     "layers": [
@@ -6832,6 +6833,17 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "r",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6916,6 +6928,17 @@
                             },
                             {
                                 "key": "escape"
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "s",
+                                "modifiers": [
+                                    "command"
+                                ]
                             }
                         ]
                     },
@@ -7061,6 +7084,14 @@
                                     "shift",
                                     "command"
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "delete_or_backspace"
                             }
                         ]
                     },

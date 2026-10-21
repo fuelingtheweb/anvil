@@ -93,7 +93,9 @@ Hyper.lookup = {
         elseif is.In(spotify) then
             ks.altCmd('right')
         elseif is.In(ember) then
-            ks.altCmd('right')
+            -- The shell's suggestion, whole (Ember's zsh takes it at the
+            -- line's end), or Claude's in an empty input box
+            ks.right()
         elseif is.warp() then
             -- Autocomplete to the end of the line
             ks.ctrl('f')

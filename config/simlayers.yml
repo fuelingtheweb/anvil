@@ -331,56 +331,76 @@
 
 'g : Git':
     y:
+        ember: 'toc.g y'
         terminal: '"gbc" ++ rtn'
     u:
         browser: 'oc.u'
+        ember: 'toc.g u'
         terminal: '"nah"'
     i:
+        ember: 'toc.g i'
         terminal: '"git.checkout.include-all" ++ rtn'
     o:
+        ember: 'toc.g o'
         terminal: '"git.checkout" ++ rtn'
     p:
         ide: 'toc.g toc.p'
+        ember: 'toc.g p'
         terminal: '"gd" ++ rtn'
     '[':
         ide: 'toc.g oc.['
+        ember: 'toc.g ['
         terminal: '"gmm" ++ rtn'
     ']':
+        ember: 'toc.g ]'
         terminal: '"grm" ++ rtn'
     h:
+        ember: 'toc.g h'
         terminal: '"git.status.with-summary" ++ rtn'
     j:
         ide: 'toc.g oc.j'
+        ember: 'toc.g j'
         terminal: '"grs" ++ rtn'
     k:
         ide: 'toc.g oc.k'
+        ember: 'toc.g k'
         terminal: '"git.commit ''''" ++ lt'
     l:
         ide: 'soc.g soc.h'
+        ember: 'toc.g l'
         terminal: '"git.log" ++ rtn'
         vivaldi: 'sc.l'
     ';':
+        ember: 'toc.g ;'
         terminal: '"gum" ++ rtn'
     qt:
+        ember: 'toc.g qt'
         terminal: '"goml" ++ rtn'
     rtn:
         ide: 'toc.g oc.]'
+        ember: 'toc.g rtn'
         terminal: '"gaa" ++ rtn'
     n:
         ide: '"```suggestion" ++ rtn rtn ++ "```" ++ up'
+        ember: 'toc.g n'
         terminal: '"git.branch.new ''''" ++ lt'
     m:
         ide: 'toc.g toc.m'
+        ember: 'toc.g m'
         terminal: '"git.branch.delete" ++ rtn'
     ',':
         browser: 'oc.i'
+        ember: 'toc.g ,'
         terminal: '"git pull" ++ rtn'
     prd:
         ide: 'toc.g toc.j'
+        ember: 'toc.g prd'
         terminal: '"git push" ++ rtn'
     '/':
+        ember: 'toc.g /'
         terminal: '"git stash -u -m ''''" ++ lt'
     rtS:
+        ember: 'toc.g \'
         terminal: '"gstp" ++ rtn'
     sb:
         ide: 'soc.g soc.sb'

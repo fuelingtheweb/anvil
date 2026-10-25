@@ -5762,6 +5762,22 @@
             "keys": {
                 "y": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "y"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -5793,6 +5809,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "u"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -5808,6 +5840,22 @@
                     }
                 ],
                 "i": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "i"
+                            }
+                        ]
+                    },
                     {
                         "app": "terminal",
                         "actions": [
@@ -5891,6 +5939,22 @@
                 ],
                 "o": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "o"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -5958,6 +6022,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "p"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -5994,6 +6074,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "open_bracket"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6013,6 +6109,22 @@
                 ],
                 "close_bracket": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "close_bracket"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6031,6 +6143,22 @@
                     }
                 ],
                 "h": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "h"
+                            }
+                        ]
+                    },
                     {
                         "app": "terminal",
                         "actions": [
@@ -6131,6 +6259,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "j"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6166,6 +6310,22 @@
                                     "option",
                                     "command"
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "k"
                             }
                         ]
                     },
@@ -6240,6 +6400,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "l"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6283,6 +6459,22 @@
                 ],
                 "semicolon": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "semicolon"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6301,6 +6493,22 @@
                     }
                 ],
                 "quote": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "quote"
+                            }
+                        ]
+                    },
                     {
                         "app": "terminal",
                         "actions": [
@@ -6340,6 +6548,22 @@
                                     "option",
                                     "command"
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "return_or_enter"
                             }
                         ]
                     },
@@ -6421,6 +6645,22 @@
                             },
                             {
                                 "key": "up_arrow"
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "n"
                             }
                         ]
                     },
@@ -6507,6 +6747,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "m"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6580,6 +6836,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "comma"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6635,6 +6907,22 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "period"
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -6668,6 +6956,22 @@
                     }
                 ],
                 "slash": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "slash"
+                            }
+                        ]
+                    },
                     {
                         "app": "terminal",
                         "actions": [
@@ -6732,6 +7036,22 @@
                     }
                 ],
                 "right_shift": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "control",
+                                    "option",
+                                    "command"
+                                ]
+                            },
+                            {
+                                "key": "backslash"
+                            }
+                        ]
+                    },
                     {
                         "app": "terminal",
                         "actions": [

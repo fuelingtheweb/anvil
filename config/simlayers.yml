@@ -64,6 +64,7 @@
         default: 'c.1'
     o: # Last Tab
         chrome: 'c.9'
+        ember: 'c.9' # The last session, as a browser's ⌘9
         default: 't.0'
     p: # Pin Tab
         ide: 'c.k rtn'
@@ -81,7 +82,7 @@
         vivaldi: 'oc.lt'
     j: # Previous tab
         tableplus: 'c.['
-        ember: 'c.dn'
+        ember: 'sc.]' # Next Session (⌘↓ is the text's end in its editors)
         discord: 'o.dn' # Next conversation or channel
         tinkerwell: 'oc.lt'
         vivaldi: 'sc.]'
@@ -89,7 +90,7 @@
         default: 'sc.['
     k: # Next tab
         tableplus: 'c.]'
-        ember: 'c.up'
+        ember: 'sc.[' # Previous Session (⌘↑ is the text's top in its editors)
         discord: 'o.up' # Previous conversation or channel
         tinkerwell: 'oc.rt'
         vivaldi: 'sc.['
@@ -115,7 +116,7 @@
         ide: 'sc.[ c.w'
         tinkerwell: 'oc.lt c.w'
         tableplus: 'c.[ c.w c.]'
-        ember: 'c.dn c.w c.up'
+        ember: 'sc.] c.w sc.['
         discord: 'o.dn c.w o.up'
         vivaldi: 'sc.] c.w sc.['
         warp: 'sc.] c.w sc.['
@@ -124,7 +125,7 @@
     prd: # Close the tab after
         ide: 'sc.] c.w sc.['
         tableplus: 'c.] c.w'
-        ember: 'c.up c.w'
+        ember: 'sc.[ c.w'
         discord: 'o.up c.w'
         tinkerwell: 'oc.rt c.w'
         vivaldi: 'sc.[ c.w'
@@ -264,6 +265,7 @@
 
 'd : Vi':
     y: # 'moveToTopOfPage'
+        ember: 'c.home' # Scroll to Top, or the text's top in its editors
         default: 'hs: Vi.moveToTopOfPage'
     u: # 'pageUp'
         ide: 't.u'
@@ -284,10 +286,13 @@
     k: 'up'
     l: 'rt'
     ';': # 'moveToPreviousWholeWord'
+        ember: 'o.lt' # Not Esc first: in a Claude tab it stops Claude's turn
         default: 'esc s.b'
     qt: # 'moveToEndOfWholeWord'
+        ember: 'o.rt'
         default: 'esc s.e'
     rtn: # 'moveToNextWholeWord'
+        ember: 'o.rt'
         default: 'esc s.w'
     n: # 'moveToBottomOfPage'
         ember: 'c.end' # Scroll to Bottom

@@ -562,6 +562,17 @@
                         ]
                     },
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "9",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "actions": [
                             {
                                 "key": "0",
@@ -745,8 +756,9 @@
                         "app": "ember",
                         "actions": [
                             {
-                                "key": "down_arrow",
+                                "key": "close_bracket",
                                 "modifiers": [
+                                    "shift",
                                     "command"
                                 ]
                             }
@@ -827,8 +839,9 @@
                         "app": "ember",
                         "actions": [
                             {
-                                "key": "up_arrow",
+                                "key": "open_bracket",
                                 "modifiers": [
+                                    "shift",
                                     "command"
                                 ]
                             }
@@ -1073,8 +1086,9 @@
                         "app": "ember",
                         "actions": [
                             {
-                                "key": "down_arrow",
+                                "key": "close_bracket",
                                 "modifiers": [
+                                    "shift",
                                     "command"
                                 ]
                             },
@@ -1085,8 +1099,9 @@
                                 ]
                             },
                             {
-                                "key": "up_arrow",
+                                "key": "open_bracket",
                                 "modifiers": [
+                                    "shift",
                                     "command"
                                 ]
                             }
@@ -1247,8 +1262,9 @@
                         "app": "ember",
                         "actions": [
                             {
-                                "key": "up_arrow",
+                                "key": "open_bracket",
                                 "modifiers": [
+                                    "shift",
                                     "command"
                                 ]
                             },
@@ -5211,6 +5227,17 @@
             "keys": {
                 "y": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "home",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "actions": [
                             {
                                 "hammerspoon": {
@@ -5354,6 +5381,17 @@
                 ],
                 "semicolon": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "left_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "actions": [
                             {
                                 "key": "escape"
@@ -5369,6 +5407,17 @@
                 ],
                 "quote": [
                     {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "right_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "actions": [
                             {
                                 "key": "escape"
@@ -5383,6 +5432,17 @@
                     }
                 ],
                 "return_or_enter": [
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "right_arrow",
+                                "modifiers": [
+                                    "option"
+                                ]
+                            }
+                        ]
+                    },
                     {
                         "actions": [
                             {

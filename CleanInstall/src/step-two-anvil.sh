@@ -44,13 +44,20 @@ done
 ln -sf "$HOME/Dev/Anvil/dotfiles/.zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/Dev/Anvil/dotfiles/.hammerspoon" "$HOME/.hammerspoon"
 
-trash $ANVIL/custom
-trash $ANVIL/aliases/custom
-trash $ANVIL/dotfiles/.hammerspoon/config/custom
-rm $ANVIL/custom
-ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/custom $ANVIL/custom
-ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/aliases/custom $ANVIL/aliases/custom
-ln -sf $HOME/Dropbox/TidyPoint/anvil-custom/dotfiles/.hammerspoon/config/custom $ANVIL/dotfiles/.hammerspoon/config/custom
+# The private custom folders (gitignored) are copied in, not linked into
+# Dropbox (until 2026-10-25: apps' shells and git were refused its files).
+# Bring them from another Mac (Link, a thumb drive) or iDrive into
+# $CUSTOM_FROM, laid out as here: custom, aliases/custom,
+# dotfiles/.hammerspoon/config/custom.
+CUSTOM_FROM="${CUSTOM_FROM:-$HOME/anvil-custom}"
+for path in custom aliases/custom dotfiles/.hammerspoon/config/custom; do
+    if [ -d "$CUSTOM_FROM/$path" ]; then
+        trash "$ANVIL/$path"
+        ditto "$CUSTOM_FROM/$path" "$ANVIL/$path"
+    else
+        info "No $CUSTOM_FROM/$path: copy it into $ANVIL/$path by hand."
+    fi
+done
 trash $HOME/.config/karabiner.edn
 mkdir $HOME/.config # *
 $ANVIL=$HOME/Dev/Anvil

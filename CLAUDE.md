@@ -69,6 +69,6 @@ Keys reaches Hammerspoon over a CFMessagePort, `com.tidypoint.Keys.hammerspoon`,
 
 - Models build output by string substitution (`str(...)->replace('$x', ...)`), not Blade. Match the existing `$placeholder` + `indent()` style.
 - `aliases/index.sh` sources every `aliases/*.sh`; `aliases/laravel.sh` is generated, the rest are hand-written.
-- `custom` and `aliases/custom` are symlinks into a private Dropbox folder and will be **absent on other machines** — code that reads them must degrade gracefully (as `aliases/index.sh` already does with an existence check).
+- `custom`, `aliases/custom` and `dotfiles/.hammerspoon/config/custom` are private, gitignored folders, copied onto each Mac by hand (symlinks into Dropbox until 2026-10-25, when apps' shells and git were refused their files), and will be **absent on other machines** — code that reads them must degrade gracefully (as `aliases/index.sh` already does with an existence check).
 - `config('app.karabiner_path')` exists (from `KARABINER_PATH` in `.env`) but `build:karabiner` currently hardcodes its output to `base_path('karabiner/karabiner.edn')`.
 - `box.json` exists for building a PHAR with [Box](https://github.com/box-project/box), but Box is not a project dependency — install it separately if packaging is needed.

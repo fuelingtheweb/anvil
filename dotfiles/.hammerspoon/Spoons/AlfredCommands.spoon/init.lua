@@ -43,6 +43,32 @@ function AlfredCommands:setAlfredJson()
     )
 end
 
+-- The same commands for Spark, the family's launcher: rows that open
+-- hammerspoon://alfred-command?key=…, in TidyPoint/Commands/hammerspoon.json.
+function AlfredCommands:setSparkJson()
+    local folder = home_path .. '/Library/Application Support/TidyPoint/Commands'
+    local commands = {}
+
+    hs.fs.mkdir(folder)
+
+    fn.each(AlfredCommands.all, function(command, key)
+        table.insert(commands, {
+            id = key,
+            title = command.name,
+            url = 'hammerspoon://alfred-command?key=' .. key,
+        })
+    end)
+
+    table.sort(commands, function(a, b) return a.title < b.title end)
+
+    hs.json.write(
+        {source = 'Hammerspoon', bundleID = 'org.hammerspoon.Hammerspoon', commands = commands},
+        folder .. '/hammerspoon.json',
+        false,
+        true
+    )
+end
+
 function AlfredCommands:trigger(key)
     command = self.all[key]
 

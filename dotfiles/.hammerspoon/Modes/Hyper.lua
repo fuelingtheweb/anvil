@@ -43,7 +43,7 @@ Hyper.lookup = {
         if is.quickFind() then
             ks.cmd('1')
         else
-            fn.Raycast.open()
+            fn.Spark.open()
         end
     end,
 
@@ -107,7 +107,7 @@ Hyper.lookup = {
     semicolon = cm.Window.nextInCurrentApp,
 
     quote = function ()
-        if fn.Raycast.visible() then
+        if is.quickFind() then
             ks.cmd('k')
         else
             cm.Window.next()
@@ -180,7 +180,7 @@ end
 function Hyper.forceEscape()
     if is.In(warp) then
         ks.ctrl('r')
-    elseif fn.Raycast.visible() then
+    elseif is.quickFind() then
         ks.close()
     elseif cm.Window.scrolling then
         ks.escape()

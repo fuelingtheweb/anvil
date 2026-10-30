@@ -35,6 +35,7 @@ AlfredCommands = hs.loadSpoon('AlfredCommands')
 AlfredCommands:addFromConfig()
 AlfredCommands:listen()
 AlfredCommands:setAlfredJson()
+AlfredCommands:setSparkJson()
 
 spoon.MouseCircle = hs.loadSpoon('vendor/MouseCircle')
 spoon.MouseCircle.color = {hex = '#367f71'}

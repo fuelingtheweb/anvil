@@ -19,6 +19,7 @@ fn = {
     Code = require('Apps.Code'),
     Discord = require('Apps.Discord'),
     Raycast = require('Apps.Raycast'),
+    Spark = require('Apps.Spark'),
     SideNotes = require('Apps.SideNotes'),
     Slack = require('Apps.Slack'),
     TablePlus = require('Apps.TablePlus'),

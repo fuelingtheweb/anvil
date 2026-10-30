@@ -121,8 +121,9 @@ function Is.hammerspoon()
     return fn.window.pathContains('.hammerspoon')
 end
 
+-- A launcher's panel is up: Spark's, or Raycast's while it's still here.
 function Is.quickFind()
-    return fn.Raycast.visible()
+    return fn.Spark.visible() or fn.Raycast.visible()
 end
 
 function Is.obsidian()

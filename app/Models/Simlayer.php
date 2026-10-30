@@ -313,7 +313,7 @@ class Simlayer
     {
         $action = str($action);
 
-        if ($action->test('/^[a-zA-Z]+:\/\/.+$/')) {
+        if ($action->test('/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\/.+$/')) {
             return ':open "' . $action->value() . '"';
         }
 
@@ -460,7 +460,7 @@ class Simlayer
 
         $action = str($action);
 
-        if ($action->test('/^[a-zA-Z]+:\/\/.+$/')) {
+        if ($action->test('/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\/.+$/')) {
             return [['open' => $action->value()]];
         }
 

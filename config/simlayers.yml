@@ -7,7 +7,7 @@
 #                    f fn; q r e w the right-hand ones), then the key
 #   'c.k rtn'        keys one after another; '"text"' types it; a ++ b joins
 #   'app: obsidian'  open or bring forward; 'focus: mail' (Keys) does it the
-#                    Open layer's way; 'raycast://…' opens a link;
+#                    Open layer's way; 'tidypoint-spark://…' opens a link;
 #                    'alfred: trigger, workflow'; 'menu: Process, Item, Menu'
 #   'hs: Tab.next'   a Hammerspoon event (init.lua's urlEvents)
 #   hammerspoon      the layer's Hammerspoon mode (Modes/<Label>.lua) does it
@@ -24,18 +24,18 @@
     u: hammerspoon
     i: hammerspoon
     o: hammerspoon
-    p: 'soc.p' # Alfred clipboard
+    p: 'soc.p' # Spark's clipboard history
     '[': # Command Palette
         anybox: 'c.k'
         ide: 'sc.p'
         obsidian: 'c.p'
         warp: 'c.p'
         ember: 'c.k'
-        default: 'alfred: search, com.tedwise.menubarsearch'
+        default: 'tidypoint-spark://menu' # The app's menu items, in Spark
     ']': '' # tell me this key is open
     h: # Previous Page
         discord: 'c.k rtn'
-        raycast: 'esc'
+        quickfind: 'esc' # Spark, Raycast, Alfred: back
         spotify: 'oc.lt'
         ember: 'oc.lt'
         terminal: '"cdp" ++ rtn'
@@ -217,11 +217,11 @@
     q: null
     w: null
     e: null
-    r: 'raycast://extensions/raycast/system/restart'
+    r: 'tidypoint-spark://run/system.restart' # Restart (Spark asks first)
     t: null
     caps: null
     a: null
-    s: 'raycast://extensions/raycast/system/shut-down'
+    s: 'tidypoint-spark://run/system.shutDown' # Shut Down (Spark asks first)
     d: null
     f: null
     g: null
@@ -423,8 +423,8 @@
         tinkerwell: 't.l c.r'
         default: 'c.r'
     t: hammerspoon
-    caps: 'raycast://extensions/tegola/duck-duck-go-search/index'
-    a: 'oc.\' # Alfred: Action file
+    caps: 'tidypoint-spark://show?q=ddg%20' # DuckDuckGo, in Spark
+    a: 'tidypoint-spark://file-actions' # What to do with Finder's selection, in Spark
     s: # Save
         ide: 'c.s esc'
         ember: 'c.s' # Not vim's :x, which Claude would be sent
@@ -433,7 +433,7 @@
     d: hammerspoon
     f: hammerspoon
     g: hammerspoon
-    ltS: 'alfred: commands, com.fuelingtheweb.commands'
+    ltS: 'tidypoint-spark://commands' # Hammerspoon's commands, in Spark
     z: null
     x: # Cancel or delete
         anybox: 'c.dlt'

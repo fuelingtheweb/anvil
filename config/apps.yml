@@ -31,6 +31,7 @@ apps:
     rhythm: com.tidypoint.Rhythm
     sidenotes: com.apptorium.SideNotes-setapp
     slack: com.tinyspeck.slackmacgap
+    spark: com.tidypoint.Spark
     spotify: com.spotify.client
     tableplus: com.tinyapp.TablePlus-setapp
     tables: com.tidypoint.Tables
@@ -58,7 +59,7 @@ groups:
     chat: [discord, slack]
     ide: [code, cursor]
     mail: [fastmail, outlook]
-    quickfind: [alfred, raycast]
+    quickfind: [alfred, raycast, spark]
     tasks: [linear]
     teammessaging: [teams]
     terminal: [warp, ember]

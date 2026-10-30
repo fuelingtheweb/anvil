@@ -44,7 +44,9 @@ function Raycast.run(trigger, workflow, argument)
 end
 
 function Raycast.visible()
-    return hs.application.find('com.raycast.macos'):isFrontmost()
+    local app = hs.application.find('com.raycast.macos')
+
+    return app and app:isFrontmost()
 end
 
 return Raycast

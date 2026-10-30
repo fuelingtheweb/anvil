@@ -5,22 +5,23 @@ function Search.symbol()
     ks.cmd('r')
 end
 
+-- Files and folders by name, in Spark.
 function Search.files()
-    fn.open('raycast://extensions/GastroGeek/folder-search/search')
-    -- fn.Alfred.search('open ')
+    fn.Spark.files()
 end
 
 function Search.google()
-    fn.open('raycast://extensions/mblode/google-search/index')
+    fn.Spark.search('g ')
     -- fn.Alfred.run('google', 'com.akikoz.alfred.websearchsuggest')
 end
 
 function Search.amazon()
-    fn.Alfred.run('amazon', 'com.akikoz.alfred.websearchsuggest')
+    fn.Spark.search('amz ')
 end
 
-function Search.viaAlfred()
-    fn.Alfred.search('search:')
+-- Spark with its web searches listed (Alfred's `search:` was here).
+function Search.searches()
+    fn.Spark.search('search ')
 end
 
 function Search.default()
@@ -62,7 +63,7 @@ function Search.loadWindowsInAlfred(windows, minimum)
 end
 
 function Search.allWindows()
-    -- Search windows in Raycast
+    -- Spark's Switch Windows: ⌥Tab again moves down the list.
     ks.alt('tab')
     -- local windows = hs.window.filter.default:getWindows(hs.window.filter.sortByFocusedLast)
 

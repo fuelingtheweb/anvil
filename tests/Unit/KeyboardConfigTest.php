@@ -37,6 +37,15 @@ test('a blank key is free: not in the layer, in Keys or Karabiner', function () 
         ->and($edn)->not->toContain(':i ');
 });
 
+test('a link opens, whatever its scheme', function () {
+    $layer = ['r' => 'tidypoint-spark://run/system.restart', 'g' => 'raycast://extensions/x/y'];
+
+    expect(keys('] : Tertiary', $layer)['r'][0]['actions'])->toBe([['open' => 'tidypoint-spark://run/system.restart']])
+        ->and(keys('] : Tertiary', $layer)['g'][0]['actions'])->toBe([['open' => 'raycast://extensions/x/y']]);
+    expect((new Simlayer('] : Tertiary', $layer))->getRules())
+        ->toContain(':open "tidypoint-spark://run/system.restart"');
+});
+
 test('hammerspoon works per app, and a blank override frees a key of `- all`', function () {
     $layer = ['h' => ['chrome' => 'hammerspoon', 'default' => 'c.[']];
     expect(keys('caps : Hyper', $layer)['h'])->toBe([

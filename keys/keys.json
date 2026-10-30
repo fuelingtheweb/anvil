@@ -78,6 +78,9 @@
         "slack": [
             "com.tinyspeck.slackmacgap"
         ],
+        "spark": [
+            "com.tidypoint.Spark"
+        ],
         "spotify": [
             "com.spotify.client"
         ],
@@ -148,7 +151,8 @@
         ],
         "quickfind": [
             "com.runningwithcrayons.Alfred",
-            "com.raycast.macos"
+            "com.raycast.macos",
+            "com.tidypoint.Spark"
         ],
         "tasks": [
             "com.linear"
@@ -289,10 +293,7 @@
                     {
                         "actions": [
                             {
-                                "alfred": [
-                                    "search",
-                                    "com.tedwise.menubarsearch"
-                                ]
+                                "open": "tidypoint-spark://menu"
                             }
                         ]
                     }
@@ -313,7 +314,7 @@
                         ]
                     },
                     {
-                        "app": "raycast",
+                        "app": "quickfind",
                         "actions": [
                             {
                                 "key": "escape"
@@ -527,7 +528,7 @@
                 ]
             },
             "labels": {
-                "p": "Alfred clipboard",
+                "p": "Spark's clipboard history",
                 "open_bracket": "Command Palette",
                 "close_bracket": "tell me this key is open",
                 "h": "Previous Page"
@@ -4438,7 +4439,7 @@
                     {
                         "actions": [
                             {
-                                "open": "raycast://extensions/raycast/system/restart"
+                                "open": "tidypoint-spark://run/system.restart"
                             }
                         ]
                     }
@@ -4447,7 +4448,7 @@
                     {
                         "actions": [
                             {
-                                "open": "raycast://extensions/raycast/system/shut-down"
+                                "open": "tidypoint-spark://run/system.shutDown"
                             }
                         ]
                     }
@@ -4468,6 +4469,8 @@
                 ]
             },
             "labels": {
+                "r": "Restart (Spark asks first)",
+                "s": "Shut Down (Spark asks first)",
                 "x": "VSCode Extensions"
             }
         },
@@ -7278,7 +7281,7 @@
                     {
                         "actions": [
                             {
-                                "open": "raycast://extensions/tegola/duck-duck-go-search/index"
+                                "open": "tidypoint-spark://show?q=ddg%20"
                             }
                         ]
                     }
@@ -7287,11 +7290,7 @@
                     {
                         "actions": [
                             {
-                                "key": "backslash",
-                                "modifiers": [
-                                    "option",
-                                    "command"
-                                ]
+                                "open": "tidypoint-spark://file-actions"
                             }
                         ]
                     }
@@ -7390,10 +7389,7 @@
                     {
                         "actions": [
                             {
-                                "alfred": [
-                                    "commands",
-                                    "com.fuelingtheweb.commands"
-                                ]
+                                "open": "tidypoint-spark://commands"
                             }
                         ]
                     }
@@ -7522,8 +7518,10 @@
             "labels": {
                 "tab": "Shift Tab",
                 "r": "Reload",
-                "a": "Alfred: Action file",
+                "caps_lock": "DuckDuckGo, in Spark",
+                "a": "What to do with Finder's selection, in Spark",
                 "s": "Save",
+                "left_shift": "Hammerspoon's commands, in Spark",
                 "x": "Cancel or delete"
             }
         },

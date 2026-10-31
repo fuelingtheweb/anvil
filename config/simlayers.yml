@@ -470,7 +470,7 @@
     z:
     x: hammerspoon
     c:
-    v:
+    v: 'tidypoint-spark://pictures' # Recent screenshots and files sent here, in Spark
     b: hammerspoon
     sb: hammerspoon
 

@@ -7672,6 +7672,15 @@
                         ]
                     }
                 ],
+                "v": [
+                    {
+                        "actions": [
+                            {
+                                "open": "tidypoint-spark://pictures"
+                            }
+                        ]
+                    }
+                ],
                 "b": [
                     {
                         "actions": [
@@ -7700,7 +7709,8 @@
             "labels": {
                 "caps_lock": "Open Obsidian",
                 "s": "Capture: area (Capture's default ⌃⇧4)",
-                "f": "Reveal in sidebar"
+                "f": "Reveal in sidebar",
+                "v": "Recent screenshots and files sent here, in Spark"
             }
         },
         {

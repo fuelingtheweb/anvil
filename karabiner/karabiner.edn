@@ -762,6 +762,7 @@
                 [:g [:hsk "ExtendedCommand" "g"]]
                 [:left_shift [:hsk "ExtendedCommand" "left_shift"]]
                 [:x [:hsk "ExtendedCommand" "x"]]
+                [:v [:open "tidypoint-spark://pictures"] []]
                 [:b [:hsk "ExtendedCommand" "b"]]
                 [:spacebar [:hsk "ExtendedCommand" "spacebar"]]
             ]

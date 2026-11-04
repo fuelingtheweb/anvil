@@ -21,9 +21,33 @@
 
 'caps : Hyper':
     y: hammerspoon
-    u: hammerspoon
+    u: # Spark
+        # ⌘1 while its panel is up; only Hammerspoon can tell that from Spark's
+        # Settings window, where this opens the panel.
+        quickfind: hammerspoon
+        # Its shortcut rather than a link: that closes an open panel and
+        # brings Spark forward at once, as your own input.
+        default: 'o.sb'
     i: hammerspoon
-    o: hammerspoon
+    o: # Quick open
+        # As Hammerspoon's Hyper.open, which the Open layer and AppShortcut's T
+        # and E still call: keep the two in step.
+        quickfind: hammerspoon # ⌘3 while its panel is up (as for u)
+        spotify: hammerspoon # Alfred's Spotify Mini Player
+        ide: 'c.p'
+        tinkerwell: 'c.p'
+        windsurf: 'c.p'
+        tables: 'c.p'
+        tableplus: 'c.p'
+        deck: 'c.p'
+        ember: 'c.p'
+        anybox: 'c.p'
+        teams: 'c.g'
+        fastmail: 'g'
+        warp: 'sc.p'
+        chat: 'c.k'
+        vivaldi: 'c.e'
+        default: 'c.o'
     p: 'soc.p' # Spark's clipboard history
     '[': # Command Palette
         anybox: 'c.k'

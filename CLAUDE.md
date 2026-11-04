@@ -35,6 +35,12 @@ Shell wrappers (defined in `aliases/misc.sh`, available once the shell is source
 
 PHP is provided via Laravel Herd. Requires PHP ^8.2.
 
+## Reaching the other Macs
+
+The newest `main` is the release: there's no version, and nothing builds on the other Macs, as the generated outputs are committed. `tidy-update` (tidypoint-releases) lists it with the apps ("Anvil 2026-11-04", the day of the newest commit), and it goes in when someone asks: the daily alert's Install, Spark's Update TidyPoint Apps, `tidy-update anvil`, or `tidy-update` at a terminal. Never by itself: `.zshrc` and Hammerspoon link in here and Hammerspoon reloads on save, so a pull takes effect at once. A checkout that's dirty, off `main` or ahead of it is left as it is. Keys and Hammerspoon pick a pull up by themselves; `goku` runs when `karabiner.edn` changed.
+
+So `.githooks/pre-push` stops what would break a Mac before it reaches `main`: it builds from the commit being pushed (not the working tree) and compares the generated outputs, and parses the Lua (Hammerspoon's LuaSkin, `check-lua.py`) and the zsh. `tidy-update` turns it on (`core.hooksPath`); `git push --no-verify` gets past it.
+
 ## Architecture
 
 `app/Commands/Build/{Karabiner,Aliases}.php` are thin: each parses a YAML file via `anvil_config()`, maps rows through a model in `app/Models/`, and writes the output. All real logic lives in the models.

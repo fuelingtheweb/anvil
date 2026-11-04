@@ -1,0 +1,73 @@
+#!/bin/sh
+# What goes to main reaches every Mac as it is: tidy-update offers it, nothing
+# builds there, and Hammerspoon and a new shell take it at once. So a push to
+# main stops here when what's going out has generated files that don't match
+# config/, or Lua or zsh that doesn't parse. It looks at the commit being
+# pushed, not the working tree, which often has edits under way.
+#
+# tidy-update turns this on (core.hooksPath); by hand, git config
+# core.hooksPath .githooks. git push --no-verify gets past it.
+set -u
+
+root="$(git rev-parse --show-toplevel)"
+generated="karabiner/karabiner.edn keys/keys.json dotfiles/.hammerspoon/config/apps.lua aliases/laravel.sh"
+zero=0000000000000000000000000000000000000000
+
+check() {
+  sha="$1"
+  problems=0
+  tree="$(mktemp -d)"
+  git archive "$sha" | tar -x -C "$tree"
+
+  if command -v php >/dev/null && [ -d "$root/vendor" ]; then
+    ln -s "$root/vendor" "$tree/vendor"
+    for build in build:karabiner build:keys build:hammerspoon build:aliases; do
+      if ! (cd "$tree" && php artisan "$build") >"$tree/.said" 2>&1 </dev/null; then
+        echo "anvil: $build failed:"
+        sed 's/^/    /' "$tree/.said"
+        problems=1
+      fi
+    done
+    for file in $generated; do
+      if ! git show "$sha:$file" | cmp -s - "$tree/$file"; then
+        echo "anvil: $file doesn't match config/: run anb and commit it"
+        problems=1
+      fi
+    done
+  else
+    echo "anvil: no PHP or vendor here, so the generated files aren't checked"
+  fi
+
+  if command -v python3 >/dev/null; then
+    python3 "$root/.githooks/check-lua.py" "$tree/dotfiles/.hammerspoon" >"$tree/.said" 2>&1
+    case $? in
+      0) ;;
+      2) echo "anvil: no Hammerspoon here, so the Lua isn't checked" ;;
+      *)
+        sed "s|$tree/||; s/^/anvil: /" "$tree/.said"
+        problems=1
+        ;;
+    esac
+  else
+    echo "anvil: no python3 here, so the Lua isn't checked"
+  fi
+
+  for file in "$tree/dotfiles/.zshrc" "$tree"/aliases/*.sh; do
+    if ! zsh -n "$file" 2>"$tree/.said"; then
+      sed "s|$tree/||; s/^/anvil: /" "$tree/.said"
+      problems=1
+    fi
+  done
+
+  rm -rf "$tree"
+  return "$problems"
+}
+
+status=0
+while read -r _ local_sha remote_ref _; do
+  [ "$remote_ref" = refs/heads/main ] && [ "$local_sha" != "$zero" ] || continue
+  check "$local_sha" || status=1
+done
+
+[ "$status" = 0 ] || echo "anvil: not pushed: every Mac would get this as it is."
+exit "$status"

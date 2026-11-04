@@ -185,12 +185,23 @@
                 ],
                 "u": [
                     {
+                        "app": "quickfind",
                         "actions": [
                             {
                                 "hammerspoon": {
                                     "mode": "Hyper",
                                     "key": "u"
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "spacebar",
+                                "modifiers": [
+                                    "option"
+                                ]
                             }
                         ]
                     }
@@ -209,12 +220,175 @@
                 ],
                 "o": [
                     {
+                        "app": "quickfind",
                         "actions": [
                             {
                                 "hammerspoon": {
                                     "mode": "Hyper",
                                     "key": "o"
                                 }
+                            }
+                        ]
+                    },
+                    {
+                        "app": "spotify",
+                        "actions": [
+                            {
+                                "hammerspoon": {
+                                    "mode": "Hyper",
+                                    "key": "o"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ide",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tinkerwell",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "windsurf",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tables",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "tableplus",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "deck",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "ember",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "anybox",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "teams",
+                        "actions": [
+                            {
+                                "key": "g",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "fastmail",
+                        "actions": [
+                            {
+                                "key": "g"
+                            }
+                        ]
+                    },
+                    {
+                        "app": "warp",
+                        "actions": [
+                            {
+                                "key": "p",
+                                "modifiers": [
+                                    "shift",
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "chat",
+                        "actions": [
+                            {
+                                "key": "k",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "app": "vivaldi",
+                        "actions": [
+                            {
+                                "key": "e",
+                                "modifiers": [
+                                    "command"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "actions": [
+                            {
+                                "key": "o",
+                                "modifiers": [
+                                    "command"
+                                ]
                             }
                         ]
                     }
@@ -528,6 +702,8 @@
                 ]
             },
             "labels": {
+                "u": "Spark",
+                "o": "Quick open",
                 "p": "Spark's clipboard history",
                 "open_bracket": "Command Palette",
                 "close_bracket": "tell me this key is open",

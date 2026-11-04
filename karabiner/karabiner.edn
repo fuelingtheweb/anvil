@@ -756,7 +756,6 @@
                 [:x [:!Cdelete_or_backspace] [:finder]]
                 [:x [:!SCdelete_or_backspace] [:ide]]
                 [:x [:!SCdelete_or_backspace] [:obsidian]]
-                [:x [:delete_or_backspace] [:ember]]
                 [:x [:!Tc] [:terminal]]
                 [:x [:delete_or_backspace] []]
                 [:c [:hsk "Command" "c"]]

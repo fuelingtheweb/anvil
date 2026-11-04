@@ -466,7 +466,6 @@
         finder: 'c.dlt'
         ide: 'sc.dlt'
         obsidian: 'sc.dlt'
-        ember: 'dlt' # Not ^C: twice quits Claude
         terminal: 't.c'
         default: 'dlt'
     c: hammerspoon

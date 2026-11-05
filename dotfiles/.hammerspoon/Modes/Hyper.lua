@@ -143,7 +143,10 @@ Hyper.lookup = {
 
 function Hyper.open()
     -- Before invoker, which isn't in App.bundles (nil): is.In stops at a nil.
-    if is.codeEditor() or is.In(tables, tableplus, deck, ember, invoker) then
+    if is.codeEditor() or is.In(
+        tables, tableplus, deck, ember, ripple, rhythm, folio, spaceapp, sweep, netapp, camsapp,
+        linkapp, keysapp, captureapp, invoker
+    ) then
         ks.cmd('p')
     elseif is.In(teams) then
         ks.cmd('g')

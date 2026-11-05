@@ -18,6 +18,12 @@
         "busycal": [
             "com.busymac.busycal-setapp"
         ],
+        "camsapp": [
+            "com.tidypoint.Cams"
+        ],
+        "captureapp": [
+            "com.tidypoint.Capture"
+        ],
         "chrome": [
             "com.google.Chrome"
         ],
@@ -48,8 +54,20 @@
         "finder": [
             "com.apple.finder"
         ],
+        "folio": [
+            "com.tidypoint.Folio"
+        ],
+        "keysapp": [
+            "com.tidypoint.Keys"
+        ],
         "linear": [
             "com.linear"
+        ],
+        "linkapp": [
+            "com.tidypoint.Link"
+        ],
+        "netapp": [
+            "com.tidypoint.Net"
         ],
         "obsidian": [
             "md.obsidian"
@@ -72,17 +90,26 @@
         "rhythm": [
             "com.tidypoint.Rhythm"
         ],
+        "ripple": [
+            "com.tidypoint.Ripple"
+        ],
         "sidenotes": [
             "com.apptorium.SideNotes-setapp"
         ],
         "slack": [
             "com.tinyspeck.slackmacgap"
         ],
+        "spaceapp": [
+            "com.tidypoint.Space"
+        ],
         "spark": [
             "com.tidypoint.Spark"
         ],
         "spotify": [
             "com.spotify.client"
+        ],
+        "sweep": [
+            "com.tidypoint.Sweep"
         ],
         "tableplus": [
             "com.tinyapp.TablePlus-setapp"
@@ -163,6 +190,31 @@
         "terminal": [
             "dev.warp.Warp-Stable",
             "com.tidypoint.Ember"
+        ],
+        "tidypoint": [
+            "com.tidypoint.Deck",
+            "com.tidypoint.Ember",
+            "com.tidypoint.Folio",
+            "com.tidypoint.Rhythm",
+            "com.tidypoint.Ripple",
+            "com.tidypoint.Space",
+            "com.tidypoint.Sweep",
+            "com.tidypoint.Tables"
+        ],
+        "palette": [
+            "com.tidypoint.Cams",
+            "com.tidypoint.Capture",
+            "com.tidypoint.Deck",
+            "com.tidypoint.Ember",
+            "com.tidypoint.Folio",
+            "com.tidypoint.Keys",
+            "com.tidypoint.Link",
+            "com.tidypoint.Net",
+            "com.tidypoint.Rhythm",
+            "com.tidypoint.Ripple",
+            "com.tidypoint.Space",
+            "com.tidypoint.Sweep",
+            "com.tidypoint.Tables"
         ]
     },
     "layers": [
@@ -275,7 +327,7 @@
                         ]
                     },
                     {
-                        "app": "tables",
+                        "app": "palette",
                         "actions": [
                             {
                                 "key": "p",
@@ -287,28 +339,6 @@
                     },
                     {
                         "app": "tableplus",
-                        "actions": [
-                            {
-                                "key": "p",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "deck",
-                        "actions": [
-                            {
-                                "key": "p",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "app": "ember",
                         "actions": [
                             {
                                 "key": "p",
@@ -7640,6 +7670,17 @@
                         ]
                     },
                     {
+                        "app": "spark",
+                        "actions": [
+                            {
+                                "key": "x",
+                                "modifiers": [
+                                    "control"
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "app": "terminal",
                         "actions": [
                             {
@@ -10625,7 +10666,7 @@
                         ]
                     },
                     {
-                        "app": "tables",
+                        "app": "tidypoint",
                         "actions": [
                             {
                                 "key": "s",

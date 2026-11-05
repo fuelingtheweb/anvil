@@ -11,6 +11,8 @@ apps:
     alfred: com.runningwithcrayons.Alfred
     anybox: cc.anybox.Anybox
     busycal: com.busymac.busycal-setapp
+    camsapp: com.tidypoint.Cams
+    captureapp: com.tidypoint.Capture
     chrome: com.google.Chrome
     claude: com.anthropic.claudefordesktop
     cursor: com.todesktop.230313mzl4w4u92
@@ -21,7 +23,11 @@ apps:
     ember: com.tidypoint.Ember
     fastmail: com.fastmail.mac.Fastmail
     finder: com.apple.finder
+    folio: com.tidypoint.Folio
+    keysapp: com.tidypoint.Keys
     linear: com.linear
+    linkapp: com.tidypoint.Link
+    netapp: com.tidypoint.Net
     obsidian: md.obsidian
     outlook: com.microsoft.Outlook
     postman: com.postmanlabs.mac
@@ -29,10 +35,13 @@ apps:
     rayapp: be.spatie.ray
     raycast: com.raycast.macos
     rhythm: com.tidypoint.Rhythm
+    ripple: com.tidypoint.Ripple
     sidenotes: com.apptorium.SideNotes-setapp
     slack: com.tinyspeck.slackmacgap
+    spaceapp: com.tidypoint.Space
     spark: com.tidypoint.Spark
     spotify: com.spotify.client
+    sweep: com.tidypoint.Sweep
     tableplus: com.tinyapp.TablePlus-setapp
     tables: com.tidypoint.Tables
     teams: com.microsoft.teams2
@@ -63,3 +72,5 @@ groups:
     tasks: [linear]
     teammessaging: [teams]
     terminal: [warp, ember]
+    tidypoint: [deck, ember, folio, rhythm, ripple, spaceapp, sweep, tables] # Their sidebars: ⌃⌘S
+    palette: [camsapp, captureapp, deck, ember, folio, keysapp, linkapp, netapp, rhythm, ripple, spaceapp, sweep, tables] # ⌘P: their command palettes

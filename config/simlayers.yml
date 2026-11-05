@@ -37,10 +37,8 @@
         ide: 'c.p'
         tinkerwell: 'c.p'
         windsurf: 'c.p'
-        tables: 'c.p'
+        palette: 'c.p'
         tableplus: 'c.p'
-        deck: 'c.p'
-        ember: 'c.p'
         anybox: 'c.p'
         teams: 'c.g'
         fastmail: 'g'
@@ -466,6 +464,7 @@
         finder: 'c.dlt'
         ide: 'sc.dlt'
         obsidian: 'sc.dlt'
+        spark: 't.x' # Delete the selected copy, or trash the picture (Backspace in its search)
         terminal: 't.c'
         default: 'dlt'
     c: hammerspoon
@@ -642,7 +641,7 @@
         finder: oc.s
         mail: tc.s
         slack: sc.d
-        tables: tc.s
+        tidypoint: tc.s
         tableplus: c.0
         vivaldi: tc.s
         outlook: 'menu: Microsoft Outlook, Sidebar, View'
